@@ -113,6 +113,23 @@ export default function RaceDetailPage() {
     return colors[code] || '#f3f4f6';
   };
 
+  const formatYAxis = (tick: number) => {
+    const mins = Math.floor(tick / 60);
+    const secs = Math.floor(tick % 60);
+    const frac = tick % 1;
+    if (frac > 0) {
+      return `${mins}:${String(secs).padStart(2, '0')}.${frac.toFixed(3).split('.')[1]}`;
+    }
+    return `${mins}:${String(secs).padStart(2, '0')}`;
+  };
+
+  const formatTooltipValue = (value: number) => {
+    if (typeof value !== 'number') return value;
+    const mins = Math.floor(value / 60);
+    const secs = (value % 60).toFixed(3);
+    return `${mins}:${String(secs).padStart(6, '0')}`;
+  };
+
   return (
     <div className="container" style={{ marginTop: "16px" }}>
       {/* Back button */}
@@ -629,10 +646,12 @@ export default function RaceDetailPage() {
                         stroke="var(--text-secondary)"
                         style={{ fontSize: "0.8rem", fontFamily: "var(--font-pixel-body)" }}
                         domain={['dataMin - 1', 'dataMax + 1']}
-                        label={{ value: 'LAP TIME (S)', angle: -90, position: 'insideLeft', fill: 'var(--text-secondary)' }}
+                        tickFormatter={formatYAxis}
+                        label={{ value: 'LAP TIME', angle: -90, position: 'insideLeft', fill: 'var(--text-secondary)', offset: 10 }}
                       />
                       <Tooltip 
                         contentStyle={{ backgroundColor: 'var(--panel-bg)', borderColor: 'var(--panel-border)', color: 'var(--text-primary)', fontFamily: 'var(--font-pixel-body)' }}
+                        formatter={(value: any) => [formatTooltipValue(value), 'Lap Time']}
                       />
                       <Legend 
                         wrapperStyle={{ fontFamily: 'var(--font-pixel-body)', fontSize: '0.85rem' }}

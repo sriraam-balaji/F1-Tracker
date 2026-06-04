@@ -139,16 +139,71 @@ Object.keys(mockRaces).forEach((raceId) => {
         finishTime = `+${gap.toFixed(3)}s`;
       }
 
-      // Generate tire strategy
-      const pitLap = Math.floor(race.laps * 0.35) + (Math.abs(item.hash) % 8);
-      const tireStrategy = [
-        { compound: TireCompound.MEDIUM, startLap: 1, endLap: pitLap },
-        { compound: TireCompound.HARD, startLap: pitLap + 1, endLap: lapsCompleted }
-      ];
-      
-      const pitStops = lapsCompleted > pitLap ? [
-        { lap: pitLap, duration: parseFloat((2.3 + (Math.abs(item.hash) % 10) * 0.1).toFixed(2)), tireIn: TireCompound.MEDIUM, tireOut: TireCompound.HARD }
-      ] : [];
+      // Generate tire strategy and pit stops (30% chance of 2-stop, 70% chance of 1-stop)
+      const isTwoStop = (Math.abs(item.hash) % 100) < 30;
+      const tireStrategy: { compound: TireCompound; startLap: number; endLap: number }[] = [];
+      const pitStops: { lap: number; duration: number; tireIn: TireCompound; tireOut: TireCompound }[] = [];
+
+      const startCompound = (Math.abs(item.hash) % 2 === 0) ? TireCompound.MEDIUM : TireCompound.SOFT;
+
+      if (isTwoStop) {
+        const pitLap1 = Math.floor(race.laps * 0.25) + (Math.abs(item.hash) % 6);
+        const pitLap2 = Math.floor(race.laps * 0.6) + (Math.abs(item.hash) % 8);
+        
+        const stint2Compound = (startCompound === TireCompound.SOFT) ? TireCompound.MEDIUM : TireCompound.HARD;
+        const stint3Compound = (stint2Compound === TireCompound.MEDIUM) ? TireCompound.HARD : TireCompound.MEDIUM;
+
+        // Stint 1
+        const end1 = Math.min(pitLap1, lapsCompleted);
+        tireStrategy.push({ compound: startCompound, startLap: 1, endLap: end1 });
+
+        // Pit 1
+        if (lapsCompleted > pitLap1) {
+          pitStops.push({
+            lap: pitLap1,
+            duration: parseFloat((2.2 + (Math.abs(item.hash) % 10) * 0.08).toFixed(2)),
+            tireIn: startCompound,
+            tireOut: stint2Compound
+          });
+
+          // Stint 2
+          const end2 = Math.min(pitLap2, lapsCompleted);
+          tireStrategy.push({ compound: stint2Compound, startLap: pitLap1 + 1, endLap: end2 });
+
+          // Pit 2
+          if (lapsCompleted > pitLap2) {
+            pitStops.push({
+              lap: pitLap2,
+              duration: parseFloat((2.1 + (Math.abs(item.hash + 1) % 10) * 0.08).toFixed(2)),
+              tireIn: stint2Compound,
+              tireOut: stint3Compound
+            });
+
+            // Stint 3
+            tireStrategy.push({ compound: stint3Compound, startLap: pitLap2 + 1, endLap: lapsCompleted });
+          }
+        }
+      } else {
+        const pitLap = Math.floor(race.laps * 0.35) + (Math.abs(item.hash) % 10);
+        const stint2Compound = (startCompound === TireCompound.SOFT) ? TireCompound.MEDIUM : TireCompound.HARD;
+
+        // Stint 1
+        const end1 = Math.min(pitLap, lapsCompleted);
+        tireStrategy.push({ compound: startCompound, startLap: 1, endLap: end1 });
+
+        // Pit 1
+        if (lapsCompleted > pitLap) {
+          pitStops.push({
+            lap: pitLap,
+            duration: parseFloat((2.3 + (Math.abs(item.hash) % 10) * 0.1).toFixed(2)),
+            tireIn: startCompound,
+            tireOut: stint2Compound
+          });
+
+          // Stint 2
+          tireStrategy.push({ compound: stint2Compound, startLap: pitLap + 1, endLap: lapsCompleted });
+        }
+      }
 
       rList.push({
         driverId: item.ds.driverId,
@@ -212,7 +267,7 @@ Object.keys(mockRaces).forEach((raceId) => {
           lap: pit.lap,
           type: 'PIT_STOP',
           driverId: res.driverId,
-          details: `${driver ? driver.name : 'Driver'} pits for HARD tires. Service time: ${pit.duration}s.`
+          details: `${driver ? driver.name : 'Driver'} pits for ${pit.tireOut} tires. Service time: ${pit.duration}s.`
         });
       });
       
@@ -320,7 +375,10 @@ Object.keys(mockRaces).forEach((raceId) => {
           sector1: s1,
           sector2: s2,
           sector3: s3,
-          tire: lap <= (res.pitStops[0]?.lap || 30) ? TireCompound.MEDIUM : TireCompound.HARD,
+          tire: (() => {
+            const stint = res.tireStrategy.find(st => lap >= st.startLap && lap <= st.endLap);
+            return stint ? stint.compound : TireCompound.MEDIUM;
+          })(),
           source: 'MOCK'
         });
       }

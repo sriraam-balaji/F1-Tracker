@@ -466,5 +466,20 @@ export const mockDriverHistory: Record<string, DriverCareerHistory> = {
     careerLog: [
       { year: 2025, team: 'Alpine', position: 22, points: 0, wins: 0, podiums: 0 }
     ]
+  },
+  driver_nico_hulkenberg: {
+    driverId: 'driver_nico_hulkenberg',
+    championships: 0,
+    wins: 0,
+    podiums: 0,
+    poles: 1,
+    entries: 224,
+    careerPoints: 581.0,
+    biography: 'Nico Hülkenberg is a German Formula One driver competing for Sauber. Known as "The Hulk," Hülkenberg is highly respected for his qualifying speed and consistency. In 2025, he raced for Sauber, securing valuable midfield points, and continues to be an integral part of the team\'s transition into Audi.',
+    careerLog: [
+      { year: 2025, team: 'Sauber', position: 13, points: 51, wins: 0, podiums: 0 },
+      { year: 2024, team: 'Haas', position: 15, points: 37, wins: 0, podiums: 0 },
+      { year: 2023, team: 'Haas', position: 16, points: 9, wins: 0, podiums: 0 }
+    ]
   }
 };

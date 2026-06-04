@@ -22,6 +22,8 @@ export const driverStandingsBySeason: Record<number, SeasonDriverStats[]> = {
     { driverId: 'driver_zhou_guanyu', constructorId: 'constructor_sauber', points: 0, position: 18, wins: 0, podiums: 0 },
     { driverId: 'driver_fernando_alonso', constructorId: 'constructor_aston_martin', points: 0, position: 19, wins: 0, podiums: 0 },
     { driverId: 'driver_lance_stroll', constructorId: 'constructor_aston_martin', points: 0, position: 20, wins: 0, podiums: 0 },
+    { driverId: 'driver_gabriel_bortoleto', constructorId: 'constructor_sauber', points: 0, position: 21, wins: 0, podiums: 0 },
+    { driverId: 'driver_franco_colapinto', constructorId: 'constructor_alpine', points: 0, position: 22, wins: 0, podiums: 0 },
   ],
   2025: [
     { driverId: 'driver_lando_norris', constructorId: 'constructor_mclaren', points: 423, position: 1, wins: 7, podiums: 18 },

@@ -1,0 +1,47 @@
+import { RaceSimulationSeed, TireCompound } from '../../types';
+
+export const monaco2026Seed: RaceSimulationSeed = {
+  raceId: 'race_2026_monaco',
+  laps: 78,
+  distanceKm: 260.286,
+  safetyCarLaps: [10, 11, 12, 13, 45, 46, 47],
+  weatherTimeline: [
+    { lap: 1, conditions: 'DRY', airTemp: 21.4, trackTemp: 34.2, humidity: 62, rainProbability: 10 },
+    { lap: 50, conditions: 'DRY', airTemp: 22.1, trackTemp: 32.8, humidity: 60, rainProbability: 15 },
+  ],
+  driverSeeds: [
+    { driverId: 'driver_kimi_antonelli', constructorId: 'constructor_mercedes', gridPosition: 1, baseStrategy: [TireCompound.SOFT, TireCompound.MEDIUM, TireCompound.SOFT], plannedPitLaps: [22, 52] },
+    { driverId: 'driver_george_russell', constructorId: 'constructor_mercedes', gridPosition: 2, baseStrategy: [TireCompound.SOFT, TireCompound.MEDIUM, TireCompound.SOFT], plannedPitLaps: [23, 53] },
+    { driverId: 'driver_charles_leclerc', constructorId: 'constructor_ferrari', gridPosition: 3, baseStrategy: [TireCompound.SOFT, TireCompound.HARD], plannedPitLaps: [21] },
+    { driverId: 'driver_lewis_hamilton', constructorId: 'constructor_ferrari', gridPosition: 4, baseStrategy: [TireCompound.SOFT, TireCompound.HARD], plannedPitLaps: [20] },
+    { driverId: 'driver_lando_norris', constructorId: 'constructor_mclaren', gridPosition: 5, baseStrategy: [TireCompound.MEDIUM, TireCompound.SOFT], plannedPitLaps: [30] },
+    { driverId: 'driver_oscar_piastri', constructorId: 'constructor_mclaren', gridPosition: 6, baseStrategy: [TireCompound.MEDIUM, TireCompound.SOFT], plannedPitLaps: [31] },
+    { driverId: 'driver_max_verstappen', constructorId: 'constructor_red_bull', gridPosition: 7, baseStrategy: [TireCompound.SOFT, TireCompound.MEDIUM], plannedPitLaps: [24] },
+    { driverId: 'driver_pierre_gasly', constructorId: 'constructor_alpine', gridPosition: 8, baseStrategy: [TireCompound.SOFT, TireCompound.HARD], plannedPitLaps: [25] },
+    { driverId: 'driver_oliver_bearman', constructorId: 'constructor_haas', gridPosition: 9, baseStrategy: [TireCompound.SOFT, TireCompound.HARD], plannedPitLaps: [26] },
+    { driverId: 'driver_liam_lawson', constructorId: 'constructor_rb', gridPosition: 10, baseStrategy: [TireCompound.SOFT, TireCompound.HARD], plannedPitLaps: [27] },
+    { driverId: 'driver_esteban_ocon', constructorId: 'constructor_alpine', gridPosition: 11, baseStrategy: [TireCompound.MEDIUM, TireCompound.HARD], plannedPitLaps: [32] },
+    { driverId: 'driver_sergio_perez', constructorId: 'constructor_red_bull', gridPosition: 12, baseStrategy: [TireCompound.MEDIUM, TireCompound.HARD], plannedPitLaps: [33] },
+    { driverId: 'driver_alexander_albon', constructorId: 'constructor_williams', gridPosition: 13, baseStrategy: [TireCompound.SOFT, TireCompound.HARD], plannedPitLaps: [22] },
+    { driverId: 'driver_yuki_tsunoda', constructorId: 'constructor_rb', gridPosition: 14, baseStrategy: [TireCompound.SOFT, TireCompound.HARD], plannedPitLaps: [23] },
+    { driverId: 'driver_valtteri_bottas', constructorId: 'constructor_sauber', gridPosition: 15, baseStrategy: [TireCompound.MEDIUM, TireCompound.HARD], plannedPitLaps: [34] },
+    { driverId: 'driver_kevin_magnussen', constructorId: 'constructor_haas', gridPosition: 16, baseStrategy: [TireCompound.MEDIUM, TireCompound.HARD], plannedPitLaps: [35] },
+    { driverId: 'driver_carlos_sainz', constructorId: 'constructor_williams', gridPosition: 17, baseStrategy: [TireCompound.SOFT, TireCompound.HARD], plannedPitLaps: [20] },
+    { driverId: 'driver_zhou_guanyu', constructorId: 'constructor_sauber', gridPosition: 18, baseStrategy: [TireCompound.SOFT, TireCompound.HARD], plannedPitLaps: [21] },
+    { driverId: 'driver_fernando_alonso', constructorId: 'constructor_aston_martin', gridPosition: 19, baseStrategy: [TireCompound.MEDIUM, TireCompound.SOFT], plannedPitLaps: [40] },
+    { driverId: 'driver_lance_stroll', constructorId: 'constructor_aston_martin', gridPosition: 20, baseStrategy: [TireCompound.MEDIUM, TireCompound.SOFT], plannedPitLaps: [41] },
+  ],
+  qualifyingResults: [
+    { driverId: 'driver_kimi_antonelli', constructorId: 'constructor_mercedes', q1Time: '1:11.890', q2Time: '1:11.230', q3Time: '1:10.820', position: 1 },
+    { driverId: 'driver_george_russell', constructorId: 'constructor_mercedes', q1Time: '1:12.110', q2Time: '1:11.450', q3Time: '1:10.990', position: 2 },
+    { driverId: 'driver_charles_leclerc', constructorId: 'constructor_ferrari', q1Time: '1:11.980', q2Time: '1:11.380', q3Time: '1:11.010', position: 3 },
+    { driverId: 'driver_lewis_hamilton', constructorId: 'constructor_ferrari', q1Time: '1:12.340', q2Time: '1:11.620', q3Time: '1:11.210', position: 4 },
+    { driverId: 'driver_lando_norris', constructorId: 'constructor_mclaren', q1Time: '1:12.200', q2Time: '1:11.500', q3Time: '1:11.350', position: 5 },
+    { driverId: 'driver_oscar_piastri', constructorId: 'constructor_mclaren', q1Time: '1:12.500', q2Time: '1:11.890', q3Time: '1:11.600', position: 6 },
+    { driverId: 'driver_max_verstappen', constructorId: 'constructor_red_bull', q1Time: '1:12.450', q2Time: '1:11.900', q3Time: '1:11.750', position: 7 },
+    { driverId: 'driver_pierre_gasly', constructorId: 'constructor_alpine', q1Time: '1:12.890', q2Time: '1:12.120', position: 8, q3Time: undefined },
+    { driverId: 'driver_oliver_bearman', constructorId: 'constructor_haas', q1Time: '1:13.110', q2Time: '1:12.450', position: 9, q3Time: undefined },
+    { driverId: 'driver_liam_lawson', constructorId: 'constructor_rb', q1Time: '1:13.200', q2Time: '1:12.500', position: 10, q3Time: undefined },
+  ],
+};
+export default monaco2026Seed;

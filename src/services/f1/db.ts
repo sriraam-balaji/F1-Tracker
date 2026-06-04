@@ -58,8 +58,40 @@ Object.keys(mockRaces).forEach((raceId) => {
     const winnerDriverEntry = Object.values(mockDrivers).find(d => d.name === race.winner);
     const winnerId = winnerDriverEntry ? winnerDriverEntry.id : 'driver_kimi_antonelli';
 
+    // Group drivers by constructor to limit to 2 cars per team in each race
+    const driversByConstructor: Record<string, typeof seasonStandings> = {};
+    seasonStandings.forEach((ds) => {
+      if (!driversByConstructor[ds.constructorId]) {
+        driversByConstructor[ds.constructorId] = [];
+      }
+      driversByConstructor[ds.constructorId].push(ds);
+    });
+
+    const activeDrivers: typeof seasonStandings = [];
+    Object.keys(driversByConstructor).forEach((constructorId) => {
+      const list = driversByConstructor[constructorId];
+      if (list.length <= 2) {
+        activeDrivers.push(...list);
+      } else {
+        // Pick 2 drivers deterministically, prioritizing the winner of this race
+        const sorted = [...list].map(ds => {
+          if (ds.driverId === winnerId) {
+            return { ds, score: -1 };
+          }
+          const seedString = `${raceId}_driverselect_${ds.driverId}`;
+          let hash = 0;
+          for (let i = 0; i < seedString.length; i++) {
+            hash = seedString.charCodeAt(i) + ((hash << 5) - hash);
+          }
+          return { ds, score: Math.abs(hash) };
+        }).sort((a, b) => a.score - b.score);
+        
+        activeDrivers.push(sorted[0].ds, sorted[1].ds);
+      }
+    });
+
     // 1. Generate Qualifying List deterministically
-    const qualDrivers = [...seasonStandings].map((ds) => {
+    const qualDrivers = [...activeDrivers].map((ds) => {
       const seedString = `${raceId}_qual_${ds.driverId}`;
       let hash = 0;
       for (let i = 0; i < seedString.length; i++) {
@@ -90,7 +122,7 @@ Object.keys(mockRaces).forEach((raceId) => {
     qualifyingBySessionId[qualSessionId] = qList;
 
     // 2. Generate Race Results List deterministically
-    const raceDrivers = [...seasonStandings].map((ds) => {
+    const raceDrivers = [...activeDrivers].map((ds) => {
       const seedString = `${raceId}_race_${ds.driverId}`;
       let hash = 0;
       for (let i = 0; i < seedString.length; i++) {

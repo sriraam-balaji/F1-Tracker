@@ -1,7 +1,7 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { 
   getRaceById, 
@@ -41,6 +41,19 @@ export default function RaceDetailPage() {
   const qualifying = qualSession ? getSessionQualifying(qualSession.id) : [];
   const events = raceSession ? getEventTimeline(raceSession.id) : [];
 
+  // Reset/initialize selected drivers when raceId changes
+  const hasTelemetry = results.some(r => getLapTelemetry(raceSession!.id, r.driverId).length > 0);
+  const topDrivers = results.slice(0, 5).map(r => r.driverId);
+
+  useEffect(() => {
+    if (hasTelemetry) {
+      setSelectedDrivers(topDrivers.slice(0, 3));
+    } else {
+      setSelectedDrivers([]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [raceId, hasTelemetry]);
+
   if (!race) {
     return (
       <div className="container" style={{ marginTop: "32px" }}>
@@ -57,14 +70,6 @@ export default function RaceDetailPage() {
         </div>
       </div>
     );
-  }
-
-  // Pre-select top 3 drivers for telemetry if telemetry is available
-  const hasTelemetry = results.some(r => getLapTelemetry(raceSession!.id, r.driverId).length > 0);
-  const topDrivers = results.slice(0, 5).map(r => r.driverId);
-  
-  if (hasTelemetry && selectedDrivers.length === 0) {
-    setSelectedDrivers(topDrivers.slice(0, 3));
   }
 
   // Format telemetry data for Recharts

@@ -165,6 +165,69 @@ Object.keys(mockRaces).forEach((raceId) => {
     });
     
     resultsBySessionId[raceSessionId] = rList;
+
+    // 3. Update the Race object in mockRaces
+    const dnfCount = rList.filter(r => r.status === 'DNF').length;
+    const safetyCarsCount = dnfCount > 0 ? (dnfCount % 2 === 0 ? 1 : 2) : 0;
+    
+    const fastestDriverId = rList.find(r => r.finishPosition === (dnfCount % 2 === 0 ? 1 : 2))?.driverId || winnerId;
+    const fastestLapSec = 72.5 + (Math.abs(raceId.charCodeAt(raceId.length - 1)) % 8) * 0.4;
+    const flMins = Math.floor(fastestLapSec / 60);
+    const flSecs = (fastestLapSec % 60).toFixed(3);
+    const fastestLapTimeStr = flMins > 0 ? `${flMins}:${String(flSecs).padStart(6, '0')}` : flSecs;
+
+    race.dnfs = dnfCount;
+    race.safetyCars = safetyCarsCount;
+    race.redFlags = 0;
+    race.fastestLap = {
+      driverId: fastestDriverId,
+      lap: Math.floor(race.laps * 0.7) + (Math.abs(raceId.charCodeAt(0)) % 10),
+      time: fastestLapTimeStr
+    };
+
+    // 4. Generate Timeline Events
+    const eventsList: RaceEvent[] = [];
+    eventsList.push({ lap: 1, type: 'OVERTAKE', details: 'Lights out! The Grand Prix gets underway.' });
+    
+    rList.forEach(res => {
+      const driver = mockDrivers[res.driverId];
+      
+      res.pitStops.forEach(pit => {
+        eventsList.push({
+          lap: pit.lap,
+          type: 'PIT_STOP',
+          driverId: res.driverId,
+          details: `${driver ? driver.name : 'Driver'} pits for HARD tires. Service time: ${pit.duration}s.`
+        });
+      });
+      
+      if (res.status === 'DNF') {
+        const reason = (res.finishTime || '').replace('DNF - ', '');
+        eventsList.push({
+          lap: res.lapsCompleted,
+          type: 'CRASH',
+          driverId: res.driverId,
+          details: `${driver ? driver.name : 'Driver'} is OUT of the race. Reason: ${reason} at Lap ${res.lapsCompleted}.`
+        });
+      }
+    });
+
+    if (safetyCarsCount > 0) {
+      const scStartLap = Math.floor(race.laps * 0.4) + (Math.abs(raceId.charCodeAt(1)) % 10);
+      eventsList.push({
+        lap: scStartLap,
+        type: 'SAFETY_CAR',
+        details: 'Safety Car deployed due to track incident. Pack slows down.'
+      });
+      eventsList.push({
+        lap: scStartLap + 3,
+        type: 'SAFETY_CAR',
+        details: 'Safety Car in. Green flag conditions resume.'
+      });
+    }
+
+    eventsList.sort((a, b) => a.lap - b.lap);
+    timelineBySessionId[raceSessionId] = eventsList;
   }
 });
 

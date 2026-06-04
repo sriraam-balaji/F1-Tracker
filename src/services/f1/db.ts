@@ -228,6 +228,53 @@ Object.keys(mockRaces).forEach((raceId) => {
 
     eventsList.sort((a, b) => a.lap - b.lap);
     timelineBySessionId[raceSessionId] = eventsList;
+
+    // 5. Generate Lap Telemetry Times
+    const raceLapTimes: Record<string, LapTime[]> = {};
+    rList.forEach(res => {
+      const driverLaps: LapTime[] = [];
+      const lapsCount = res.lapsCompleted;
+      
+      const circuitDistance = race.distanceKm;
+      const circuitLaps = race.laps;
+      const baseLapTime = (circuitDistance / circuitLaps) * 22; // estimation
+      const paceMod = (res.finishPosition - 1) * 0.12;
+
+      for (let lap = 1; lap <= lapsCount; lap++) {
+        const seedStr = `${raceId}_telemetry_${res.driverId}_lap_${lap}`;
+        let hash = 0;
+        for (let i = 0; i < seedStr.length; i++) {
+          hash = seedStr.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        
+        const noise = (Math.abs(hash) % 100) / 100 - 0.5; // -0.5s to 0.5s
+        const fuelEffect = (circuitLaps - lap) * 0.035;
+        let lapTimeVal = baseLapTime + paceMod + noise - fuelEffect;
+        
+        const isPitLap = res.pitStops.some(p => p.lap === lap);
+        if (isPitLap) {
+          lapTimeVal += 23.5;
+        }
+
+        const s1 = parseFloat((lapTimeVal * 0.3 + (Math.abs(hash) % 10) * 0.01).toFixed(3));
+        const s2 = parseFloat((lapTimeVal * 0.4 + (Math.abs(hash + 1) % 10) * 0.01).toFixed(3));
+        const s3 = parseFloat((lapTimeVal - s1 - s2).toFixed(3));
+
+        driverLaps.push({
+          lap,
+          driverId: res.driverId,
+          lapTime: parseFloat(lapTimeVal.toFixed(3)),
+          sector1: s1,
+          sector2: s2,
+          sector3: s3,
+          tire: lap <= (res.pitStops[0]?.lap || 30) ? TireCompound.MEDIUM : TireCompound.HARD,
+          source: 'MOCK'
+        });
+      }
+      raceLapTimes[res.driverId] = driverLaps;
+    });
+
+    lapTimesBySessionId[raceSessionId] = raceLapTimes;
   }
 });
 

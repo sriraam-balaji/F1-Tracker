@@ -98,8 +98,8 @@ Object.keys(mockRaces).forEach((raceId) => {
       }
       const noise = (Math.abs(hash) % 100) / 10 - 5; // -5 to 5
       
-      // Determine if they DNF (5% chance, except the winner)
-      const isDnf = (Math.abs(hash) % 100) < 5 && ds.driverId !== winnerId;
+      // Determine if they DNF (8% chance, except the winner)
+      const isDnf = (Math.abs(hash) % 100) < 8 && ds.driverId !== winnerId;
       
       let sortValue = ds.position + noise + (isDnf ? 1000 : 0);
       if (ds.driverId === winnerId) {
@@ -168,7 +168,22 @@ Object.keys(mockRaces).forEach((raceId) => {
 
     // 3. Update the Race object in mockRaces
     const dnfCount = rList.filter(r => r.status === 'DNF').length;
-    const safetyCarsCount = dnfCount > 0 ? (dnfCount % 2 === 0 ? 1 : 2) : 0;
+    
+    // Probabilistic Safety Cars and Red Flags model
+    const scSeed = Math.abs(raceId.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0));
+    let safetyCarsCount = 0;
+    if (dnfCount === 0) {
+      safetyCarsCount = (scSeed % 100) < 15 ? 1 : 0;
+    } else if (dnfCount === 1) {
+      safetyCarsCount = (scSeed % 100) < 60 ? 1 : 0;
+    } else {
+      safetyCarsCount = (scSeed % 100) < 85 ? (scSeed % 3 === 0 ? 2 : 1) : 0;
+    }
+
+    let redFlagsCount = 0;
+    if (dnfCount >= 3 && (scSeed % 10) === 0) {
+      redFlagsCount = 1;
+    }
     
     const fastestDriverId = rList.find(r => r.finishPosition === (dnfCount % 2 === 0 ? 1 : 2))?.driverId || winnerId;
     const fastestLapSec = 72.5 + (Math.abs(raceId.charCodeAt(raceId.length - 1)) % 8) * 0.4;
@@ -178,7 +193,7 @@ Object.keys(mockRaces).forEach((raceId) => {
 
     race.dnfs = dnfCount;
     race.safetyCars = safetyCarsCount;
-    race.redFlags = 0;
+    race.redFlags = redFlagsCount;
     race.fastestLap = {
       driverId: fastestDriverId,
       lap: Math.floor(race.laps * 0.7) + (Math.abs(raceId.charCodeAt(0)) % 10),
@@ -212,7 +227,7 @@ Object.keys(mockRaces).forEach((raceId) => {
       }
     });
 
-    if (safetyCarsCount > 0) {
+    if (safetyCarsCount === 1) {
       const scStartLap = Math.floor(race.laps * 0.4) + (Math.abs(raceId.charCodeAt(1)) % 10);
       eventsList.push({
         lap: scStartLap,
@@ -223,6 +238,44 @@ Object.keys(mockRaces).forEach((raceId) => {
         lap: scStartLap + 3,
         type: 'SAFETY_CAR',
         details: 'Safety Car in. Green flag conditions resume.'
+      });
+    } else if (safetyCarsCount >= 2) {
+      const scStartLap1 = Math.floor(race.laps * 0.25) + (Math.abs(raceId.charCodeAt(1)) % 5);
+      eventsList.push({
+        lap: scStartLap1,
+        type: 'SAFETY_CAR',
+        details: 'Safety Car deployed due to track incident. Pack slows down.'
+      });
+      eventsList.push({
+        lap: scStartLap1 + 3,
+        type: 'SAFETY_CAR',
+        details: 'Safety Car in. Green flag conditions resume.'
+      });
+
+      const scStartLap2 = Math.floor(race.laps * 0.65) + (Math.abs(raceId.charCodeAt(2) || 0) % 5);
+      eventsList.push({
+        lap: scStartLap2,
+        type: 'SAFETY_CAR',
+        details: 'Safety Car deployed due to track incident. Pack slows down.'
+      });
+      eventsList.push({
+        lap: scStartLap2 + 3,
+        type: 'SAFETY_CAR',
+        details: 'Safety Car in. Green flag conditions resume.'
+      });
+    }
+
+    if (redFlagsCount > 0) {
+      const rfLap = Math.floor(race.laps * 0.5) + (Math.abs(raceId.charCodeAt(0)) % 5);
+      eventsList.push({
+        lap: rfLap,
+        type: 'YELLOW_FLAG',
+        details: 'RED FLAG: Session suspended due to serious track incident.'
+      });
+      eventsList.push({
+        lap: rfLap,
+        type: 'OVERTAKE',
+        details: 'Race restarted under green flag conditions.'
       });
     }
 

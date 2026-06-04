@@ -362,8 +362,17 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
     status: 'COMPLETED',
     winner: winnerName,
     weather: getWeatherForLap(seed.laps),
-    safetyCars: seed.safetyCarLaps.length > 0 ? 1 : 0, // simple count
+    safetyCars: (() => {
+      let scCount = 0;
+      for (let i = 0; i < seed.safetyCarLaps.length; i++) {
+        if (i === 0 || seed.safetyCarLaps[i] !== seed.safetyCarLaps[i - 1] + 1) {
+          scCount++;
+        }
+      }
+      return scCount;
+    })(),
     dnfs: sortedStates.filter(s => s.isDNF).length,
+    redFlags: 0,
     fastestLap: {
       driverId: bestLapDriver,
       lap: bestLapNum,

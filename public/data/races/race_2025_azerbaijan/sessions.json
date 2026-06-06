@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2025_azerbaijan_qualifying",
+    "raceId": "race_2025_azerbaijan",
+    "type": "QUALIFYING",
+    "date": "2025-09-14",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2025_azerbaijan_race",
+    "raceId": "race_2025_azerbaijan",
+    "type": "RACE",
+    "date": "2025-09-14",
+    "startTime": "15:00"
+  }
+]

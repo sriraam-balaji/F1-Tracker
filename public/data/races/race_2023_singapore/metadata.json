@@ -1,0 +1,21 @@
+{
+  "id": "race_2023_singapore",
+  "season": 2023,
+  "round": 8,
+  "name": "Singapore Grand Prix",
+  "circuit": "Marina Bay",
+  "country": "Singapore",
+  "date": "2023-09-17",
+  "laps": 62,
+  "distanceKm": 306.143,
+  "status": "COMPLETED",
+  "winner": "Carlos Sainz",
+  "dnfs": 1,
+  "safetyCars": 0,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_lewis_hamilton",
+    "lap": 47,
+    "time": "1:14.500"
+  }
+}

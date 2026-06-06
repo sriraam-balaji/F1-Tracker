@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_azerbaijan",
+  "season": 2025,
+  "round": 17,
+  "name": "Azerbaijan Grand Prix",
+  "circuit": "Baku City Circuit",
+  "country": "Azerbaijan",
+  "date": "2025-09-14",
+  "laps": 51,
+  "distanceKm": 306.049,
+  "status": "COMPLETED",
+  "winner": "Oscar Piastri",
+  "dnfs": 0,
+  "safetyCars": 0,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_oscar_piastri",
+    "lap": 39,
+    "time": "1:14.900"
+  }
+}

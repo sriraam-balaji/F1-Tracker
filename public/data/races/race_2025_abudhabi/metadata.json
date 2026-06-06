@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_abudhabi",
+  "season": 2025,
+  "round": 24,
+  "name": "Abu Dhabi Grand Prix",
+  "circuit": "Yas Marina Circuit",
+  "country": "UAE",
+  "date": "2025-12-07",
+  "laps": 58,
+  "distanceKm": 306.183,
+  "status": "COMPLETED",
+  "winner": "Lando Norris",
+  "dnfs": 0,
+  "safetyCars": 0,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_lando_norris",
+    "lap": 44,
+    "time": "1:12.900"
+  }
+}

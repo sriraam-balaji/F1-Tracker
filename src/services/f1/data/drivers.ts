@@ -26,4 +26,7 @@ export const mockDrivers: Record<string, Driver> = {
   driver_franco_colapinto: { id: 'driver_franco_colapinto', name: 'Franco Colapinto', code: 'COL', number: 43, nationality: 'ARG', dob: '2003-05-27', countryName: 'Argentina', paceRating: 86, consistency: 87, tireManagement: 87, wetWeatherSkill: 86 },
   driver_jack_doohan: { id: 'driver_jack_doohan', name: 'Jack Doohan', code: 'DOO', number: 61, nationality: 'AUS', dob: '2003-01-20', countryName: 'Australia', paceRating: 85, consistency: 86, tireManagement: 85, wetWeatherSkill: 85 },
   driver_nico_hulkenberg: { id: 'driver_nico_hulkenberg', name: 'Nico Hülkenberg', code: 'HUL', number: 27, nationality: 'GER', dob: '1987-08-19', countryName: 'Germany', paceRating: 88, consistency: 89, tireManagement: 88, wetWeatherSkill: 89 },
+  driver_logan_sargeant: { id: 'driver_logan_sargeant', name: 'Logan Sargeant', code: 'SAR', number: 2, nationality: 'USA', dob: '2001-12-31', countryName: 'United States', paceRating: 82, consistency: 78, tireManagement: 80, wetWeatherSkill: 82 },
+  driver_nyck_de_vries: { id: 'driver_nyck_de_vries', name: 'Nyck de Vries', code: 'DEV', number: 21, nationality: 'NED', dob: '1995-02-06', countryName: 'Netherlands', paceRating: 84, consistency: 82, tireManagement: 83, wetWeatherSkill: 84 },
+  driver_daniel_ricciardo: { id: 'driver_daniel_ricciardo', name: 'Daniel Ricciardo', code: 'RIC', number: 3, nationality: 'AUS', dob: '1989-07-01', countryName: 'Australia', paceRating: 89, consistency: 90, tireManagement: 89, wetWeatherSkill: 91 },
 };

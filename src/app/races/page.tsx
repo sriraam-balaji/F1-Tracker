@@ -6,9 +6,9 @@ import { getRacesForSeason } from '@/services/f1/selectors';
 import { Calendar, CheckCircle, XCircle, Clock, Eye } from 'lucide-react';
 
 export default function RacesPage() {
-  const [season, setSeason] = useState<'2026' | '2025'>('2026');
+  const [season, setSeason] = useState<'2026' | '2025' | '2023'>('2026');
 
-  const races = getRacesForSeason(season === '2026' ? 2026 : 2025);
+  const races = getRacesForSeason(Number(season));
 
   const total = races.length;
   const completed = races.filter(r => r.status === 'COMPLETED').length;
@@ -29,7 +29,7 @@ export default function RacesPage() {
 
       {/* Season Selector & Quick Statistics Grid */}
       <div style={{ display: "flex", flexWrap: "wrap", gap: "24px", marginBottom: "24px", alignItems: "flex-end" }}>
-        <div style={{ display: "flex", gap: "16px" }}>
+        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
           <button 
             onClick={() => setSeason('2026')} 
             className={`retro-btn ${season === '2026' ? 'active' : ''}`}
@@ -41,6 +41,12 @@ export default function RacesPage() {
             className={`retro-btn ${season === '2025' ? 'active' : ''}`}
           >
             2025 SEASON (ARCHIVE)
+          </button>
+          <button 
+            onClick={() => setSeason('2023')} 
+            className={`retro-btn ${season === '2023' ? 'active' : ''}`}
+          >
+            2023 SEASON (ARCHIVE)
           </button>
         </div>
 

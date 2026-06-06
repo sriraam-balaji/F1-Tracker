@@ -1,0 +1,12 @@
+{
+  "id": "race_2026_saudi",
+  "season": 2026,
+  "round": 5,
+  "name": "Saudi Arabian Grand Prix",
+  "circuit": "Jeddah Corniche",
+  "country": "Saudi Arabia",
+  "date": "2026-04-19",
+  "laps": 50,
+  "distanceKm": 308.45,
+  "status": "CANCELED"
+}

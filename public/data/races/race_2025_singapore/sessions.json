@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2025_singapore_qualifying",
+    "raceId": "race_2025_singapore",
+    "type": "QUALIFYING",
+    "date": "2025-09-21",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2025_singapore_race",
+    "raceId": "race_2025_singapore",
+    "type": "RACE",
+    "date": "2025-09-21",
+    "startTime": "15:00"
+  }
+]

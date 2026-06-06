@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2026_japan_qualifying",
+    "raceId": "race_2026_japan",
+    "type": "QUALIFYING",
+    "date": "2026-03-29",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2026_japan_race",
+    "raceId": "race_2026_japan",
+    "type": "RACE",
+    "date": "2026-03-29",
+    "startTime": "15:00"
+  }
+]

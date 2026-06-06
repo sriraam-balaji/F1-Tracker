@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2025_netherlands_qualifying",
+    "raceId": "race_2025_netherlands",
+    "type": "QUALIFYING",
+    "date": "2025-08-24",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2025_netherlands_race",
+    "raceId": "race_2025_netherlands",
+    "type": "RACE",
+    "date": "2025-08-24",
+    "startTime": "15:00"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_canada",
+  "season": 2025,
+  "round": 10,
+  "name": "Canadian Grand Prix",
+  "circuit": "Circuit Gilles Villeneuve",
+  "country": "Canada",
+  "date": "2025-06-15",
+  "laps": 70,
+  "distanceKm": 305.27,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "dnfs": 2,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_max_verstappen",
+    "lap": 53,
+    "time": "1:12.900"
+  }
+}

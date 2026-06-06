@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_china",
+  "season": 2025,
+  "round": 4,
+  "name": "Chinese Grand Prix",
+  "circuit": "Shanghai International",
+  "country": "China",
+  "date": "2025-04-06",
+  "laps": 56,
+  "distanceKm": 305.066,
+  "status": "COMPLETED",
+  "winner": "Oscar Piastri",
+  "dnfs": 1,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_lando_norris",
+    "lap": 43,
+    "time": "1:12.900"
+  }
+}

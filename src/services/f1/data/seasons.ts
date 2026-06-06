@@ -2,13 +2,13 @@ import { SeasonDriverStats, SeasonConstructorStats, Race } from '../types';
 
 export const driverStandingsBySeason: Record<number, SeasonDriverStats[]> = {
   2026: [
-    { driverId: 'driver_kimi_antonelli', constructorId: 'constructor_mercedes', points: 131, position: 1, wins: 4, podiums: 5 },
-    { driverId: 'driver_george_russell', constructorId: 'constructor_mercedes', points: 88, position: 2, wins: 1, podiums: 3 },
-    { driverId: 'driver_charles_leclerc', constructorId: 'constructor_ferrari', points: 75, position: 3, wins: 0, podiums: 3 },
-    { driverId: 'driver_lewis_hamilton', constructorId: 'constructor_ferrari', points: 72, position: 4, wins: 0, podiums: 2 },
-    { driverId: 'driver_lando_norris', constructorId: 'constructor_mclaren', points: 58, position: 5, wins: 0, podiums: 1 },
-    { driverId: 'driver_oscar_piastri', constructorId: 'constructor_mclaren', points: 48, position: 6, wins: 0, podiums: 1 },
-    { driverId: 'driver_max_verstappen', constructorId: 'constructor_red_bull', points: 43, position: 7, wins: 0, podiums: 0 },
+    { driverId: 'driver_kimi_antonelli', constructorId: 'constructor_mercedes', points: 106, position: 1, wins: 4, podiums: 4 },
+    { driverId: 'driver_george_russell', constructorId: 'constructor_mercedes', points: 70, position: 2, wins: 1, podiums: 2 },
+    { driverId: 'driver_charles_leclerc', constructorId: 'constructor_ferrari', points: 60, position: 3, wins: 0, podiums: 2 },
+    { driverId: 'driver_lewis_hamilton', constructorId: 'constructor_ferrari', points: 60, position: 4, wins: 0, podiums: 2 },
+    { driverId: 'driver_lando_norris', constructorId: 'constructor_mclaren', points: 48, position: 5, wins: 0, podiums: 1 },
+    { driverId: 'driver_oscar_piastri', constructorId: 'constructor_mclaren', points: 40, position: 6, wins: 0, podiums: 1 },
+    { driverId: 'driver_max_verstappen', constructorId: 'constructor_red_bull', points: 37, position: 7, wins: 0, podiums: 1 },
     { driverId: 'driver_pierre_gasly', constructorId: 'constructor_alpine', points: 20, position: 8, wins: 0, podiums: 0 },
     { driverId: 'driver_oliver_bearman', constructorId: 'constructor_haas', points: 18, position: 9, wins: 0, podiums: 0 },
     { driverId: 'driver_liam_lawson', constructorId: 'constructor_rb', points: 16, position: 10, wins: 0, podiums: 0 },
@@ -48,15 +48,36 @@ export const driverStandingsBySeason: Record<number, SeasonDriverStats[]> = {
     { driverId: 'driver_gabriel_bortoleto', constructorId: 'constructor_sauber', points: 19, position: 20, wins: 0, podiums: 0 },
     { driverId: 'driver_franco_colapinto', constructorId: 'constructor_alpine', points: 0, position: 21, wins: 0, podiums: 0 },
     { driverId: 'driver_jack_doohan', constructorId: 'constructor_alpine', points: 0, position: 22, wins: 0, podiums: 0 },
+  ],
+  2023: [
+    { driverId: 'driver_max_verstappen', constructorId: 'constructor_red_bull', points: 575, position: 1, wins: 19, podiums: 21 },
+    { driverId: 'driver_sergio_perez', constructorId: 'constructor_red_bull', points: 285, position: 2, wins: 2, podiums: 9 },
+    { driverId: 'driver_lewis_hamilton', constructorId: 'constructor_mercedes', points: 234, position: 3, wins: 0, podiums: 6 },
+    { driverId: 'driver_fernando_alonso', constructorId: 'constructor_aston_martin', points: 206, position: 4, wins: 0, podiums: 8 },
+    { driverId: 'driver_charles_leclerc', constructorId: 'constructor_ferrari', points: 206, position: 5, wins: 0, podiums: 6 },
+    { driverId: 'driver_lando_norris', constructorId: 'constructor_mclaren', points: 205, position: 6, wins: 0, podiums: 7 },
+    { driverId: 'driver_carlos_sainz', constructorId: 'constructor_ferrari', points: 200, position: 7, wins: 1, podiums: 3 },
+    { driverId: 'driver_george_russell', constructorId: 'constructor_mercedes', points: 175, position: 8, wins: 0, podiums: 2 },
+    { driverId: 'driver_oscar_piastri', constructorId: 'constructor_mclaren', points: 97, position: 9, wins: 0, podiums: 2 },
+    { driverId: 'driver_lance_stroll', constructorId: 'constructor_aston_martin', points: 74, position: 10, wins: 0, podiums: 0 },
+    { driverId: 'driver_pierre_gasly', constructorId: 'constructor_alpine', points: 62, position: 11, wins: 0, podiums: 1 },
+    { driverId: 'driver_esteban_ocon', constructorId: 'constructor_alpine', points: 58, position: 12, wins: 0, podiums: 1 },
+    { driverId: 'driver_alexander_albon', constructorId: 'constructor_williams', points: 27, position: 13, wins: 0, podiums: 0 },
+    { driverId: 'driver_yuki_tsunoda', constructorId: 'constructor_rb', points: 17, position: 14, wins: 0, podiums: 0 },
+    { driverId: 'driver_valtteri_bottas', constructorId: 'constructor_sauber', points: 10, position: 15, wins: 0, podiums: 0 },
+    { driverId: 'driver_nico_hulkenberg', constructorId: 'constructor_haas', points: 9, position: 16, wins: 0, podiums: 0 },
+    { driverId: 'driver_zhou_guanyu', constructorId: 'constructor_sauber', points: 6, position: 17, wins: 0, podiums: 0 },
+    { driverId: 'driver_kevin_magnussen', constructorId: 'constructor_haas', points: 3, position: 18, wins: 0, podiums: 0 },
+    { driverId: 'driver_liam_lawson', constructorId: 'constructor_rb', points: 2, position: 19, wins: 0, podiums: 0 }
   ]
 };
 
 export const constructorStandingsBySeason: Record<number, SeasonConstructorStats[]> = {
   2026: [
-    { constructorId: 'constructor_mercedes', points: 219, position: 1, wins: 5 },
-    { constructorId: 'constructor_ferrari', points: 147, position: 2, wins: 0 },
-    { constructorId: 'constructor_mclaren', points: 106, position: 3, wins: 0 },
-    { constructorId: 'constructor_red_bull', points: 57, position: 4, wins: 0 },
+    { constructorId: 'constructor_mercedes', points: 176, position: 1, wins: 5 },
+    { constructorId: 'constructor_ferrari', points: 120, position: 2, wins: 0 },
+    { constructorId: 'constructor_mclaren', points: 88, position: 3, wins: 0 },
+    { constructorId: 'constructor_red_bull', points: 51, position: 4, wins: 0 },
     { constructorId: 'constructor_alpine', points: 35, position: 5, wins: 0 },
     { constructorId: 'constructor_rb', points: 21, position: 6, wins: 0 },
     { constructorId: 'constructor_haas', points: 19, position: 7, wins: 0 },
@@ -75,6 +96,18 @@ export const constructorStandingsBySeason: Record<number, SeasonConstructorStats
     { constructorId: 'constructor_sauber', points: 70, position: 8, wins: 0 },
     { constructorId: 'constructor_rb', points: 18, position: 9, wins: 0 },
     { constructorId: 'constructor_alpine', points: 28, position: 10, wins: 0 },
+  ],
+  2023: [
+    { constructorId: 'constructor_red_bull', points: 860, position: 1, wins: 21 },
+    { constructorId: 'constructor_mercedes', points: 409, position: 2, wins: 0 },
+    { constructorId: 'constructor_ferrari', points: 406, position: 3, wins: 1 },
+    { constructorId: 'constructor_mclaren', points: 302, position: 4, wins: 0 },
+    { constructorId: 'constructor_aston_martin', points: 280, position: 5, wins: 0 },
+    { constructorId: 'constructor_alpine', points: 120, position: 6, wins: 0 },
+    { constructorId: 'constructor_williams', points: 28, position: 7, wins: 0 },
+    { constructorId: 'constructor_rb', points: 25, position: 8, wins: 0 },
+    { constructorId: 'constructor_sauber', points: 16, position: 9, wins: 0 },
+    { constructorId: 'constructor_haas', points: 12, position: 10, wins: 0 }
   ]
 };
 
@@ -87,7 +120,7 @@ export const mockRaces: Record<string, Race> = {
   race_2026_saudi: { id: 'race_2026_saudi', season: 2026, round: 5, name: 'Saudi Arabian Grand Prix', circuit: 'Jeddah Corniche', country: 'Saudi Arabia', date: '2026-04-19', laps: 50, distanceKm: 308.450, status: 'CANCELED' },
   race_2026_miami: { id: 'race_2026_miami', season: 2026, round: 6, name: 'Miami Grand Prix', circuit: 'Miami International Autodrome', country: 'United States', date: '2026-05-03', laps: 57, distanceKm: 308.326, status: 'COMPLETED', winner: 'Kimi Antonelli' },
   race_2026_canada: { id: 'race_2026_canada', season: 2026, round: 7, name: 'Canadian Grand Prix', circuit: 'Circuit Gilles Villeneuve', country: 'Canada', date: '2026-05-24', laps: 70, distanceKm: 305.270, status: 'COMPLETED', winner: 'Kimi Antonelli' },
-  race_2026_monaco: { id: 'race_2026_monaco', season: 2026, round: 8, name: 'Monaco Grand Prix', circuit: 'Circuit de Monaco', country: 'Monaco', date: '2026-06-07', laps: 78, distanceKm: 260.286, status: 'COMPLETED', winner: 'Kimi Antonelli' }, // Completed for analytics seeding
+  race_2026_monaco: { id: 'race_2026_monaco', season: 2026, round: 8, name: 'Monaco Grand Prix', circuit: 'Circuit de Monaco', country: 'Monaco', date: '2026-06-07', laps: 78, distanceKm: 260.286, status: 'UPCOMING' },
   race_2026_spain: { id: 'race_2026_spain', season: 2026, round: 9, name: 'Spanish Grand Prix', circuit: 'Circuit de Barcelona-Catalunya', country: 'Spain', date: '2026-06-14', laps: 66, distanceKm: 307.236, status: 'UPCOMING' },
   race_2026_austria: { id: 'race_2026_austria', season: 2026, round: 10, name: 'Austrian Grand Prix', circuit: 'Red Bull Ring', country: 'Austria', date: '2026-06-28', laps: 71, distanceKm: 306.452, status: 'UPCOMING' },
   race_2026_britain: { id: 'race_2026_britain', season: 2026, round: 11, name: 'British Grand Prix', circuit: 'Silverstone', country: 'United Kingdom', date: '2026-07-05', laps: 52, distanceKm: 306.198, status: 'UPCOMING' },
@@ -117,4 +150,15 @@ export const mockRaces: Record<string, Race> = {
   race_2025_lasvegas: { id: 'race_2025_lasvegas', season: 2025, round: 22, name: 'Las Vegas Grand Prix', circuit: 'Las Vegas Strip Circuit', country: 'United States', date: '2025-11-22', laps: 50, distanceKm: 306.150, status: 'COMPLETED', winner: 'Max Verstappen' },
   race_2025_qatar: { id: 'race_2025_qatar', season: 2025, round: 23, name: 'Qatar Grand Prix', circuit: 'Lusail International', country: 'Qatar', date: '2025-11-30', laps: 57, distanceKm: 308.238, status: 'COMPLETED', winner: 'Lando Norris' },
   race_2025_abudhabi: { id: 'race_2025_abudhabi', season: 2025, round: 24, name: 'Abu Dhabi Grand Prix', circuit: 'Yas Marina Circuit', country: 'UAE', date: '2025-12-07', laps: 58, distanceKm: 306.183, status: 'COMPLETED', winner: 'Lando Norris' },
+
+  // 2023 races
+  race_2023_bahrain: { id: 'race_2023_bahrain', season: 2023, round: 1, name: 'Bahrain Grand Prix', circuit: 'Sakhir', country: 'Bahrain', date: '2023-03-05', laps: 57, distanceKm: 308.238, status: 'COMPLETED', winner: 'Max Verstappen' },
+  race_2023_saudi: { id: 'race_2023_saudi', season: 2023, round: 2, name: 'Saudi Arabian Grand Prix', circuit: 'Jeddah Corniche', country: 'Saudi Arabia', date: '2023-03-19', laps: 50, distanceKm: 308.450, status: 'COMPLETED', winner: 'Sergio Pérez' },
+  race_2023_australia: { id: 'race_2023_australia', season: 2023, round: 3, name: 'Australian Grand Prix', circuit: 'Albert Park', country: 'Australia', date: '2023-04-02', laps: 58, distanceKm: 306.124, status: 'COMPLETED', winner: 'Max Verstappen' },
+  race_2023_monaco: { id: 'race_2023_monaco', season: 2023, round: 4, name: 'Monaco Grand Prix', circuit: 'Circuit de Monaco', country: 'Monaco', date: '2023-05-28', laps: 78, distanceKm: 260.286, status: 'COMPLETED', winner: 'Max Verstappen' },
+  race_2023_spain: { id: 'race_2023_spain', season: 2023, round: 5, name: 'Spanish Grand Prix', circuit: 'Circuit de Barcelona-Catalunya', country: 'Spain', date: '2023-06-04', laps: 66, distanceKm: 307.236, status: 'COMPLETED', winner: 'Max Verstappen' },
+  race_2023_canada: { id: 'race_2023_canada', season: 2023, round: 6, name: 'Canadian Grand Prix', circuit: 'Circuit Gilles Villeneuve', country: 'Canada', date: '2023-06-18', laps: 70, distanceKm: 305.270, status: 'COMPLETED', winner: 'Max Verstappen' },
+  race_2023_britain: { id: 'race_2023_britain', season: 2023, round: 7, name: 'British Grand Prix', circuit: 'Silverstone', country: 'United Kingdom', date: '2023-07-09', laps: 52, distanceKm: 306.198, status: 'COMPLETED', winner: 'Max Verstappen' },
+  race_2023_singapore: { id: 'race_2023_singapore', season: 2023, round: 8, name: 'Singapore Grand Prix', circuit: 'Marina Bay', country: 'Singapore', date: '2023-09-17', laps: 62, distanceKm: 306.143, status: 'COMPLETED', winner: 'Carlos Sainz' },
+  race_2023_abudhabi: { id: 'race_2023_abudhabi', season: 2023, round: 9, name: 'Abu Dhabi Grand Prix', circuit: 'Yas Marina Circuit', country: 'UAE', date: '2023-12-07', laps: 58, distanceKm: 306.183, status: 'COMPLETED', winner: 'Max Verstappen' },
 };

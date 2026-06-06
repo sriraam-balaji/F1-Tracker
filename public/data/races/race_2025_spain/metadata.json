@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_spain",
+  "season": 2025,
+  "round": 9,
+  "name": "Spanish Grand Prix",
+  "circuit": "Circuit de Barcelona-Catalunya",
+  "country": "Spain",
+  "date": "2025-06-01",
+  "laps": 66,
+  "distanceKm": 307.236,
+  "status": "COMPLETED",
+  "winner": "Oscar Piastri",
+  "dnfs": 1,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_kimi_antonelli",
+    "lap": 50,
+    "time": "1:14.900"
+  }
+}

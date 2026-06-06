@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_miami",
+  "season": 2025,
+  "round": 6,
+  "name": "Miami Grand Prix",
+  "circuit": "Miami International Autodrome",
+  "country": "United States",
+  "date": "2025-05-04",
+  "laps": 57,
+  "distanceKm": 308.326,
+  "status": "COMPLETED",
+  "winner": "Oscar Piastri",
+  "dnfs": 3,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_max_verstappen",
+    "lap": 43,
+    "time": "1:12.900"
+  }
+}

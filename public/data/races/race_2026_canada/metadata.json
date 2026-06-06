@@ -1,0 +1,37 @@
+{
+  "id": "race_2026_canada",
+  "season": 2026,
+  "round": 7,
+  "name": "Canadian Grand Prix",
+  "circuit": "Circuit Gilles Villeneuve",
+  "country": "Canada",
+  "date": "2026-05-24",
+  "laps": 70,
+  "distanceKm": 305.27,
+  "status": "COMPLETED",
+  "winner": "Kimi Antonelli",
+  "weather": {
+    "airTemp": 18.2,
+    "trackTemp": 24.5,
+    "humidity": 75,
+    "conditions": "DRY",
+    "rainProbability": 15
+  },
+  "safetyCars": 1,
+  "dnfs": 0,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_kimi_antonelli",
+    "lap": 2,
+    "time": "1:06.672"
+  },
+  "pitStopStats": {
+    "totalStops": 40,
+    "averageDuration": 2.72,
+    "fastestStop": {
+      "driverId": "driver_alexander_albon",
+      "teamId": "constructor_williams",
+      "duration": 2.11
+    }
+  }
+}

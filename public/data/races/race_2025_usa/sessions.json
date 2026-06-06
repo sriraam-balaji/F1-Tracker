@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2025_usa_qualifying",
+    "raceId": "race_2025_usa",
+    "type": "QUALIFYING",
+    "date": "2025-10-19",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2025_usa_race",
+    "raceId": "race_2025_usa",
+    "type": "RACE",
+    "date": "2025-10-19",
+    "startTime": "15:00"
+  }
+]

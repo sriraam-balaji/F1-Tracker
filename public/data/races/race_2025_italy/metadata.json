@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_italy",
+  "season": 2025,
+  "round": 16,
+  "name": "Italian Grand Prix",
+  "circuit": "Monza",
+  "country": "Italy",
+  "date": "2025-08-31",
+  "laps": 53,
+  "distanceKm": 306.72,
+  "status": "COMPLETED",
+  "winner": "Charles Leclerc",
+  "dnfs": 1,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_lando_norris",
+    "lap": 41,
+    "time": "1:12.900"
+  }
+}

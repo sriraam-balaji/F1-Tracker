@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_singapore",
+  "season": 2025,
+  "round": 18,
+  "name": "Singapore Grand Prix",
+  "circuit": "Marina Bay",
+  "country": "Singapore",
+  "date": "2025-09-21",
+  "laps": 62,
+  "distanceKm": 306.143,
+  "status": "COMPLETED",
+  "winner": "Lando Norris",
+  "dnfs": 1,
+  "safetyCars": 0,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_george_russell",
+    "lap": 47,
+    "time": "1:14.500"
+  }
+}

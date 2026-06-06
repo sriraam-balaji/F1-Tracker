@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_brazil",
+  "season": 2025,
+  "round": 21,
+  "name": "São Paulo Grand Prix",
+  "circuit": "Interlagos",
+  "country": "Brazil",
+  "date": "2025-11-09",
+  "laps": 71,
+  "distanceKm": 305.879,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "dnfs": 3,
+  "safetyCars": 2,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_lando_norris",
+    "lap": 53,
+    "time": "1:14.100"
+  }
+}

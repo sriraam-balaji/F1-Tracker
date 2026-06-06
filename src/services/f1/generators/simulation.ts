@@ -57,7 +57,9 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
   }
 
   const driverStates: DriverSimState[] = seed.driverSeeds.map(ds => {
-    const meta = mockDrivers[ds.driverId];
+    const meta = { ...mockDrivers[ds.driverId] };
+    if (ds.paceRating !== undefined) meta.paceRating = ds.paceRating;
+    if (ds.consistency !== undefined) meta.consistency = ds.consistency;
     return {
       driverId: ds.driverId,
       constructorId: ds.constructorId,
@@ -100,9 +102,16 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
       events.push({ lap, type: 'SAFETY_CAR', details: 'Safety Car in. Green flag conditions resume.' });
     }
 
-    driverStates.forEach(state => {
-      if (state.isDNF) return;
+    // Sort active drivers by their current cumulativeTime to get track order
+    const activeStates = driverStates.filter(s => !s.isDNF);
+    const orderedStates = [...activeStates].sort((a, b) => {
+      if (lap === 1) return a.gridPosition - b.gridPosition;
+      return a.cumulativeTime - b.cumulativeTime;
+    });
 
+    const lapTimesForThisLap: Record<string, number> = {};
+
+    orderedStates.forEach((state, i) => {
       const driver = state.driverMeta;
       const driverRand = new SeededRandom(driver.id + `_lap_${lap}`);
 
@@ -111,7 +120,8 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
       // Force DNF for Verstappen Monaco lap 70 for simulation narrative
       const isMonacoVerstappenDnf = seed.raceId === 'race_2026_monaco' && driver.id === 'driver_max_verstappen' && lap === 70;
       
-      if (driverRand.next() < dnfChance || isMonacoVerstappenDnf) {
+      const isExpectedWinner = seed.expectedWinnerId === driver.id;
+      if (((driverRand.next() < dnfChance && !isExpectedWinner) || isMonacoVerstappenDnf) && !isExpectedWinner) {
         state.isDNF = true;
         state.dnfLap = lap;
         state.dnfReason = isMonacoVerstappenDnf ? 'Gearbox DNF' : (driverRand.next() > 0.5 ? 'Suspension failure' : 'Spun off');
@@ -129,7 +139,7 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
 
       // 2. Check for pit stop on this lap
       const driverSeed = seed.driverSeeds.find(ds => ds.driverId === state.driverId);
-      const isPlannedPit = driverSeed?.plannedPitLaps.includes(lap);
+      const isPlannedPit = driverSeed?.plannedPitLaps.includes(lap) || false;
       
       // Auto-pit if wet and on slick tires, or dry and on wet tires
       const needsWetPit = (weather.conditions === 'WET' || weather.conditions === 'MIXED') && 
@@ -137,21 +147,33 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
       const needsDryPit = weather.conditions === 'DRY' && 
                           (state.currentTire === TireCompound.INTER || state.currentTire === TireCompound.WET);
       
-      if (isPlannedPit || needsWetPit || needsDryPit) {
+      let nextTire = state.currentTire;
+      let shouldPit = false;
+
+      if (needsWetPit) {
+        nextTire = TireCompound.INTER;
+        shouldPit = true;
+      } else if (needsDryPit) {
+        nextTire = TireCompound.MEDIUM;
+        shouldPit = true;
+      } else if (isPlannedPit && driverSeed) {
+        // Look up the next tire in the base strategy
+        const plannedNextTire = driverSeed.baseStrategy[state.currentStintIndex + 1] || TireCompound.SOFT;
+        if (plannedNextTire !== state.currentTire) {
+          nextTire = plannedNextTire;
+          shouldPit = true;
+          state.currentStintIndex++;
+        } else {
+          // Progress strategy index to keep in sync, but do not actually pit
+          state.currentStintIndex++;
+        }
+      }
+
+      let pitAddedTime = 0;
+      if (shouldPit) {
         const pitDuration = parseFloat(driverRand.range(2.1, 3.2).toFixed(2));
         const oldTire = state.currentTire;
         
-        // Advance strategy index or auto-adapt to weather
-        let nextTire = oldTire;
-        if (needsWetPit) {
-          nextTire = TireCompound.INTER;
-        } else if (needsDryPit) {
-          nextTire = TireCompound.MEDIUM;
-        } else if (driverSeed) {
-          state.currentStintIndex++;
-          nextTire = driverSeed.baseStrategy[state.currentStintIndex] || TireCompound.SOFT;
-        }
-
         state.pitStops.push({
           lap,
           duration: pitDuration,
@@ -169,6 +191,7 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
 
         state.currentTire = nextTire;
         state.tireAge = 0;
+        pitAddedTime = pitDuration + 20.5; // Pit service + lane delay
 
         events.push({
           lap,
@@ -179,8 +202,25 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
       }
 
       // 3. Lap Pace Modeling
-      // Base race pace is around 75s (Monaco baseline). Speed Rating reduces times.
-      let lapTime = 74.0 - (driver.paceRating * 0.04);
+      // Constructor performance rating
+      const constructorPaceRating: Record<string, number> = {
+        constructor_mercedes: 96,
+        constructor_ferrari: 95,
+        constructor_mclaren: 94,
+        constructor_red_bull: 93,
+        constructor_alpine: 88,
+        constructor_haas: 87,
+        constructor_rb: 87,
+        constructor_williams: 85,
+        constructor_sauber: 82,
+        constructor_aston_martin: 80,
+      };
+
+      const carPace = constructorPaceRating[state.constructorId] || 85;
+      const combinedPace = (driver.paceRating * 0.60) + (carPace * 0.40);
+
+      // Base race pace is around 74s. Speed Rating reduces times.
+      let lapTime = 74.0 - (combinedPace * 0.04);
       
       // Fuel burn weight loss factor (laps get faster by ~0.05s as fuel burns)
       const fuelEffect = (seed.laps - lap) * 0.05;
@@ -226,11 +266,54 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
         }
       }
 
-      // Add pit stop lane duration delay directly into lap time calculation
-      const pitOnThisLap = state.pitStops.find(p => p.lap === lap);
-      if (pitOnThisLap) {
-        lapTime += 20.5; // pit entry speed limit delay
+      // Add pit stop lane duration delay
+      lapTime += pitAddedTime;
+
+      // 4. Traffic, DRS, and Overtaking Logic
+      if (!isSafetyCar && i > 0 && pitAddedTime === 0) {
+        const leaderState = orderedStates[i-1];
+        const leaderLapTime = lapTimesForThisLap[leaderState.driverId];
+
+        if (leaderLapTime !== undefined) {
+          const gap = state.cumulativeTime - leaderState.cumulativeTime;
+          
+          if (gap <= 1.0) {
+            // Apply dirty air penalty
+            const dirtyAirPenalty = seed.raceId === 'race_2026_monaco' ? 0.45 : 0.15;
+            lapTime += dirtyAirPenalty;
+
+            // Check if trailing car is naturally faster on this lap
+            if (lapTime < leaderLapTime) {
+              const paceDiff = leaderLapTime - lapTime;
+              const overtakeFactor = seed.raceId === 'race_2026_monaco' ? 0.05 : 0.40;
+              const overtakeChance = Math.min(0.85, paceDiff * overtakeFactor);
+
+              const overtakeRand = new SeededRandom(state.driverId + `_lap_${lap}_overtake`);
+              if (overtakeRand.next() < overtakeChance) {
+                // Successful overtake! Swap positions in time slightly
+                lapTime = (leaderState.cumulativeTime + leaderLapTime - 0.2) - state.cumulativeTime;
+                
+                events.push({
+                  lap,
+                  type: 'OVERTAKE',
+                  driverId: state.driverId,
+                  details: `${driver.name} performs an overtake on ${leaderState.driverMeta.name} for P${i}.`
+                });
+              } else {
+                // Failed overtake - stuck in traffic (DRS train)
+                const minFinishGap = 0.35 + overtakeRand.range(-0.1, 0.1);
+                const leaderFinishTime = leaderState.cumulativeTime + leaderLapTime;
+                if (state.cumulativeTime + lapTime < leaderFinishTime + minFinishGap) {
+                  lapTime = (leaderFinishTime + minFinishGap) - state.cumulativeTime;
+                }
+              }
+            }
+          }
+        }
       }
+
+      // Record this lap's final time
+      lapTimesForThisLap[state.driverId] = lapTime;
 
       // Format sector Times S1 S2 S3
       const s1Ratio = seed.raceId === 'race_2026_canada' ? 0.32 : 0.28;
@@ -263,10 +346,8 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
       state.lapsCompleted = lap;
       state.tireAge++;
     });
-
-    // Check for overtakes at end of lap (if a driver gets ahead of another in cumulative time)
-    // To keep it simple, we don't need complex position matrices, we sort below.
   }
+
 
   // 4. Calculate Final Race Standings (Sort by laps completed descending, then cumulative time ascending)
   const sortedStates = [...driverStates].sort((a, b) => {
@@ -427,6 +508,8 @@ export interface DriverSimulationSeed {
   gridPosition: number;
   baseStrategy: TireCompound[];
   plannedPitLaps: number[];
+  paceRating?: number;
+  consistency?: number;
 }
 
 export interface RaceSimulationSeed {
@@ -437,4 +520,5 @@ export interface RaceSimulationSeed {
   weatherTimeline: WeatherTimelineEvent[];
   driverSeeds: DriverSimulationSeed[];
   qualifyingResults: QualifyingResult[];
+  expectedWinnerId?: string;
 }

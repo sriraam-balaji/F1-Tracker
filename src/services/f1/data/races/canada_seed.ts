@@ -2,6 +2,7 @@ import { RaceSimulationSeed, TireCompound } from '../../types';
 
 export const canada2026Seed: RaceSimulationSeed = {
   raceId: 'race_2026_canada',
+  expectedWinnerId: 'driver_kimi_antonelli',
   laps: 70,
   distanceKm: 305.270,
   safetyCarLaps: [30, 31, 32, 33],
@@ -14,10 +15,10 @@ export const canada2026Seed: RaceSimulationSeed = {
     { driverId: 'driver_kimi_antonelli', constructorId: 'constructor_mercedes', gridPosition: 1, baseStrategy: [TireCompound.MEDIUM, TireCompound.INTER, TireCompound.MEDIUM], plannedPitLaps: [14, 48] },
     { driverId: 'driver_george_russell', constructorId: 'constructor_mercedes', gridPosition: 2, baseStrategy: [TireCompound.MEDIUM, TireCompound.INTER, TireCompound.MEDIUM], plannedPitLaps: [15, 49] },
     { driverId: 'driver_lewis_hamilton', constructorId: 'constructor_ferrari', gridPosition: 3, baseStrategy: [TireCompound.MEDIUM, TireCompound.INTER, TireCompound.MEDIUM], plannedPitLaps: [13, 47] },
-    { driverId: 'driver_charles_leclerc', constructorId: 'constructor_ferrari', gridPosition: 4, baseStrategy: [TireCompound.MEDIUM, TireCompound.INTER, TireCompound.MEDIUM], plannedPitLaps: [14, 49] },
+    { driverId: 'driver_charles_leclerc', constructorId: 'constructor_ferrari', gridPosition: 4, baseStrategy: [TireCompound.MEDIUM, TireCompound.INTER, TireCompound.MEDIUM], plannedPitLaps: [14, 49], paceRating: 92 },
     { driverId: 'driver_lando_norris', constructorId: 'constructor_mclaren', gridPosition: 5, baseStrategy: [TireCompound.MEDIUM, TireCompound.INTER, TireCompound.MEDIUM], plannedPitLaps: [15, 48] },
     { driverId: 'driver_oscar_piastri', constructorId: 'constructor_mclaren', gridPosition: 6, baseStrategy: [TireCompound.MEDIUM, TireCompound.INTER, TireCompound.MEDIUM], plannedPitLaps: [16, 49] },
-    { driverId: 'driver_max_verstappen', constructorId: 'constructor_red_bull', gridPosition: 7, baseStrategy: [TireCompound.MEDIUM, TireCompound.INTER, TireCompound.MEDIUM], plannedPitLaps: [14, 47] },
+    { driverId: 'driver_max_verstappen', constructorId: 'constructor_red_bull', gridPosition: 7, baseStrategy: [TireCompound.MEDIUM, TireCompound.INTER, TireCompound.MEDIUM], plannedPitLaps: [14, 47], paceRating: 94.0, consistency: 93 },
     { driverId: 'driver_pierre_gasly', constructorId: 'constructor_alpine', gridPosition: 8, baseStrategy: [TireCompound.MEDIUM, TireCompound.INTER, TireCompound.MEDIUM], plannedPitLaps: [15, 47] },
     { driverId: 'driver_oliver_bearman', constructorId: 'constructor_haas', gridPosition: 9, baseStrategy: [TireCompound.MEDIUM, TireCompound.INTER, TireCompound.MEDIUM], plannedPitLaps: [14, 48] },
     { driverId: 'driver_liam_lawson', constructorId: 'constructor_rb', gridPosition: 10, baseStrategy: [TireCompound.MEDIUM, TireCompound.INTER, TireCompound.MEDIUM], plannedPitLaps: [13, 47] },

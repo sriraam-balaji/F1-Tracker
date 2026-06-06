@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_austria",
+  "season": 2025,
+  "round": 11,
+  "name": "Austrian Grand Prix",
+  "circuit": "Red Bull Ring",
+  "country": "Austria",
+  "date": "2025-06-29",
+  "laps": 71,
+  "distanceKm": 306.452,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "dnfs": 2,
+  "safetyCars": 2,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_max_verstappen",
+    "lap": 53,
+    "time": "1:12.900"
+  }
+}

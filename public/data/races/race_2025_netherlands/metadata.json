@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_netherlands",
+  "season": 2025,
+  "round": 15,
+  "name": "Dutch Grand Prix",
+  "circuit": "Zandvoort",
+  "country": "Netherlands",
+  "date": "2025-08-24",
+  "laps": 72,
+  "distanceKm": 306.144,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "dnfs": 2,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_max_verstappen",
+    "lap": 54,
+    "time": "1:13.700"
+  }
+}

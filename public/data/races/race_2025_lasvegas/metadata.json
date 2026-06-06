@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_lasvegas",
+  "season": 2025,
+  "round": 22,
+  "name": "Las Vegas Grand Prix",
+  "circuit": "Las Vegas Strip Circuit",
+  "country": "United States",
+  "date": "2025-11-22",
+  "laps": 50,
+  "distanceKm": 306.15,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "dnfs": 0,
+  "safetyCars": 0,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_max_verstappen",
+    "lap": 39,
+    "time": "1:13.700"
+  }
+}

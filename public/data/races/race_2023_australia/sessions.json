@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2023_australia_qualifying",
+    "raceId": "race_2023_australia",
+    "type": "QUALIFYING",
+    "date": "2023-04-02",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2023_australia_race",
+    "raceId": "race_2023_australia",
+    "type": "RACE",
+    "date": "2023-04-02",
+    "startTime": "15:00"
+  }
+]

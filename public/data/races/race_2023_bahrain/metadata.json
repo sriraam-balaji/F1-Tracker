@@ -1,0 +1,21 @@
+{
+  "id": "race_2023_bahrain",
+  "season": 2023,
+  "round": 1,
+  "name": "Bahrain Grand Prix",
+  "circuit": "Sakhir",
+  "country": "Bahrain",
+  "date": "2023-03-05",
+  "laps": 57,
+  "distanceKm": 308.238,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "dnfs": 3,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_lewis_hamilton",
+    "lap": 43,
+    "time": "1:14.900"
+  }
+}

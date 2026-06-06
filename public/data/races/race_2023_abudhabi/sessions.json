@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2023_abudhabi_qualifying",
+    "raceId": "race_2023_abudhabi",
+    "type": "QUALIFYING",
+    "date": "2023-12-07",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2023_abudhabi_race",
+    "raceId": "race_2023_abudhabi",
+    "type": "RACE",
+    "date": "2023-12-07",
+    "startTime": "15:00"
+  }
+]

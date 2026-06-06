@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_saudi",
+  "season": 2025,
+  "round": 2,
+  "name": "Saudi Arabian Grand Prix",
+  "circuit": "Jeddah Corniche",
+  "country": "Saudi Arabia",
+  "date": "2025-03-09",
+  "laps": 50,
+  "distanceKm": 308.45,
+  "status": "COMPLETED",
+  "winner": "Oscar Piastri",
+  "dnfs": 3,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_max_verstappen",
+    "lap": 39,
+    "time": "1:12.900"
+  }
+}

@@ -1,0 +1,624 @@
+[
+  {
+    "driverId": "driver_max_verstappen",
+    "constructorId": "constructor_red_bull",
+    "gridPosition": 1,
+    "finishPosition": 1,
+    "points": 25,
+    "lapsCompleted": 44,
+    "finishTime": "1:43:15.420",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "MEDIUM",
+        "startLap": 1,
+        "endLap": 17
+      },
+      {
+        "compound": "HARD",
+        "startLap": 18,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 17,
+        "duration": 2.5,
+        "tireIn": "MEDIUM",
+        "tireOut": "HARD"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_kimi_antonelli",
+    "constructorId": "constructor_mercedes",
+    "gridPosition": 8,
+    "finishPosition": 2,
+    "points": 18,
+    "lapsCompleted": 44,
+    "finishTime": "+3.920s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "MEDIUM",
+        "startLap": 1,
+        "endLap": 13
+      },
+      {
+        "compound": "HARD",
+        "startLap": 14,
+        "endLap": 28
+      },
+      {
+        "compound": "MEDIUM",
+        "startLap": 29,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 13,
+        "duration": 2.2,
+        "tireIn": "MEDIUM",
+        "tireOut": "HARD"
+      },
+      {
+        "lap": 28,
+        "duration": 2.18,
+        "tireIn": "HARD",
+        "tireOut": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_lando_norris",
+    "constructorId": "constructor_mclaren",
+    "gridPosition": 2,
+    "finishPosition": 3,
+    "points": 15,
+    "lapsCompleted": 44,
+    "finishTime": "+10.590s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "SOFT",
+        "startLap": 1,
+        "endLap": 20
+      },
+      {
+        "compound": "MEDIUM",
+        "startLap": 21,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 20,
+        "duration": 2.8,
+        "tireIn": "SOFT",
+        "tireOut": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_oscar_piastri",
+    "constructorId": "constructor_mclaren",
+    "gridPosition": 5,
+    "finishPosition": 4,
+    "points": 12,
+    "lapsCompleted": 44,
+    "finishTime": "+13.660s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "MEDIUM",
+        "startLap": 1,
+        "endLap": 23
+      },
+      {
+        "compound": "HARD",
+        "startLap": 24,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 23,
+        "duration": 3.1,
+        "tireIn": "MEDIUM",
+        "tireOut": "HARD"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_alexander_albon",
+    "constructorId": "constructor_williams",
+    "gridPosition": 10,
+    "finishPosition": 5,
+    "points": 10,
+    "lapsCompleted": 44,
+    "finishTime": "+15.280s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "MEDIUM",
+        "startLap": 1,
+        "endLap": 17
+      },
+      {
+        "compound": "HARD",
+        "startLap": 18,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 17,
+        "duration": 2.5,
+        "tireIn": "MEDIUM",
+        "tireOut": "HARD"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_fernando_alonso",
+    "constructorId": "constructor_aston_martin",
+    "gridPosition": 11,
+    "finishPosition": 6,
+    "points": 8,
+    "lapsCompleted": 44,
+    "finishTime": "+17.850s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "SOFT",
+        "startLap": 1,
+        "endLap": 16
+      },
+      {
+        "compound": "MEDIUM",
+        "startLap": 17,
+        "endLap": 29
+      },
+      {
+        "compound": "HARD",
+        "startLap": 30,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 16,
+        "duration": 2.6,
+        "tireIn": "SOFT",
+        "tireOut": "MEDIUM"
+      },
+      {
+        "lap": 29,
+        "duration": 2.42,
+        "tireIn": "MEDIUM",
+        "tireOut": "HARD"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_charles_leclerc",
+    "constructorId": "constructor_ferrari",
+    "gridPosition": 3,
+    "finishPosition": 7,
+    "points": 6,
+    "lapsCompleted": 44,
+    "finishTime": "+24.320s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "MEDIUM",
+        "startLap": 1,
+        "endLap": 21
+      },
+      {
+        "compound": "HARD",
+        "startLap": 22,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 21,
+        "duration": 2.9,
+        "tireIn": "MEDIUM",
+        "tireOut": "HARD"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_george_russell",
+    "constructorId": "constructor_mercedes",
+    "gridPosition": 4,
+    "finishPosition": 8,
+    "points": 4,
+    "lapsCompleted": 44,
+    "finishTime": "+28.290s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "SOFT",
+        "startLap": 1,
+        "endLap": 22
+      },
+      {
+        "compound": "MEDIUM",
+        "startLap": 23,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 22,
+        "duration": 3,
+        "tireIn": "SOFT",
+        "tireOut": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_lewis_hamilton",
+    "constructorId": "constructor_ferrari",
+    "gridPosition": 6,
+    "finishPosition": 9,
+    "points": 2,
+    "lapsCompleted": 44,
+    "finishTime": "+30.760s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "MEDIUM",
+        "startLap": 1,
+        "endLap": 23
+      },
+      {
+        "compound": "HARD",
+        "startLap": 24,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 23,
+        "duration": 3.1,
+        "tireIn": "MEDIUM",
+        "tireOut": "HARD"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_sergio_perez",
+    "constructorId": "constructor_red_bull",
+    "gridPosition": 7,
+    "finishPosition": 10,
+    "points": 1,
+    "lapsCompleted": 44,
+    "finishTime": "+35.430s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "SOFT",
+        "startLap": 1,
+        "endLap": 18
+      },
+      {
+        "compound": "MEDIUM",
+        "startLap": 19,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 18,
+        "duration": 2.6,
+        "tireIn": "SOFT",
+        "tireOut": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_carlos_sainz",
+    "constructorId": "constructor_williams",
+    "gridPosition": 9,
+    "finishPosition": 11,
+    "points": 0,
+    "lapsCompleted": 44,
+    "finishTime": "+38.450s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "SOFT",
+        "startLap": 1,
+        "endLap": 20
+      },
+      {
+        "compound": "MEDIUM",
+        "startLap": 21,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 20,
+        "duration": 2.8,
+        "tireIn": "SOFT",
+        "tireOut": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_lance_stroll",
+    "constructorId": "constructor_aston_martin",
+    "gridPosition": 14,
+    "finishPosition": 12,
+    "points": 0,
+    "lapsCompleted": 44,
+    "finishTime": "+39.570s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "SOFT",
+        "startLap": 1,
+        "endLap": 24
+      },
+      {
+        "compound": "MEDIUM",
+        "startLap": 25,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 24,
+        "duration": 3.2,
+        "tireIn": "SOFT",
+        "tireOut": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_isack_hadjar",
+    "constructorId": "constructor_rb",
+    "gridPosition": 13,
+    "finishPosition": 13,
+    "points": 0,
+    "lapsCompleted": 44,
+    "finishTime": "+45.890s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "SOFT",
+        "startLap": 1,
+        "endLap": 22
+      },
+      {
+        "compound": "MEDIUM",
+        "startLap": 23,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 22,
+        "duration": 3,
+        "tireIn": "SOFT",
+        "tireOut": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_nico_hulkenberg",
+    "constructorId": "constructor_sauber",
+    "gridPosition": 12,
+    "finishPosition": 14,
+    "points": 0,
+    "lapsCompleted": 44,
+    "finishTime": "+49.060s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "MEDIUM",
+        "startLap": 1,
+        "endLap": 17
+      },
+      {
+        "compound": "HARD",
+        "startLap": 18,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 17,
+        "duration": 2.5,
+        "tireIn": "MEDIUM",
+        "tireOut": "HARD"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_liam_lawson",
+    "constructorId": "constructor_rb",
+    "gridPosition": 17,
+    "finishPosition": 15,
+    "points": 0,
+    "lapsCompleted": 44,
+    "finishTime": "+51.630s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "SOFT",
+        "startLap": 1,
+        "endLap": 20
+      },
+      {
+        "compound": "MEDIUM",
+        "startLap": 21,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 20,
+        "duration": 2.8,
+        "tireIn": "SOFT",
+        "tireOut": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_oliver_bearman",
+    "constructorId": "constructor_haas",
+    "gridPosition": 15,
+    "finishPosition": 16,
+    "points": 0,
+    "lapsCompleted": 44,
+    "finishTime": "+56.050s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "SOFT",
+        "startLap": 1,
+        "endLap": 20
+      },
+      {
+        "compound": "MEDIUM",
+        "startLap": 21,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 20,
+        "duration": 2.8,
+        "tireIn": "SOFT",
+        "tireOut": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_gabriel_bortoleto",
+    "constructorId": "constructor_sauber",
+    "gridPosition": 18,
+    "finishPosition": 17,
+    "points": 0,
+    "lapsCompleted": 44,
+    "finishTime": "+57.420s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "MEDIUM",
+        "startLap": 1,
+        "endLap": 19
+      },
+      {
+        "compound": "HARD",
+        "startLap": 20,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 19,
+        "duration": 2.7,
+        "tireIn": "MEDIUM",
+        "tireOut": "HARD"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_esteban_ocon",
+    "constructorId": "constructor_haas",
+    "gridPosition": 16,
+    "finishPosition": 18,
+    "points": 0,
+    "lapsCompleted": 44,
+    "finishTime": "+63.090s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "SOFT",
+        "startLap": 1,
+        "endLap": 24
+      },
+      {
+        "compound": "MEDIUM",
+        "startLap": 25,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 24,
+        "duration": 3.2,
+        "tireIn": "SOFT",
+        "tireOut": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_pierre_gasly",
+    "constructorId": "constructor_alpine",
+    "gridPosition": 19,
+    "finishPosition": 19,
+    "points": 0,
+    "lapsCompleted": 44,
+    "finishTime": "+65.610s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "SOFT",
+        "startLap": 1,
+        "endLap": 16
+      },
+      {
+        "compound": "MEDIUM",
+        "startLap": 17,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 16,
+        "duration": 2.4,
+        "tireIn": "SOFT",
+        "tireOut": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "driverId": "driver_jack_doohan",
+    "constructorId": "constructor_alpine",
+    "gridPosition": 20,
+    "finishPosition": 20,
+    "points": 0,
+    "lapsCompleted": 44,
+    "finishTime": "+68.380s",
+    "status": "FINISHED",
+    "tireStrategy": [
+      {
+        "compound": "MEDIUM",
+        "startLap": 1,
+        "endLap": 23
+      },
+      {
+        "compound": "HARD",
+        "startLap": 24,
+        "endLap": 44
+      }
+    ],
+    "pitStops": [
+      {
+        "lap": 23,
+        "duration": 3.1,
+        "tireIn": "MEDIUM",
+        "tireOut": "HARD"
+      }
+    ]
+  }
+]

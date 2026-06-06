@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_hungary",
+  "season": 2025,
+  "round": 13,
+  "name": "Hungarian Grand Prix",
+  "circuit": "Hungaroring",
+  "country": "Hungary",
+  "date": "2025-07-27",
+  "laps": 70,
+  "distanceKm": 306.63,
+  "status": "COMPLETED",
+  "winner": "Lando Norris",
+  "dnfs": 1,
+  "safetyCars": 0,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_max_verstappen",
+    "lap": 53,
+    "time": "1:12.900"
+  }
+}

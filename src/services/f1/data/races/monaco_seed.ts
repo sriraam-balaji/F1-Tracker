@@ -2,6 +2,7 @@ import { RaceSimulationSeed, TireCompound } from '../../types';
 
 export const monaco2026Seed: RaceSimulationSeed = {
   raceId: 'race_2026_monaco',
+  expectedWinnerId: 'driver_kimi_antonelli',
   laps: 78,
   distanceKm: 260.286,
   safetyCarLaps: [10, 11, 12, 13, 45, 46, 47],

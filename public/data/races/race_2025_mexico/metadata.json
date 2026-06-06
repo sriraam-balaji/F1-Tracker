@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_mexico",
+  "season": 2025,
+  "round": 20,
+  "name": "Mexico City Grand Prix",
+  "circuit": "Autódromo Hermanos Rodríguez",
+  "country": "Mexico",
+  "date": "2025-10-26",
+  "laps": 71,
+  "distanceKm": 305.354,
+  "status": "COMPLETED",
+  "winner": "Carlos Sainz",
+  "dnfs": 2,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_carlos_sainz",
+    "lap": 53,
+    "time": "1:15.300"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "race_2023_britain",
+  "season": 2023,
+  "round": 7,
+  "name": "British Grand Prix",
+  "circuit": "Silverstone",
+  "country": "United Kingdom",
+  "date": "2023-07-09",
+  "laps": 52,
+  "distanceKm": 306.198,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "dnfs": 2,
+  "safetyCars": 2,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_max_verstappen",
+    "lap": 40,
+    "time": "1:14.900"
+  }
+}

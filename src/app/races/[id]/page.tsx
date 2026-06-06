@@ -31,28 +31,174 @@ export default function RaceDetailPage() {
   const [activeTab, setActiveTab] = useState<'standings' | 'qualifying' | 'telemetry' | 'timeline' | 'pitstops'>('standings');
   const [selectedDrivers, setSelectedDrivers] = useState<string[]>([]);
 
-  const race = getRaceById(raceId);
-  const sessions = getSessionsForRace(raceId);
-  
+  // Lazy loaded telemetry and timeline states
+  const [telemetryData, setTelemetryData] = useState<Record<string, any[]> | null>(null);
+  const [timelineEvents, setTimelineEvents] = useState<any[] | null>(null);
+  const [loadingTelemetry, setLoadingTelemetry] = useState<boolean>(false);
+  const [loadingTimeline, setLoadingTimeline] = useState<boolean>(false);
+
+  // Synchronous initial fallback values from db (selectors)
+  const fallbackRace = getRaceById(raceId);
+  const fallbackSessions = getSessionsForRace(raceId);
+  const fallbackRaceSession = fallbackSessions.find(s => s.type === 'RACE');
+  const fallbackQualSession = fallbackSessions.find(s => s.type === 'QUALIFYING');
+  const fallbackResults = fallbackRaceSession ? getSessionResults(fallbackRaceSession.id) : [];
+  const fallbackQualifying = fallbackQualSession ? getSessionQualifying(fallbackQualSession.id) : [];
+
+  // State hooks loaded dynamically from files
+  const [race, setRace] = useState<any | null>(fallbackRace || null);
+  const [sessions, setSessions] = useState<any[]>(fallbackSessions);
+  const [results, setResults] = useState<any[]>(fallbackResults);
+  const [qualifying, setQualifying] = useState<any[]>(fallbackQualifying);
+  const [weather, setWeather] = useState<any | null>(fallbackRace?.weather || null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [isDynamicLoaded, setIsDynamicLoaded] = useState<boolean>(false);
+
   const raceSession = sessions.find(s => s.type === 'RACE');
   const qualSession = sessions.find(s => s.type === 'QUALIFYING');
-
-  const results = raceSession ? getSessionResults(raceSession.id) : [];
-  const qualifying = qualSession ? getSessionQualifying(qualSession.id) : [];
-  const events = raceSession ? getEventTimeline(raceSession.id) : [];
-
-  // Reset/initialize selected drivers when raceId changes
-  const hasTelemetry = results.some(r => getLapTelemetry(raceSession!.id, r.driverId).length > 0);
-  const topDrivers = results.slice(0, 5).map(r => r.driverId);
+  const hasTelemetry = race && race.status === 'COMPLETED' && raceSession !== undefined;
 
   useEffect(() => {
-    if (hasTelemetry) {
-      setSelectedDrivers(topDrivers.slice(0, 3));
-    } else {
+    let active = true;
+    
+    async function loadRacePack() {
+      try {
+        setLoading(true);
+        // Fetch sessions.json
+        const sessionsRes = await fetch(`/data/races/${raceId}/sessions.json`);
+        if (!sessionsRes.ok) throw new Error('sessions.json not found');
+        const sessionsData = await sessionsRes.json();
+
+        // Fetch metadata.json
+        const metadataRes = await fetch(`/data/races/${raceId}/metadata.json`);
+        if (!metadataRes.ok) throw new Error('metadata.json not found');
+        const metadataData = await metadataRes.json();
+
+        const rSession = sessionsData.find((s: any) => s.type === 'RACE');
+        const qSession = sessionsData.find((s: any) => s.type === 'QUALIFYING');
+
+        // Fetch results.json
+        let resultsData = [];
+        if (rSession) {
+          const resultsRes = await fetch(`/data/races/${raceId}/results.json`);
+          if (resultsRes.ok) {
+            resultsData = await resultsRes.json();
+          }
+        }
+
+        // Fetch qualifying.json
+        let qualifyingData = [];
+        if (qSession) {
+          const qualifyingRes = await fetch(`/data/races/${raceId}/qualifying.json`);
+          if (qualifyingRes.ok) {
+            qualifyingData = await qualifyingRes.json();
+          }
+        }
+
+        // Fetch weather.json
+        let weatherData = null;
+        if (rSession) {
+          const weatherRes = await fetch(`/data/races/${raceId}/weather.json`);
+          if (weatherRes.ok) {
+            weatherData = await weatherRes.json();
+          }
+        }
+
+        if (active) {
+          setRace(metadataData);
+          setSessions(sessionsData);
+          setResults(resultsData);
+          setQualifying(qualifyingData);
+          setWeather(weatherData);
+          setIsDynamicLoaded(true);
+          setLoading(false);
+        }
+      } catch (err) {
+        console.warn('Could not load static race files, falling back to local simulation database:', err);
+        if (active) {
+          // Fall back to selector defaults
+          setRace(fallbackRace || null);
+          setSessions(fallbackSessions);
+          setResults(fallbackResults);
+          setQualifying(fallbackQualifying);
+          setWeather(fallbackRace?.weather || null);
+          setLoading(false);
+        }
+      }
+    }
+
+    loadRacePack();
+
+    return () => {
+      active = false;
+    };
+  }, [raceId]);
+
+  // Fetch telemetry dynamically when telemetry tab is selected
+  useEffect(() => {
+    if (activeTab === 'telemetry' && !telemetryData && raceSession) {
+      setLoadingTelemetry(true);
+      fetch(`/data/races/${raceId}/lap_times.json`)
+        .then(res => {
+          if (!res.ok) throw new Error('Data file not found');
+          return res.json();
+        })
+        .then(data => {
+          setTelemetryData(data);
+          setLoadingTelemetry(false);
+          const topDrivers = results.slice(0, 5).map(r => r.driverId);
+          setSelectedDrivers(topDrivers.slice(0, 3));
+        })
+        .catch(err => {
+          console.error('Failed to load telemetry:', err);
+          setLoadingTelemetry(false);
+        });
+    }
+  }, [activeTab, telemetryData, raceId, raceSession, results]);
+
+  // Fetch timeline events dynamically when timeline tab is selected
+  useEffect(() => {
+    if (activeTab === 'timeline' && !timelineEvents && raceSession) {
+      setLoadingTimeline(true);
+      fetch(`/data/races/${raceId}/timeline.json`)
+        .then(res => {
+          if (!res.ok) throw new Error('Data file not found');
+          return res.json();
+        })
+        .then(data => {
+          setTimelineEvents(data);
+          setLoadingTimeline(false);
+        })
+        .catch(err => {
+          console.error('Failed to load timeline:', err);
+          setLoadingTimeline(false);
+        });
+    }
+  }, [activeTab, timelineEvents, raceId, raceSession]);
+
+  // Reset selected drivers if needed
+  useEffect(() => {
+    if (!hasTelemetry) {
       setSelectedDrivers([]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [raceId, hasTelemetry]);
+
+  if (loading) {
+    return (
+      <div className="container" style={{ marginTop: "32px" }}>
+        <div className="retro-panel crt-effect" style={{ textAlign: "center", padding: "48px" }}>
+          <RefreshCw className="blink" size={48} style={{ color: "var(--retro-gold)", marginBottom: "16px", margin: "0 auto" }} />
+          <h2 style={{ color: "var(--retro-gold)", fontSize: "1.5rem", marginBottom: "16px" }}>
+            ACCESSING_RACE_ARCHIVES...
+          </h2>
+          <p className="mono text-secondary">
+            ESTABLISHING DATALINK TO MISSION CONTROL SATELLITE...
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   if (!race) {
     return (
@@ -75,14 +221,14 @@ export default function RaceDetailPage() {
   // Format telemetry data for Recharts
   // Combined data structure: [{ lap: 1, VER: 74.3, NOR: 74.5 }, ...]
   const chartData: any[] = [];
-  if (hasTelemetry && raceSession) {
+  if (hasTelemetry && raceSession && telemetryData) {
     const totalLaps = race.laps;
     for (let lap = 1; lap <= totalLaps; lap++) {
       const lapObj: any = { lap };
       selectedDrivers.forEach(driverId => {
         const driver = getDriverById(driverId);
-        const laps = getLapTelemetry(raceSession.id, driverId);
-        const lapData = laps.find(l => l.lap === lap);
+        const laps = telemetryData[driverId] || [];
+        const lapData = laps.find((l: any) => l.lap === lap);
         if (lapData) {
           lapObj[driver ? driver.code : driverId] = lapData.lapTime;
         }
@@ -184,11 +330,11 @@ export default function RaceDetailPage() {
           <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
             <Cloud size={20} color="var(--retro-blue)" />
             <div className="led-digit" style={{ fontSize: "1.45rem", color: "var(--retro-blue)", textShadow: "0 0 4px var(--retro-blue)" }}>
-              {race.weather ? race.weather.conditions : 'DRY'}
+              {weather ? weather.conditions : (race.weather ? race.weather.conditions : 'DRY')}
             </div>
           </div>
           <div style={{ fontSize: "0.85rem" }}>
-            AIR: {race.weather?.airTemp || 21}°C // TRACK: {race.weather?.trackTemp || 32}°C
+            AIR: {weather ? weather.airTemp : (race.weather?.airTemp || 21)}°C // TRACK: {weather ? weather.trackTemp : (race.weather?.trackTemp || 32)}°C
           </div>
         </div>
 
@@ -328,7 +474,7 @@ export default function RaceDetailPage() {
                           </td>
                           <td>
                             <div style={{ display: "flex", gap: "6px" }}>
-                              {res.tireStrategy.map((stint, idx) => (
+                              {res.tireStrategy.map((stint: any, idx: number) => (
                                 <span key={idx} style={{
                                   fontSize: "0.65rem",
                                   padding: "2px 6px",
@@ -443,8 +589,8 @@ export default function RaceDetailPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {results.flatMap(r => r.pitStops.map(p => ({ driverId: r.driverId, constructorId: r.constructorId, stop: p })))
-                    .sort((a, b) => a.stop.lap - b.stop.lap)
+                  {results.flatMap((r: any) => r.pitStops.map((p: any) => ({ driverId: r.driverId, constructorId: r.constructorId, stop: p })))
+                    .sort((a: any, b: any) => a.stop.lap - b.stop.lap)
                     .length === 0 ? (
                       <tr>
                         <td colSpan={7} style={{ textAlign: "center", padding: "24px" }} className="mono text-secondary">
@@ -452,9 +598,9 @@ export default function RaceDetailPage() {
                         </td>
                       </tr>
                     ) : (
-                      results.flatMap(r => r.pitStops.map(p => ({ driverId: r.driverId, constructorId: r.constructorId, stop: p })))
-                        .sort((a, b) => a.stop.lap - b.stop.lap)
-                        .map((item, index) => {
+                      results.flatMap((r: any) => r.pitStops.map((p: any) => ({ driverId: r.driverId, constructorId: r.constructorId, stop: p })))
+                        .sort((a: any, b: any) => a.stop.lap - b.stop.lap)
+                        .map((item: any, index: number) => {
                           const driver = getDriverById(item.driverId);
                           const team = getConstructorById(item.constructorId);
                           const stop = item.stop;
@@ -506,12 +652,16 @@ export default function RaceDetailPage() {
               flexDirection: "column",
               gap: "16px"
             }}>
-              {events.length === 0 ? (
+              {loadingTimeline ? (
+                <div className="mono text-secondary" style={{ textAlign: "center", padding: "48px 0" }}>
+                  LOADING_SATELLITE_EVENT_FEED...
+                </div>
+              ) : !timelineEvents || timelineEvents.length === 0 ? (
                 <div className="mono text-secondary" style={{ textAlign: "center", padding: "48px 0" }}>
                   EVENT LOG IS EMPTY FOR THIS SESSION
                 </div>
               ) : (
-                events.map((evt, idx) => {
+                timelineEvents.map((evt, idx) => {
                   let badgeColor = "var(--text-secondary)";
                   let itemBg = "transparent";
 
@@ -590,6 +740,22 @@ export default function RaceDetailPage() {
                 <h3>TELEMETRY_LOGS_EMPTY</h3>
                 <p style={{ marginTop: "12px", fontSize: "0.9rem", maxWidth: "600px", margin: "12px auto 0" }}>
                   SATELLITE TELEMETRY FEED FOR LAP-BY-LAP ANALYTICS WAS ONLY INITIATED FOR THE COLD/WET CANADIAN GP (ROUND 7) AND SIMULATED MONACO GP (ROUND 8).
+                </p>
+              </div>
+            ) : loadingTelemetry ? (
+              <div style={{ textAlign: "center", padding: "64px 24px", color: "var(--text-secondary)" }} className="mono">
+                <RefreshCw className="blink" size={48} style={{ color: "var(--retro-gold)", marginBottom: "16px" }} />
+                <h3>CONNECTING_SATELLITE_FEED...</h3>
+                <p style={{ marginTop: "12px", fontSize: "0.9rem" }}>
+                  DOWNLOADING LAP-BY-LAP TELEMETRY DATA FROM MISSION CONTROL
+                </p>
+              </div>
+            ) : !telemetryData ? (
+              <div style={{ textAlign: "center", padding: "64px 24px", color: "var(--text-secondary)" }} className="mono">
+                <ShieldAlert size={48} style={{ color: "var(--retro-gold)", marginBottom: "16px" }} />
+                <h3>TELEMETRY_LOAD_FAILED</h3>
+                <p style={{ marginTop: "12px", fontSize: "0.9rem" }}>
+                  UNABLE TO RETRIEVE TELEMETRY ARCHIVES FOR THIS ROUND.
                 </p>
               </div>
             ) : (

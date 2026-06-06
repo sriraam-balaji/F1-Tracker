@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_britain",
+  "season": 2025,
+  "round": 12,
+  "name": "British Grand Prix",
+  "circuit": "Silverstone",
+  "country": "United Kingdom",
+  "date": "2025-07-06",
+  "laps": 52,
+  "distanceKm": 306.198,
+  "status": "COMPLETED",
+  "winner": "Lando Norris",
+  "dnfs": 2,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_lando_norris",
+    "lap": 40,
+    "time": "1:14.900"
+  }
+}

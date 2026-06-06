@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_monaco_qualifying",
+    "raceId": "race_2026_monaco",
+    "type": "QUALIFYING",
+    "date": "2026-06-06",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_monaco_race",
+    "raceId": "race_2026_monaco",
+    "type": "RACE",
+    "date": "2026-06-07",
+    "startTime": "14:00"
+  }
+]

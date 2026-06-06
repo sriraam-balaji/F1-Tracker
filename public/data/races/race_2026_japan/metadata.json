@@ -1,0 +1,21 @@
+{
+  "id": "race_2026_japan",
+  "season": 2026,
+  "round": 3,
+  "name": "Japanese Grand Prix",
+  "circuit": "Suzuka",
+  "country": "Japan",
+  "date": "2026-03-29",
+  "laps": 53,
+  "distanceKm": 307.471,
+  "status": "COMPLETED",
+  "winner": "Kimi Antonelli",
+  "dnfs": 0,
+  "safetyCars": 0,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_kimi_antonelli",
+    "lap": 41,
+    "time": "1:14.900"
+  }
+}

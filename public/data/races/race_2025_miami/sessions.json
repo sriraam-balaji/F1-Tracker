@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2025_miami_qualifying",
+    "raceId": "race_2025_miami",
+    "type": "QUALIFYING",
+    "date": "2025-05-04",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2025_miami_race",
+    "raceId": "race_2025_miami",
+    "type": "RACE",
+    "date": "2025-05-04",
+    "startTime": "15:00"
+  }
+]

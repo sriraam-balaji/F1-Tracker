@@ -1,0 +1,21 @@
+{
+  "id": "race_2026_china",
+  "season": 2026,
+  "round": 2,
+  "name": "Chinese Grand Prix",
+  "circuit": "Shanghai International",
+  "country": "China",
+  "date": "2026-03-15",
+  "laps": 56,
+  "distanceKm": 305.066,
+  "status": "COMPLETED",
+  "winner": "Kimi Antonelli",
+  "dnfs": 5,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_lewis_hamilton",
+    "lap": 43,
+    "time": "1:12.900"
+  }
+}

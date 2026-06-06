@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_japan",
+  "season": 2025,
+  "round": 5,
+  "name": "Japanese Grand Prix",
+  "circuit": "Suzuka",
+  "country": "Japan",
+  "date": "2025-04-20",
+  "laps": 53,
+  "distanceKm": 307.471,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "dnfs": 1,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_lando_norris",
+    "lap": 41,
+    "time": "1:14.900"
+  }
+}

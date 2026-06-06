@@ -16,7 +16,7 @@ import { Trophy, ChevronLeft, Calendar, Shield, Zap, RefreshCw, BarChart2 } from
 export default function DriverDetailPage() {
   const params = useParams();
   const driverId = params.id as string;
-  const [season, setSeason] = useState<2026 | 2025>(2026);
+  const [season, setSeason] = useState<2026 | 2025 | 2023>(2026);
 
   const driver = getDriverById(driverId);
   const history = getDriverCareerHistory(driverId);
@@ -269,6 +269,13 @@ export default function DriverDetailPage() {
                   style={{ padding: "4px 8px", fontSize: "0.55rem", border: "2px solid var(--panel-border)", background: season === 2025 ? "var(--accent-color)" : "transparent" }}
                 >
                   2025
+                </button>
+                <button 
+                  onClick={() => setSeason(2023)} 
+                  className="retro-btn" 
+                  style={{ padding: "4px 8px", fontSize: "0.55rem", border: "2px solid var(--panel-border)", background: season === 2023 ? "var(--accent-color)" : "transparent" }}
+                >
+                  2023
                 </button>
               </div>
             </div>

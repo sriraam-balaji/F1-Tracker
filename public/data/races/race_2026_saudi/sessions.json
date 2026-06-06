@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2026_saudi_qualifying",
+    "raceId": "race_2026_saudi",
+    "type": "QUALIFYING",
+    "date": "2026-04-19",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2026_saudi_race",
+    "raceId": "race_2026_saudi",
+    "type": "RACE",
+    "date": "2026-04-19",
+    "startTime": "15:00"
+  }
+]

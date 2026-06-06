@@ -1,0 +1,21 @@
+{
+  "id": "race_2026_miami",
+  "season": 2026,
+  "round": 6,
+  "name": "Miami Grand Prix",
+  "circuit": "Miami International Autodrome",
+  "country": "United States",
+  "date": "2026-05-03",
+  "laps": 57,
+  "distanceKm": 308.326,
+  "status": "COMPLETED",
+  "winner": "Kimi Antonelli",
+  "dnfs": 0,
+  "safetyCars": 0,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_kimi_antonelli",
+    "lap": 43,
+    "time": "1:12.900"
+  }
+}

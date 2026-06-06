@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2025_hungary_qualifying",
+    "raceId": "race_2025_hungary",
+    "type": "QUALIFYING",
+    "date": "2025-07-27",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2025_hungary_race",
+    "raceId": "race_2025_hungary",
+    "type": "RACE",
+    "date": "2025-07-27",
+    "startTime": "15:00"
+  }
+]

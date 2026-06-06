@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2023_saudi_qualifying",
+    "raceId": "race_2023_saudi",
+    "type": "QUALIFYING",
+    "date": "2023-03-19",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2023_saudi_race",
+    "raceId": "race_2023_saudi",
+    "type": "RACE",
+    "date": "2023-03-19",
+    "startTime": "15:00"
+  }
+]

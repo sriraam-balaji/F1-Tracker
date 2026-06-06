@@ -1,0 +1,37 @@
+{
+  "id": "race_2023_monaco",
+  "season": 2023,
+  "round": 4,
+  "name": "Monaco Grand Prix",
+  "circuit": "Circuit de Monaco",
+  "country": "Monaco",
+  "date": "2023-05-28",
+  "laps": 78,
+  "distanceKm": 260.286,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "weather": {
+    "airTemp": 25.1,
+    "trackTemp": 39.3,
+    "humidity": 45.9,
+    "conditions": "WET",
+    "rainProbability": 90
+  },
+  "safetyCars": 0,
+  "redFlags": 0,
+  "dnfs": 2,
+  "fastestLap": {
+    "driverId": "driver_lewis_hamilton",
+    "lap": 33,
+    "time": "1:15.650"
+  },
+  "pitStopStats": {
+    "totalStops": 37,
+    "averageDuration": 2.67,
+    "fastestStop": {
+      "driverId": "driver_oscar_piastri",
+      "teamId": "constructor_mclaren",
+      "duration": 2.21
+    }
+  }
+}

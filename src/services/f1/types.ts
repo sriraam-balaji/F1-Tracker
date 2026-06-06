@@ -216,6 +216,8 @@ export interface DriverSimulationSeed {
   gridPosition: number;
   baseStrategy: TireCompound[];
   plannedPitLaps: number[];
+  paceRating?: number;
+  consistency?: number;
 }
 
 export interface RaceSimulationSeed {
@@ -226,5 +228,6 @@ export interface RaceSimulationSeed {
   weatherTimeline: WeatherTimelineEvent[];
   driverSeeds: DriverSimulationSeed[];
   qualifyingResults: QualifyingResult[];
+  expectedWinnerId?: string;
 }
 

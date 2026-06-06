@@ -1,0 +1,21 @@
+{
+  "id": "race_2023_abudhabi",
+  "season": 2023,
+  "round": 9,
+  "name": "Abu Dhabi Grand Prix",
+  "circuit": "Yas Marina Circuit",
+  "country": "UAE",
+  "date": "2023-12-07",
+  "laps": 58,
+  "distanceKm": 306.183,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "dnfs": 0,
+  "safetyCars": 0,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_max_verstappen",
+    "lap": 44,
+    "time": "1:12.900"
+  }
+}

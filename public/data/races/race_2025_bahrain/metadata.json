@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_bahrain",
+  "season": 2025,
+  "round": 1,
+  "name": "Bahrain Grand Prix",
+  "circuit": "Sakhir",
+  "country": "Bahrain",
+  "date": "2025-03-02",
+  "laps": 57,
+  "distanceKm": 308.238,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "dnfs": 2,
+  "safetyCars": 2,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_max_verstappen",
+    "lap": 43,
+    "time": "1:14.900"
+  }
+}

@@ -6,9 +6,9 @@ import { getDriversForSeason } from '@/services/f1/selectors';
 import { Trophy, Eye } from 'lucide-react';
 
 export default function DriversPage() {
-  const [season, setSeason] = useState<'2026' | '2025'>('2026');
+  const [season, setSeason] = useState<'2026' | '2025' | '2023'>('2026');
 
-  const drivers = getDriversForSeason(season === '2026' ? 2026 : 2025);
+  const drivers = getDriversForSeason(Number(season));
   const maxPoints = Math.max(...drivers.map(d => d.points), 1);
 
   return (
@@ -24,7 +24,7 @@ export default function DriversPage() {
       </div>
 
       {/* Season Selector */}
-      <div style={{ display: "flex", gap: "16px", marginBottom: "24px" }}>
+      <div style={{ display: "flex", gap: "16px", marginBottom: "24px", flexWrap: "wrap" }}>
         <button 
           onClick={() => setSeason('2026')} 
           className={`retro-btn ${season === '2026' ? 'active' : ''}`}
@@ -36,6 +36,12 @@ export default function DriversPage() {
           className={`retro-btn ${season === '2025' ? 'active' : ''}`}
         >
           2025 SEASON (ARCHIVE)
+        </button>
+        <button 
+          onClick={() => setSeason('2023')} 
+          className={`retro-btn ${season === '2023' ? 'active' : ''}`}
+        >
+          2023 SEASON (ARCHIVE)
         </button>
       </div>
 

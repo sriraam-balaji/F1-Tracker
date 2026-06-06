@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2026_austria_qualifying",
+    "raceId": "race_2026_austria",
+    "type": "QUALIFYING",
+    "date": "2026-06-28",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2026_austria_race",
+    "raceId": "race_2026_austria",
+    "type": "RACE",
+    "date": "2026-06-28",
+    "startTime": "15:00"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_emilia",
+  "season": 2025,
+  "round": 7,
+  "name": "Emilia Romagna Grand Prix",
+  "circuit": "Imola",
+  "country": "Italy",
+  "date": "2025-05-18",
+  "laps": 63,
+  "distanceKm": 309.049,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "dnfs": 3,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_oscar_piastri",
+    "lap": 48,
+    "time": "1:12.900"
+  }
+}

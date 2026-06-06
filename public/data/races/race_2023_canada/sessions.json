@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2023_canada_qualifying",
+    "raceId": "race_2023_canada",
+    "type": "QUALIFYING",
+    "date": "2023-06-17",
+    "startTime": "20:00"
+  },
+  {
+    "id": "session_2023_canada_race",
+    "raceId": "race_2023_canada",
+    "type": "RACE",
+    "date": "2023-06-18",
+    "startTime": "18:00"
+  }
+]

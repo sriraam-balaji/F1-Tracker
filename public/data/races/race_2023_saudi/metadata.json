@@ -1,0 +1,21 @@
+{
+  "id": "race_2023_saudi",
+  "season": 2023,
+  "round": 2,
+  "name": "Saudi Arabian Grand Prix",
+  "circuit": "Jeddah Corniche",
+  "country": "Saudi Arabia",
+  "date": "2023-03-19",
+  "laps": 50,
+  "distanceKm": 308.45,
+  "status": "COMPLETED",
+  "winner": "Sergio Pérez",
+  "dnfs": 2,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_sergio_perez",
+    "lap": 39,
+    "time": "1:12.900"
+  }
+}

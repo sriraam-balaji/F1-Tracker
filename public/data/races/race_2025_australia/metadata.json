@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_australia",
+  "season": 2025,
+  "round": 3,
+  "name": "Australian Grand Prix",
+  "circuit": "Albert Park",
+  "country": "Australia",
+  "date": "2025-03-23",
+  "laps": 58,
+  "distanceKm": 306.124,
+  "status": "COMPLETED",
+  "winner": "Lando Norris",
+  "dnfs": 1,
+  "safetyCars": 0,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_charles_leclerc",
+    "lap": 44,
+    "time": "1:12.900"
+  }
+}

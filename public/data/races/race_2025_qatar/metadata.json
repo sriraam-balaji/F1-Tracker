@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_qatar",
+  "season": 2025,
+  "round": 23,
+  "name": "Qatar Grand Prix",
+  "circuit": "Lusail International",
+  "country": "Qatar",
+  "date": "2025-11-30",
+  "laps": 57,
+  "distanceKm": 308.238,
+  "status": "COMPLETED",
+  "winner": "Lando Norris",
+  "dnfs": 1,
+  "safetyCars": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_oscar_piastri",
+    "lap": 43,
+    "time": "1:13.300"
+  }
+}

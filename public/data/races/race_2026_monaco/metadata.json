@@ -1,0 +1,12 @@
+{
+  "id": "race_2026_monaco",
+  "season": 2026,
+  "round": 8,
+  "name": "Monaco Grand Prix",
+  "circuit": "Circuit de Monaco",
+  "country": "Monaco",
+  "date": "2026-06-07",
+  "laps": 78,
+  "distanceKm": 260.286,
+  "status": "UPCOMING"
+}

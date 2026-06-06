@@ -1,0 +1,227 @@
+[
+  {
+    "lap": 1,
+    "type": "OVERTAKE",
+    "details": "Lights out! The Grand Prix gets underway."
+  },
+  {
+    "lap": 1,
+    "type": "PIT_STOP",
+    "driverId": "driver_yuki_tsunoda",
+    "details": "TSU pits for HARD tires. (Service: 2.46s)"
+  },
+  {
+    "lap": 6,
+    "type": "CRASH",
+    "driverId": "driver_logan_sargeant",
+    "details": "SAR is OUT of the race. Reason: DNF - Retired."
+  },
+  {
+    "lap": 10,
+    "type": "PIT_STOP",
+    "driverId": "driver_pierre_gasly",
+    "details": "GAS pits for HARD tires. (Service: 2.51s)"
+  },
+  {
+    "lap": 11,
+    "type": "PIT_STOP",
+    "driverId": "driver_lance_stroll",
+    "details": "STR pits for HARD tires. (Service: 2.47s)"
+  },
+  {
+    "lap": 11,
+    "type": "PIT_STOP",
+    "driverId": "driver_nico_hulkenberg",
+    "details": "HUL pits for HARD tires. (Service: 2.62s)"
+  },
+  {
+    "lap": 11,
+    "type": "PIT_STOP",
+    "driverId": "driver_nyck_de_vries",
+    "details": "DEV pits for HARD tires. (Service: 2.81s)"
+  },
+  {
+    "lap": 12,
+    "type": "PIT_STOP",
+    "driverId": "driver_max_verstappen",
+    "details": "VER pits for HARD tires. (Service: 2.5s)"
+  },
+  {
+    "lap": 12,
+    "type": "PIT_STOP",
+    "driverId": "driver_fernando_alonso",
+    "details": "ALO pits for HARD tires. (Service: 2.29s)"
+  },
+  {
+    "lap": 12,
+    "type": "PIT_STOP",
+    "driverId": "driver_lewis_hamilton",
+    "details": "HAM pits for HARD tires. (Service: 3.03s)"
+  },
+  {
+    "lap": 12,
+    "type": "PIT_STOP",
+    "driverId": "driver_alexander_albon",
+    "details": "ALB pits for HARD tires. (Service: 2.58s)"
+  },
+  {
+    "lap": 12,
+    "type": "PIT_STOP",
+    "driverId": "driver_esteban_ocon",
+    "details": "OCO pits for HARD tires. (Service: 2.75s)"
+  },
+  {
+    "lap": 12,
+    "type": "PIT_STOP",
+    "driverId": "driver_oscar_piastri",
+    "details": "PIA pits for HARD tires. (Service: 2.62s)"
+  },
+  {
+    "lap": 12,
+    "type": "PIT_STOP",
+    "driverId": "driver_lando_norris",
+    "details": "NOR pits for HARD tires. (Service: 2.3s)"
+  },
+  {
+    "lap": 12,
+    "type": "PIT_STOP",
+    "driverId": "driver_zhou_guanyu",
+    "details": "ZHO pits for HARD tires. (Service: 2.75s)"
+  },
+  {
+    "lap": 12,
+    "type": "PIT_STOP",
+    "driverId": "driver_george_russell",
+    "details": "RUS pits for HARD tires. (Service: 3.09s)"
+  },
+  {
+    "lap": 12,
+    "type": "SAFETY_CAR",
+    "details": "Safety Car deployed. George Russell crashed into the wall at turn 4, leaving debris."
+  },
+  {
+    "lap": 16,
+    "type": "SAFETY_CAR",
+    "details": "Safety Car in. Green flag conditions resume."
+  },
+  {
+    "lap": 27,
+    "type": "PIT_STOP",
+    "driverId": "driver_lance_stroll",
+    "details": "STR pits for HARD tires. (Service: 2.51s)"
+  },
+  {
+    "lap": 31,
+    "type": "PIT_STOP",
+    "driverId": "driver_nico_hulkenberg",
+    "details": "HUL pits for HARD tires. (Service: 2.6s)"
+  },
+  {
+    "lap": 32,
+    "type": "PIT_STOP",
+    "driverId": "driver_zhou_guanyu",
+    "details": "ZHO pits for HARD tires. (Service: 2.42s)"
+  },
+  {
+    "lap": 33,
+    "type": "PIT_STOP",
+    "driverId": "driver_pierre_gasly",
+    "details": "GAS pits for HARD tires. (Service: 3.06s)"
+  },
+  {
+    "lap": 35,
+    "type": "PIT_STOP",
+    "driverId": "driver_lando_norris",
+    "details": "NOR pits for HARD tires. (Service: 2.85s)"
+  },
+  {
+    "lap": 35,
+    "type": "PIT_STOP",
+    "driverId": "driver_yuki_tsunoda",
+    "details": "TSU pits for MEDIUM tires. (Service: 2.98s)"
+  },
+  {
+    "lap": 35,
+    "type": "PIT_STOP",
+    "driverId": "driver_kevin_magnussen",
+    "details": "MAG pits for MEDIUM tires. (Service: 2.66s)"
+  },
+  {
+    "lap": 36,
+    "type": "PIT_STOP",
+    "driverId": "driver_esteban_ocon",
+    "details": "OCO pits for HARD tires. (Service: 2.33s)"
+  },
+  {
+    "lap": 36,
+    "type": "PIT_STOP",
+    "driverId": "driver_valtteri_bottas",
+    "details": "BOT pits for MEDIUM tires. (Service: 3.01s)"
+  },
+  {
+    "lap": 37,
+    "type": "PIT_STOP",
+    "driverId": "driver_sergio_perez",
+    "details": "PER pits for MEDIUM tires. (Service: 2.34s)"
+  },
+  {
+    "lap": 37,
+    "type": "PIT_STOP",
+    "driverId": "driver_oscar_piastri",
+    "details": "PIA pits for HARD tires. (Service: 2.51s)"
+  },
+  {
+    "lap": 38,
+    "type": "PIT_STOP",
+    "driverId": "driver_carlos_sainz",
+    "details": "SAI pits for HARD tires. (Service: 2.97s)"
+  },
+  {
+    "lap": 39,
+    "type": "PIT_STOP",
+    "driverId": "driver_charles_leclerc",
+    "details": "LEC pits for HARD tires. (Service: 2.37s)"
+  },
+  {
+    "lap": 40,
+    "type": "PIT_STOP",
+    "driverId": "driver_lewis_hamilton",
+    "details": "HAM pits for MEDIUM tires. (Service: 2.6s)"
+  },
+  {
+    "lap": 41,
+    "type": "PIT_STOP",
+    "driverId": "driver_fernando_alonso",
+    "details": "ALO pits for HARD tires. (Service: 2.67s)"
+  },
+  {
+    "lap": 42,
+    "type": "PIT_STOP",
+    "driverId": "driver_max_verstappen",
+    "details": "VER pits for MEDIUM tires. (Service: 2.93s)"
+  },
+  {
+    "lap": 50,
+    "type": "PIT_STOP",
+    "driverId": "driver_nyck_de_vries",
+    "details": "DEV pits for HARD tires. (Service: 2.91s)"
+  },
+  {
+    "lap": 53,
+    "type": "PIT_STOP",
+    "driverId": "driver_kevin_magnussen",
+    "details": "MAG pits for MEDIUM tires. (Service: 2.83s)"
+  },
+  {
+    "lap": 53,
+    "type": "CRASH",
+    "driverId": "driver_george_russell",
+    "details": "RUS is OUT of the race. Reason: DNF - Retired."
+  },
+  {
+    "lap": 68,
+    "type": "PIT_STOP",
+    "driverId": "driver_sergio_perez",
+    "details": "PER pits for SOFT tires. (Service: 2.2s)"
+  }
+]

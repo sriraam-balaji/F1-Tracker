@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2025_qatar_qualifying",
+    "raceId": "race_2025_qatar",
+    "type": "QUALIFYING",
+    "date": "2025-11-30",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2025_qatar_race",
+    "raceId": "race_2025_qatar",
+    "type": "RACE",
+    "date": "2025-11-30",
+    "startTime": "15:00"
+  }
+]

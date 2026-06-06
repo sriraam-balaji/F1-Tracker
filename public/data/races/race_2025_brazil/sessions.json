@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2025_brazil_qualifying",
+    "raceId": "race_2025_brazil",
+    "type": "QUALIFYING",
+    "date": "2025-11-09",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2025_brazil_race",
+    "raceId": "race_2025_brazil",
+    "type": "RACE",
+    "date": "2025-11-09",
+    "startTime": "15:00"
+  }
+]

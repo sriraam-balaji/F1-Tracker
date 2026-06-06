@@ -1,0 +1,21 @@
+{
+  "id": "race_2025_usa",
+  "season": 2025,
+  "round": 19,
+  "name": "United States Grand Prix",
+  "circuit": "Circuit of the Americas",
+  "country": "United States",
+  "date": "2025-10-19",
+  "laps": 56,
+  "distanceKm": 308.405,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "dnfs": 2,
+  "safetyCars": 2,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_max_verstappen",
+    "lap": 43,
+    "time": "1:12.900"
+  }
+}

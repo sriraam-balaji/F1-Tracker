@@ -1,0 +1,16 @@
+[
+  {
+    "id": "session_2025_australia_qualifying",
+    "raceId": "race_2025_australia",
+    "type": "QUALIFYING",
+    "date": "2025-03-23",
+    "startTime": "16:00"
+  },
+  {
+    "id": "session_2025_australia_race",
+    "raceId": "race_2025_australia",
+    "type": "RACE",
+    "date": "2025-03-23",
+    "startTime": "15:00"
+  }
+]

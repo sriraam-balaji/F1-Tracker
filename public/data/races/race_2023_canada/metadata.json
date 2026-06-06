@@ -1,0 +1,37 @@
+{
+  "id": "race_2023_canada",
+  "season": 2023,
+  "round": 6,
+  "name": "Canada Grand Prix",
+  "circuit": "Circuit Gilles Villeneuve",
+  "country": "Canada",
+  "date": "2023-06-18",
+  "laps": 70,
+  "distanceKm": 305.27,
+  "status": "COMPLETED",
+  "winner": "Max Verstappen",
+  "weather": {
+    "airTemp": 18.5,
+    "trackTemp": 30.6,
+    "humidity": 63.9,
+    "conditions": "DRY",
+    "rainProbability": 15
+  },
+  "safetyCars": 1,
+  "redFlags": 0,
+  "dnfs": 2,
+  "fastestLap": {
+    "driverId": "driver_sergio_perez",
+    "lap": 70,
+    "time": "1:14.481"
+  },
+  "pitStopStats": {
+    "totalStops": 33,
+    "averageDuration": 2.65,
+    "fastestStop": {
+      "driverId": "driver_sergio_perez",
+      "teamId": "constructor_red_bull",
+      "duration": 2.2
+    }
+  }
+}

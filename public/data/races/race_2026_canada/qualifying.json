@@ -1,0 +1,42 @@
+[
+  {
+    "driverId": "driver_kimi_antonelli",
+    "constructorId": "constructor_mercedes",
+    "q1Time": "1:12.890",
+    "q2Time": "1:12.110",
+    "q3Time": "1:11.890",
+    "position": 1
+  },
+  {
+    "driverId": "driver_george_russell",
+    "constructorId": "constructor_mercedes",
+    "q1Time": "1:13.110",
+    "q2Time": "1:12.340",
+    "q3Time": "1:12.100",
+    "position": 2
+  },
+  {
+    "driverId": "driver_lewis_hamilton",
+    "constructorId": "constructor_ferrari",
+    "q1Time": "1:13.200",
+    "q2Time": "1:12.450",
+    "q3Time": "1:12.220",
+    "position": 3
+  },
+  {
+    "driverId": "driver_charles_leclerc",
+    "constructorId": "constructor_ferrari",
+    "q1Time": "1:13.050",
+    "q2Time": "1:12.400",
+    "q3Time": "1:12.290",
+    "position": 4
+  },
+  {
+    "driverId": "driver_lando_norris",
+    "constructorId": "constructor_mclaren",
+    "q1Time": "1:13.400",
+    "q2Time": "1:12.500",
+    "q3Time": "1:12.350",
+    "position": 5
+  }
+]

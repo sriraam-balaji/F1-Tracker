@@ -1,0 +1,21 @@
+{
+  "id": "race_2026_australia",
+  "season": 2026,
+  "round": 1,
+  "name": "Australian Grand Prix",
+  "circuit": "Albert Park",
+  "country": "Australia",
+  "date": "2026-03-08",
+  "laps": 58,
+  "distanceKm": 306.124,
+  "status": "COMPLETED",
+  "winner": "George Russell",
+  "dnfs": 1,
+  "safetyCars": 0,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_max_verstappen",
+    "lap": 44,
+    "time": "1:12.900"
+  }
+}

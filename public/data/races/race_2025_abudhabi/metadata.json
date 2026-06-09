@@ -9,12 +9,12 @@
   "laps": 58,
   "distanceKm": 306.183,
   "status": "COMPLETED",
-  "winner": "Lando Norris",
-  "dnfs": 0,
-  "safetyCars": 0,
+  "winner": "Max Verstappen",
+  "dnfs": 1,
+  "safetyCars": 1,
   "redFlags": 0,
   "fastestLap": {
-    "driverId": "driver_lando_norris",
+    "driverId": "driver_george_russell",
     "lap": 44,
     "time": "1:12.900"
   }

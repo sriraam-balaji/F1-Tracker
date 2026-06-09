@@ -148,8 +148,8 @@ export const mockRaces: Record<string, Race> = {
   race_2025_mexico: { id: 'race_2025_mexico', season: 2025, round: 20, name: 'Mexico City Grand Prix', circuit: 'Autódromo Hermanos Rodríguez', country: 'Mexico', date: '2025-10-26', laps: 71, distanceKm: 305.354, status: 'COMPLETED', winner: 'Carlos Sainz' },
   race_2025_brazil: { id: 'race_2025_brazil', season: 2025, round: 21, name: 'São Paulo Grand Prix', circuit: 'Interlagos', country: 'Brazil', date: '2025-11-09', laps: 71, distanceKm: 305.879, status: 'COMPLETED', winner: 'Max Verstappen' },
   race_2025_lasvegas: { id: 'race_2025_lasvegas', season: 2025, round: 22, name: 'Las Vegas Grand Prix', circuit: 'Las Vegas Strip Circuit', country: 'United States', date: '2025-11-22', laps: 50, distanceKm: 306.150, status: 'COMPLETED', winner: 'Max Verstappen' },
-  race_2025_qatar: { id: 'race_2025_qatar', season: 2025, round: 23, name: 'Qatar Grand Prix', circuit: 'Lusail International', country: 'Qatar', date: '2025-11-30', laps: 57, distanceKm: 308.238, status: 'COMPLETED', winner: 'Lando Norris' },
-  race_2025_abudhabi: { id: 'race_2025_abudhabi', season: 2025, round: 24, name: 'Abu Dhabi Grand Prix', circuit: 'Yas Marina Circuit', country: 'UAE', date: '2025-12-07', laps: 58, distanceKm: 306.183, status: 'COMPLETED', winner: 'Lando Norris' },
+  race_2025_qatar: { id: 'race_2025_qatar', season: 2025, round: 23, name: 'Qatar Grand Prix', circuit: 'Lusail International', country: 'Qatar', date: '2025-11-30', laps: 57, distanceKm: 308.238, status: 'COMPLETED', winner: 'Max Verstappen' },
+  race_2025_abudhabi: { id: 'race_2025_abudhabi', season: 2025, round: 24, name: 'Abu Dhabi Grand Prix', circuit: 'Yas Marina Circuit', country: 'UAE', date: '2025-12-07', laps: 58, distanceKm: 306.183, status: 'COMPLETED', winner: 'Max Verstappen' },
 
   // 2023 races
   race_2023_bahrain: { id: 'race_2023_bahrain', season: 2023, round: 1, name: 'Bahrain Grand Prix', circuit: 'Sakhir', country: 'Bahrain', date: '2023-03-05', laps: 57, distanceKm: 308.238, status: 'COMPLETED', winner: 'Max Verstappen' },

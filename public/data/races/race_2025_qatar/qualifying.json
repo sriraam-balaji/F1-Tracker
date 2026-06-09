@@ -1,129 +1,129 @@
 [
   {
+    "driverId": "driver_max_verstappen",
+    "constructorId": "constructor_red_bull",
+    "q1Time": "1:13.132",
+    "q2Time": "1:12.732",
+    "q3Time": "1:12.432",
+    "position": 1
+  },
+  {
     "driverId": "driver_lando_norris",
     "constructorId": "constructor_mclaren",
-    "q1Time": "1:13.063",
-    "q2Time": "1:12.663",
-    "q3Time": "1:12.363",
-    "position": 1
+    "q1Time": "1:13.213",
+    "q2Time": "1:12.813",
+    "q3Time": "1:12.513",
+    "position": 2
   },
   {
     "driverId": "driver_charles_leclerc",
     "constructorId": "constructor_ferrari",
-    "q1Time": "1:13.036",
-    "q2Time": "1:12.636",
-    "q3Time": "1:12.336",
-    "position": 2
+    "q1Time": "1:13.186",
+    "q2Time": "1:12.786",
+    "q3Time": "1:12.486",
+    "position": 3
   },
   {
     "driverId": "driver_george_russell",
     "constructorId": "constructor_mercedes",
-    "q1Time": "1:13.243",
-    "q2Time": "1:12.843",
-    "q3Time": "1:12.543",
-    "position": 3
+    "q1Time": "1:13.393",
+    "q2Time": "1:12.993",
+    "q3Time": "1:12.693",
+    "position": 4
   },
   {
     "driverId": "driver_oscar_piastri",
     "constructorId": "constructor_mclaren",
-    "q1Time": "1:13.456",
-    "q2Time": "1:13.056",
-    "q3Time": "1:12.756",
-    "position": 4
+    "q1Time": "1:13.606",
+    "q2Time": "1:13.206",
+    "q3Time": "1:12.906",
+    "position": 5
   },
   {
     "driverId": "driver_lewis_hamilton",
     "constructorId": "constructor_ferrari",
-    "q1Time": "1:13.534",
-    "q2Time": "1:13.134",
-    "q3Time": "1:12.834",
-    "position": 5
+    "q1Time": "1:13.684",
+    "q2Time": "1:13.284",
+    "q3Time": "1:12.984",
+    "position": 6
   },
   {
     "driverId": "driver_kimi_antonelli",
     "constructorId": "constructor_mercedes",
-    "q1Time": "1:13.774",
-    "q2Time": "1:13.374",
-    "q3Time": "1:13.074",
-    "position": 6
+    "q1Time": "1:13.924",
+    "q2Time": "1:13.524",
+    "q3Time": "1:13.224",
+    "position": 7
   },
   {
     "driverId": "driver_alexander_albon",
     "constructorId": "constructor_williams",
-    "q1Time": "1:13.906",
-    "q2Time": "1:13.506",
-    "q3Time": "1:13.206",
-    "position": 7
+    "q1Time": "1:14.056",
+    "q2Time": "1:13.656",
+    "q3Time": "1:13.356",
+    "position": 8
   },
   {
     "driverId": "driver_fernando_alonso",
     "constructorId": "constructor_aston_martin",
-    "q1Time": "1:14.017",
-    "q2Time": "1:13.617",
-    "q3Time": "1:13.317",
-    "position": 8
+    "q1Time": "1:14.167",
+    "q2Time": "1:13.767",
+    "q3Time": "1:13.467",
+    "position": 9
   },
   {
     "driverId": "driver_sergio_perez",
     "constructorId": "constructor_red_bull",
-    "q1Time": "1:14.317",
-    "q2Time": "1:13.917",
-    "q3Time": "1:13.617",
-    "position": 9
+    "q1Time": "1:14.467",
+    "q2Time": "1:14.067",
+    "q3Time": "1:13.767",
+    "position": 10
   },
   {
     "driverId": "driver_nico_hulkenberg",
     "constructorId": "constructor_sauber",
-    "q1Time": "1:14.284",
-    "q2Time": "1:13.884",
-    "q3Time": "1:13.584",
-    "position": 10
+    "q1Time": "1:14.434",
+    "q2Time": "1:14.034",
+    "position": 11
   },
   {
     "driverId": "driver_carlos_sainz",
     "constructorId": "constructor_williams",
-    "q1Time": "1:14.581",
-    "q2Time": "1:14.181",
-    "position": 11
+    "q1Time": "1:14.731",
+    "q2Time": "1:14.331",
+    "position": 12
   },
   {
     "driverId": "driver_oliver_bearman",
     "constructorId": "constructor_haas",
-    "q1Time": "1:14.629",
-    "q2Time": "1:14.229",
-    "position": 12
+    "q1Time": "1:14.779",
+    "q2Time": "1:14.379",
+    "position": 13
   },
   {
     "driverId": "driver_isack_hadjar",
     "constructorId": "constructor_rb",
-    "q1Time": "1:14.929",
-    "q2Time": "1:14.529",
-    "position": 13
+    "q1Time": "1:15.079",
+    "q2Time": "1:14.679",
+    "position": 14
   },
   {
     "driverId": "driver_liam_lawson",
     "constructorId": "constructor_rb",
-    "q1Time": "1:14.953",
-    "q2Time": "1:14.553",
-    "position": 14
+    "q1Time": "1:15.103",
+    "q2Time": "1:14.703",
+    "position": 15
   },
   {
     "driverId": "driver_lance_stroll",
     "constructorId": "constructor_aston_martin",
-    "q1Time": "1:15.031",
-    "q2Time": "1:14.631",
-    "position": 15
+    "q1Time": "1:15.181",
+    "position": 16
   },
   {
     "driverId": "driver_esteban_ocon",
     "constructorId": "constructor_haas",
-    "q1Time": "1:15.361",
-    "position": 16
-  },
-  {
-    "driverId": "driver_yuki_tsunoda",
-    "constructorId": "constructor_red_bull",
-    "q1Time": "1:15.514",
+    "q1Time": "1:15.511",
     "position": 17
   },
   {

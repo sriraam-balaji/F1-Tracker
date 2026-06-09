@@ -1,1 +1,145 @@
-[]
+[
+  {
+    "lap": 1,
+    "type": "OVERTAKE",
+    "details": "Lights out! The Grand Prix gets underway."
+  },
+  {
+    "lap": 16,
+    "type": "PIT_STOP",
+    "driverId": "driver_lewis_hamilton",
+    "details": "HAM pits for MEDIUM tires. (Service: 2.92s)"
+  },
+  {
+    "lap": 17,
+    "type": "PIT_STOP",
+    "driverId": "driver_lando_norris",
+    "details": "NOR pits for HARD tires. (Service: 2.52s)"
+  },
+  {
+    "lap": 19,
+    "type": "PIT_STOP",
+    "driverId": "driver_zhou_guanyu",
+    "details": "ZHO pits for HARD tires. (Service: 2.20s)"
+  },
+  {
+    "lap": 20,
+    "type": "PIT_STOP",
+    "driverId": "driver_oscar_piastri",
+    "details": "PIA pits for MEDIUM tires. (Service: 2.92s)"
+  },
+  {
+    "lap": 22,
+    "type": "PIT_STOP",
+    "driverId": "driver_max_verstappen",
+    "details": "VER pits for MEDIUM tires. (Service: 2.40s)"
+  },
+  {
+    "lap": 22,
+    "type": "PIT_STOP",
+    "driverId": "driver_nico_hulkenberg",
+    "details": "HUL pits for MEDIUM tires. (Service: 2.40s)"
+  },
+  {
+    "lap": 22,
+    "type": "PIT_STOP",
+    "driverId": "driver_alexander_albon",
+    "details": "ALB pits for MEDIUM tires. (Service: 2.40s)"
+  },
+  {
+    "lap": 23,
+    "type": "PIT_STOP",
+    "driverId": "driver_sergio_perez",
+    "details": "PER pits for HARD tires. (Service: 2.50s)"
+  },
+  {
+    "lap": 25,
+    "type": "PIT_STOP",
+    "driverId": "driver_george_russell",
+    "details": "RUS pits for HARD tires. (Service: 2.70s)"
+  },
+  {
+    "lap": 25,
+    "type": "PIT_STOP",
+    "driverId": "driver_pierre_gasly",
+    "details": "GAS pits for HARD tires. (Service: 2.70s)"
+  },
+  {
+    "lap": 26,
+    "type": "PIT_STOP",
+    "driverId": "driver_yuki_tsunoda",
+    "details": "TSU pits for MEDIUM tires. (Service: 2.80s)"
+  },
+  {
+    "lap": 27,
+    "type": "PIT_STOP",
+    "driverId": "driver_fernando_alonso",
+    "details": "ALO pits for HARD tires. (Service: 2.90s)"
+  },
+  {
+    "lap": 27,
+    "type": "PIT_STOP",
+    "driverId": "driver_liam_lawson",
+    "details": "LAW pits for HARD tires. (Service: 2.90s)"
+  },
+  {
+    "lap": 27,
+    "type": "CRASH",
+    "driverId": "driver_zhou_guanyu",
+    "details": "ZHO is OUT of the race. Reason: Engine failure."
+  },
+  {
+    "lap": 28,
+    "type": "PIT_STOP",
+    "driverId": "driver_charles_leclerc",
+    "details": "LEC pits for MEDIUM tires. (Service: 3.00s)"
+  },
+  {
+    "lap": 29,
+    "type": "PIT_STOP",
+    "driverId": "driver_carlos_sainz",
+    "details": "SAI pits for HARD tires. (Service: 3.10s)"
+  },
+  {
+    "lap": 29,
+    "type": "PIT_STOP",
+    "driverId": "driver_esteban_ocon",
+    "details": "OCO pits for HARD tires. (Service: 3.10s)"
+  },
+  {
+    "lap": 29,
+    "type": "PIT_STOP",
+    "driverId": "driver_lance_stroll",
+    "details": "STR pits for HARD tires. (Service: 3.10s)"
+  },
+  {
+    "lap": 30,
+    "type": "PIT_STOP",
+    "driverId": "driver_valtteri_bottas",
+    "details": "BOT pits for MEDIUM tires. (Service: 3.20s)"
+  },
+  {
+    "lap": 30,
+    "type": "PIT_STOP",
+    "driverId": "driver_kevin_magnussen",
+    "details": "MAG pits for MEDIUM tires. (Service: 3.20s)"
+  },
+  {
+    "lap": 38,
+    "type": "PIT_STOP",
+    "driverId": "driver_lewis_hamilton",
+    "details": "HAM pits for HARD tires. (Service: 2.10s)"
+  },
+  {
+    "lap": 41,
+    "type": "PIT_STOP",
+    "driverId": "driver_lando_norris",
+    "details": "NOR pits for MEDIUM tires. (Service: 2.50s)"
+  },
+  {
+    "lap": 42,
+    "type": "PIT_STOP",
+    "driverId": "driver_oscar_piastri",
+    "details": "PIA pits for HARD tires. (Service: 2.74s)"
+  }
+]

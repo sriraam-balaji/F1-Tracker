@@ -8,5 +8,30 @@
   "date": "2026-06-07",
   "laps": 78,
   "distanceKm": 260.286,
-  "status": "UPCOMING"
+  "status": "COMPLETED",
+  "winner": "Kimi Antonelli",
+  "weather": {
+    "airTemp": 22.1,
+    "trackTemp": 32.8,
+    "humidity": 60,
+    "conditions": "DRY",
+    "rainProbability": 15
+  },
+  "safetyCars": 2,
+  "dnfs": 1,
+  "redFlags": 0,
+  "fastestLap": {
+    "driverId": "driver_kimi_antonelli",
+    "lap": 2,
+    "time": "1:05.875"
+  },
+  "pitStopStats": {
+    "totalStops": 22,
+    "averageDuration": 2.49,
+    "fastestStop": {
+      "driverId": "driver_oscar_piastri",
+      "teamId": "constructor_mclaren",
+      "duration": 2.17
+    }
+  }
 }

@@ -16,21 +16,15 @@ const lapTimesBySessionId: Record<string, Record<string, LapTime[]>> = {};
 const timelineBySessionId: Record<string, RaceEvent[]> = {};
 const weatherBySessionId: Record<string, WeatherSnapshot> = {};
 
-// 1. Run Monaco Simulation and Hydrate (keep qualifying, set race as upcoming)
+// 1. Run Monaco Simulation and Hydrate (fully completed)
 const monacoSim = generateRaceTelemetry(monaco2026Seed);
-mockRaces['race_2026_monaco'] = {
-  ...monacoSim.race,
-  status: 'UPCOMING',
-  winner: undefined,
-  weather: undefined,
-  safetyCars: undefined,
-  dnfs: undefined,
-  redFlags: undefined,
-  fastestLap: undefined,
-  pitStopStats: undefined
-};
+mockRaces['race_2026_monaco'] = monacoSim.race;
 sessionsByRaceId['race_2026_monaco'] = monacoSim.sessions;
+resultsBySessionId['session_monaco_race'] = monacoSim.results;
 qualifyingBySessionId['session_monaco_qualifying'] = monacoSim.qualifying;
+lapTimesBySessionId['session_monaco_race'] = monacoSim.lapTimes;
+timelineBySessionId['session_monaco_race'] = monacoSim.events;
+weatherBySessionId['session_monaco_race'] = monacoSim.weather;
 
 // 2. Run Canada Simulation and Hydrate (keep qualifying and results, lazy load telemetry)
 const canadaSim = generateRaceTelemetry(canada2026Seed);
@@ -256,6 +250,48 @@ Object.keys(mockRaces).forEach((raceId) => {
         tireStrategy,
         pitStops
       });
+
+      // Generate deterministic lap times for the driver
+      const lapList: LapTime[] = [];
+      const driverId = item.ds.driverId;
+      const driverMeta = mockDrivers[driverId];
+      const paceFactor = driverMeta ? (100 - driverMeta.paceRating) * 0.015 : 0.2;
+      const consistencyFactor = driverMeta ? (100 - driverMeta.consistency) * 0.010 : 0.15;
+
+      for (let lap = 1; lap <= lapsCompleted; lap++) {
+        const hashSeed = `${raceId}_${driverId}_lap_${lap}`;
+        let hash = 0;
+        for (let j = 0; j < hashSeed.length; j++) {
+          hash = hashSeed.charCodeAt(j) + ((hash << 5) - hash);
+        }
+        const noise = (Math.abs(hash) % 100) / 100;
+
+        const baseLap = 75.0 + paceFactor + noise * consistencyFactor;
+        const lapTimeVal = parseFloat(baseLap.toFixed(3));
+
+        const compoundStint = tireStrategy.find(stint => lap >= stint.startLap && lap <= stint.endLap);
+        const compound = compoundStint ? compoundStint.compound : TireCompound.MEDIUM;
+
+        const s1 = parseFloat((lapTimeVal * 0.3 + (noise * 0.1 - 0.05)).toFixed(3));
+        const s2 = parseFloat((lapTimeVal * 0.4 + (noise * 0.1 - 0.05)).toFixed(3));
+        const s3 = parseFloat((lapTimeVal - s1 - s2).toFixed(3));
+
+        lapList.push({
+          lap,
+          driverId,
+          lapTime: lapTimeVal,
+          sector1: s1,
+          sector2: s2,
+          sector3: s3,
+          tire: compound,
+          source: 'MOCK'
+        });
+      }
+
+      if (!lapTimesBySessionId[raceSessionId]) {
+        lapTimesBySessionId[raceSessionId] = {};
+      }
+      lapTimesBySessionId[raceSessionId][driverId] = lapList;
     });
     
     resultsBySessionId[raceSessionId] = rList;
@@ -292,7 +328,58 @@ Object.keys(mockRaces).forEach((raceId) => {
       driverId: fastestDriverId,
       lap: Math.floor(race.laps * 0.7) + (Math.abs(raceId.charCodeAt(0)) % 10),
       time: fastestLapTimeStr
-    };  }
+    };
+
+    // Generate chronological event timeline
+    const timelineEvents: RaceEvent[] = [];
+    timelineEvents.push({
+      lap: 1,
+      type: 'OVERTAKE',
+      details: 'Lights out! The Grand Prix gets underway.'
+    });
+
+    rList.forEach(r => {
+      const driver = mockDrivers[r.driverId];
+      const driverCode = driver ? driver.code : r.driverId;
+      r.pitStops.forEach(ps => {
+        timelineEvents.push({
+          lap: ps.lap,
+          type: 'PIT_STOP',
+          driverId: r.driverId,
+          details: `${driverCode} pits for ${ps.tireOut} tires. (Service: ${ps.duration.toFixed(2)}s)`
+        });
+      });
+
+      if (r.status === 'DNF') {
+        const details = (r.finishTime && r.finishTime.includes('DNF - ')) ? r.finishTime.replace('DNF - ', '') : 'Retired from race';
+        timelineEvents.push({
+          lap: r.lapsCompleted,
+          type: 'CRASH',
+          driverId: r.driverId,
+          details: `${driverCode} is OUT of the race. Reason: ${details}.`
+        });
+      }
+    });
+
+    if (safetyCarsCount > 0) {
+      for (let i = 1; i <= safetyCarsCount; i++) {
+        const startLap = 10 + i * 15;
+        timelineEvents.push({
+          lap: startLap,
+          type: 'SAFETY_CAR',
+          details: `Safety Car deployed on Lap ${startLap}. Track hazard cleared.`
+        });
+        timelineEvents.push({
+          lap: startLap + 3,
+          type: 'SAFETY_CAR',
+          details: `Safety Car in on Lap ${startLap + 3}. Green flag conditions resume.`
+        });
+      }
+    }
+
+    timelineEvents.sort((a, b) => a.lap - b.lap);
+    timelineBySessionId[raceSessionId] = timelineEvents;
+  }
 });
 
 // Canonical flat datastore

@@ -9,7 +9,7 @@
   "laps": 78,
   "distanceKm": 260.286,
   "status": "COMPLETED",
-  "winner": "Kimi Antonelli",
+  "winner": "Lewis Hamilton",
   "weather": {
     "airTemp": 22.1,
     "trackTemp": 32.8,
@@ -22,8 +22,8 @@
   "redFlags": 0,
   "fastestLap": {
     "driverId": "driver_kimi_antonelli",
-    "lap": 2,
-    "time": "1:05.875"
+    "lap": 1,
+    "time": "1:05.652"
   },
   "pitStopStats": {
     "totalStops": 22,

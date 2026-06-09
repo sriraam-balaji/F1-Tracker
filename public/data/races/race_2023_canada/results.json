@@ -28,13 +28,13 @@
     "pitStops": [
       {
         "lap": 12,
-        "duration": 2.5,
+        "duration": 2.33,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       },
       {
         "lap": 42,
-        "duration": 2.93,
+        "duration": 2.63,
         "tireIn": "HARD",
         "tireOut": "MEDIUM"
       }
@@ -69,13 +69,13 @@
     "pitStops": [
       {
         "lap": 12,
-        "duration": 2.29,
+        "duration": 2.49,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       },
       {
         "lap": 41,
-        "duration": 2.67,
+        "duration": 2.43,
         "tireIn": "HARD",
         "tireOut": "HARD"
       }
@@ -110,13 +110,13 @@
     "pitStops": [
       {
         "lap": 12,
-        "duration": 3.03,
+        "duration": 2.27,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       },
       {
         "lap": 40,
-        "duration": 2.6,
+        "duration": 2.94,
         "tireIn": "HARD",
         "tireOut": "MEDIUM"
       }
@@ -146,7 +146,7 @@
     "pitStops": [
       {
         "lap": 39,
-        "duration": 2.37,
+        "duration": 2.72,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       }
@@ -176,7 +176,7 @@
     "pitStops": [
       {
         "lap": 38,
-        "duration": 2.97,
+        "duration": 2.77,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       }
@@ -211,13 +211,13 @@
     "pitStops": [
       {
         "lap": 37,
-        "duration": 2.34,
+        "duration": 2.93,
         "tireIn": "HARD",
         "tireOut": "MEDIUM"
       },
       {
         "lap": 68,
-        "duration": 2.2,
+        "duration": 2.6,
         "tireIn": "MEDIUM",
         "tireOut": "SOFT"
       }
@@ -247,7 +247,7 @@
     "pitStops": [
       {
         "lap": 12,
-        "duration": 2.58,
+        "duration": 2.24,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       }
@@ -282,13 +282,13 @@
     "pitStops": [
       {
         "lap": 12,
-        "duration": 2.75,
+        "duration": 2.81,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       },
       {
         "lap": 36,
-        "duration": 2.33,
+        "duration": 2.59,
         "tireIn": "HARD",
         "tireOut": "HARD"
       }
@@ -323,13 +323,13 @@
     "pitStops": [
       {
         "lap": 11,
-        "duration": 2.47,
+        "duration": 2.73,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       },
       {
         "lap": 27,
-        "duration": 2.51,
+        "duration": 2.78,
         "tireIn": "HARD",
         "tireOut": "HARD"
       }
@@ -359,7 +359,7 @@
     "pitStops": [
       {
         "lap": 36,
-        "duration": 3.01,
+        "duration": 2.91,
         "tireIn": "HARD",
         "tireOut": "MEDIUM"
       }
@@ -394,13 +394,13 @@
     "pitStops": [
       {
         "lap": 12,
-        "duration": 2.62,
+        "duration": 2.8,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       },
       {
         "lap": 37,
-        "duration": 2.51,
+        "duration": 2.92,
         "tireIn": "HARD",
         "tireOut": "HARD"
       }
@@ -435,13 +435,13 @@
     "pitStops": [
       {
         "lap": 10,
-        "duration": 2.51,
+        "duration": 2.59,
         "tireIn": "SOFT",
         "tireOut": "HARD"
       },
       {
         "lap": 33,
-        "duration": 3.06,
+        "duration": 2.85,
         "tireIn": "HARD",
         "tireOut": "HARD"
       }
@@ -476,13 +476,13 @@
     "pitStops": [
       {
         "lap": 12,
-        "duration": 2.3,
+        "duration": 2.72,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       },
       {
         "lap": 35,
-        "duration": 2.85,
+        "duration": 2.76,
         "tireIn": "HARD",
         "tireOut": "HARD"
       }
@@ -517,13 +517,13 @@
     "pitStops": [
       {
         "lap": 1,
-        "duration": 2.46,
+        "duration": 2.87,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       },
       {
         "lap": 35,
-        "duration": 2.98,
+        "duration": 2.85,
         "tireIn": "HARD",
         "tireOut": "MEDIUM"
       }
@@ -558,13 +558,13 @@
     "pitStops": [
       {
         "lap": 11,
-        "duration": 2.62,
+        "duration": 2.68,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       },
       {
         "lap": 31,
-        "duration": 2.6,
+        "duration": 2.9,
         "tireIn": "HARD",
         "tireOut": "HARD"
       }
@@ -599,13 +599,13 @@
     "pitStops": [
       {
         "lap": 12,
-        "duration": 2.75,
+        "duration": 2.86,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       },
       {
         "lap": 32,
-        "duration": 2.42,
+        "duration": 2.33,
         "tireIn": "HARD",
         "tireOut": "HARD"
       }
@@ -640,13 +640,13 @@
     "pitStops": [
       {
         "lap": 35,
-        "duration": 2.66,
+        "duration": 2.89,
         "tireIn": "HARD",
         "tireOut": "MEDIUM"
       },
       {
         "lap": 53,
-        "duration": 2.83,
+        "duration": 2.86,
         "tireIn": "MEDIUM",
         "tireOut": "MEDIUM"
       }
@@ -681,13 +681,13 @@
     "pitStops": [
       {
         "lap": 11,
-        "duration": 2.81,
+        "duration": 2.47,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       },
       {
         "lap": 50,
-        "duration": 2.91,
+        "duration": 2.66,
         "tireIn": "HARD",
         "tireOut": "HARD"
       }
@@ -717,7 +717,7 @@
     "pitStops": [
       {
         "lap": 12,
-        "duration": 3.09,
+        "duration": 2.98,
         "tireIn": "MEDIUM",
         "tireOut": "HARD"
       }

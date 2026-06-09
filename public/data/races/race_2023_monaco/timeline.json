@@ -8,85 +8,85 @@
     "lap": 1,
     "type": "PIT_STOP",
     "driverId": "driver_zhou_guanyu",
-    "details": "ZHO pits for HARD tires. (Service: 3.09s)"
+    "details": "ZHO pits for HARD tires. (Service: 2.94s)"
   },
   {
     "lap": 1,
     "type": "PIT_STOP",
     "driverId": "driver_sergio_perez",
-    "details": "PER pits for HARD tires. (Service: 2.94s)"
+    "details": "PER pits for HARD tires. (Service: 2.96s)"
   },
   {
     "lap": 1,
     "type": "PIT_STOP",
     "driverId": "driver_nico_hulkenberg",
-    "details": "HUL pits for HARD tires. (Service: 2.22s)"
+    "details": "HUL pits for HARD tires. (Service: 2.23s)"
   },
   {
     "lap": 18,
     "type": "PIT_STOP",
     "driverId": "driver_alexander_albon",
-    "details": "ALB pits for HARD tires. (Service: 2.24s)"
+    "details": "ALB pits for HARD tires. (Service: 2.8s)"
   },
   {
     "lap": 20,
     "type": "PIT_STOP",
     "driverId": "driver_logan_sargeant",
-    "details": "SAR pits for HARD tires. (Service: 2.58s)"
+    "details": "SAR pits for HARD tires. (Service: 2.25s)"
   },
   {
     "lap": 23,
     "type": "PIT_STOP",
     "driverId": "driver_logan_sargeant",
-    "details": "SAR pits for SOFT tires. (Service: 2.45s)"
+    "details": "SAR pits for SOFT tires. (Service: 2.23s)"
   },
   {
     "lap": 31,
     "type": "PIT_STOP",
     "driverId": "driver_lewis_hamilton",
-    "details": "HAM pits for HARD tires. (Service: 2.97s)"
+    "details": "HAM pits for HARD tires. (Service: 2.55s)"
   },
   {
     "lap": 32,
     "type": "PIT_STOP",
     "driverId": "driver_esteban_ocon",
-    "details": "OCO pits for HARD tires. (Service: 2.87s)"
+    "details": "OCO pits for HARD tires. (Service: 2.44s)"
   },
   {
     "lap": 33,
     "type": "PIT_STOP",
     "driverId": "driver_carlos_sainz",
-    "details": "SAI pits for MEDIUM tires. (Service: 2.63s)"
+    "details": "SAI pits for MEDIUM tires. (Service: 2.83s)"
   },
   {
     "lap": 34,
     "type": "PIT_STOP",
     "driverId": "driver_sergio_perez",
-    "details": "PER pits for MEDIUM tires. (Service: 2.73s)"
+    "details": "PER pits for MEDIUM tires. (Service: 2.57s)"
   },
   {
     "lap": 44,
     "type": "PIT_STOP",
     "driverId": "driver_charles_leclerc",
-    "details": "LEC pits for MEDIUM tires. (Service: 3.05s)"
+    "details": "LEC pits for MEDIUM tires. (Service: 3.09s)"
   },
   {
     "lap": 47,
     "type": "PIT_STOP",
     "driverId": "driver_pierre_gasly",
-    "details": "GAS pits for MEDIUM tires. (Service: 2.88s)"
+    "details": "GAS pits for MEDIUM tires. (Service: 2.77s)"
   },
   {
     "lap": 50,
     "type": "PIT_STOP",
     "driverId": "driver_lando_norris",
-    "details": "NOR pits for HARD tires. (Service: 2.44s)"
+    "details": "NOR pits for HARD tires. (Service: 2.42s)"
   },
   {
     "lap": 51,
     "type": "PIT_STOP",
     "driverId": "driver_valtteri_bottas",
-    "details": "BOT pits for INTER tires. (Service: 3.01s)"
+    "details": "BOT pits for INTER tires. (Service: 2.83s)"
   },
   {
     "lap": 51,
@@ -98,19 +98,19 @@
     "lap": 52,
     "type": "PIT_STOP",
     "driverId": "driver_zhou_guanyu",
-    "details": "ZHO pits for INTER tires. (Service: 2.47s)"
+    "details": "ZHO pits for INTER tires. (Service: 2.75s)"
   },
   {
     "lap": 52,
     "type": "PIT_STOP",
     "driverId": "driver_alexander_albon",
-    "details": "ALB pits for INTER tires. (Service: 2.22s)"
+    "details": "ALB pits for INTER tires. (Service: 3.01s)"
   },
   {
     "lap": 52,
     "type": "PIT_STOP",
     "driverId": "driver_logan_sargeant",
-    "details": "SAR pits for INTER tires. (Service: 2.46s)"
+    "details": "SAR pits for INTER tires. (Service: 2.92s)"
   },
   {
     "lap": 52,
@@ -121,19 +121,19 @@
     "lap": 53,
     "type": "PIT_STOP",
     "driverId": "driver_nyck_de_vries",
-    "details": "DEV pits for INTER tires. (Service: 2.28s)"
+    "details": "DEV pits for INTER tires. (Service: 2.44s)"
   },
   {
     "lap": 53,
     "type": "PIT_STOP",
     "driverId": "driver_yuki_tsunoda",
-    "details": "TSU pits for INTER tires. (Service: 2.45s)"
+    "details": "TSU pits for INTER tires. (Service: 3.05s)"
   },
   {
     "lap": 53,
     "type": "PIT_STOP",
     "driverId": "driver_sergio_perez",
-    "details": "PER pits for INTER tires. (Service: 2.46s)"
+    "details": "PER pits for INTER tires. (Service: 2.86s)"
   },
   {
     "lap": 53,
@@ -145,73 +145,73 @@
     "lap": 54,
     "type": "PIT_STOP",
     "driverId": "driver_fernando_alonso",
-    "details": "ALO pits for MEDIUM tires. (Service: 2.91s)"
+    "details": "ALO pits for MEDIUM tires. (Service: 2.87s)"
   },
   {
     "lap": 54,
     "type": "PIT_STOP",
     "driverId": "driver_esteban_ocon",
-    "details": "OCO pits for INTER tires. (Service: 2.41s)"
+    "details": "OCO pits for INTER tires. (Service: 2.33s)"
   },
   {
     "lap": 54,
     "type": "PIT_STOP",
     "driverId": "driver_lewis_hamilton",
-    "details": "HAM pits for INTER tires. (Service: 3.1s)"
+    "details": "HAM pits for INTER tires. (Service: 2.28s)"
   },
   {
     "lap": 54,
     "type": "PIT_STOP",
     "driverId": "driver_george_russell",
-    "details": "RUS pits for INTER tires. (Service: 2.6s)"
+    "details": "RUS pits for INTER tires. (Service: 2.52s)"
   },
   {
     "lap": 54,
     "type": "PIT_STOP",
     "driverId": "driver_pierre_gasly",
-    "details": "GAS pits for INTER tires. (Service: 2.93s)"
+    "details": "GAS pits for INTER tires. (Service: 2.47s)"
   },
   {
     "lap": 54,
     "type": "PIT_STOP",
     "driverId": "driver_lando_norris",
-    "details": "NOR pits for INTER tires. (Service: 2.96s)"
+    "details": "NOR pits for INTER tires. (Service: 2.48s)"
   },
   {
     "lap": 54,
     "type": "PIT_STOP",
     "driverId": "driver_oscar_piastri",
-    "details": "PIA pits for INTER tires. (Service: 2.21s)"
+    "details": "PIA pits for INTER tires. (Service: 2.36s)"
   },
   {
     "lap": 54,
     "type": "PIT_STOP",
     "driverId": "driver_nico_hulkenberg",
-    "details": "HUL pits for INTER tires. (Service: 2.97s)"
+    "details": "HUL pits for INTER tires. (Service: 3.04s)"
   },
   {
     "lap": 55,
     "type": "PIT_STOP",
     "driverId": "driver_max_verstappen",
-    "details": "VER pits for INTER tires. (Service: 2.37s)"
+    "details": "VER pits for INTER tires. (Service: 2.2s)"
   },
   {
     "lap": 55,
     "type": "PIT_STOP",
     "driverId": "driver_fernando_alonso",
-    "details": "ALO pits for INTER tires. (Service: 2.72s)"
+    "details": "ALO pits for INTER tires. (Service: 2.62s)"
   },
   {
     "lap": 55,
     "type": "PIT_STOP",
     "driverId": "driver_charles_leclerc",
-    "details": "LEC pits for INTER tires. (Service: 2.98s)"
+    "details": "LEC pits for INTER tires. (Service: 2.57s)"
   },
   {
     "lap": 55,
     "type": "PIT_STOP",
     "driverId": "driver_carlos_sainz",
-    "details": "SAI pits for INTER tires. (Service: 2.86s)"
+    "details": "SAI pits for INTER tires. (Service: 2.42s)"
   },
   {
     "lap": 55,
@@ -222,19 +222,19 @@
     "lap": 56,
     "type": "PIT_STOP",
     "driverId": "driver_kevin_magnussen",
-    "details": "MAG pits for WET tires. (Service: 2.71s)"
+    "details": "MAG pits for WET tires. (Service: 2.52s)"
   },
   {
     "lap": 57,
     "type": "PIT_STOP",
     "driverId": "driver_sergio_perez",
-    "details": "PER pits for WET tires. (Service: 2.52s)"
+    "details": "PER pits for WET tires. (Service: 3.07s)"
   },
   {
     "lap": 59,
     "type": "PIT_STOP",
     "driverId": "driver_nico_hulkenberg",
-    "details": "HUL pits for WET tires. (Service: 2.29s)"
+    "details": "HUL pits for WET tires. (Service: 2.46s)"
   },
   {
     "lap": 70,

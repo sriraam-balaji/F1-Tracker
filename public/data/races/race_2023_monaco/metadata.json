@@ -27,11 +27,11 @@
   },
   "pitStopStats": {
     "totalStops": 37,
-    "averageDuration": 2.67,
+    "averageDuration": 2.65,
     "fastestStop": {
-      "driverId": "driver_oscar_piastri",
-      "teamId": "constructor_mclaren",
-      "duration": 2.21
+      "driverId": "driver_max_verstappen",
+      "teamId": "constructor_red_bull",
+      "duration": 2.2
     }
   }
 }

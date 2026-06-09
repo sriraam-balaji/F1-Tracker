@@ -12,74 +12,8 @@
   {
     "lap": 1,
     "type": "OVERTAKE",
-    "driverId": "driver_lando_norris",
-    "details": "Lando Norris performs an overtake on Lewis Hamilton for P4."
-  },
-  {
-    "lap": 1,
-    "type": "OVERTAKE",
-    "driverId": "driver_oscar_piastri",
-    "details": "Oscar Piastri performs an overtake on Lando Norris for P5."
-  },
-  {
-    "lap": 1,
-    "type": "OVERTAKE",
-    "driverId": "driver_max_verstappen",
-    "details": "Max Verstappen performs an overtake on Oscar Piastri for P6."
-  },
-  {
-    "lap": 1,
-    "type": "OVERTAKE",
-    "driverId": "driver_pierre_gasly",
-    "details": "Pierre Gasly performs an overtake on Max Verstappen for P7."
-  },
-  {
-    "lap": 1,
-    "type": "OVERTAKE",
-    "driverId": "driver_liam_lawson",
-    "details": "Liam Lawson performs an overtake on Oliver Bearman for P9."
-  },
-  {
-    "lap": 1,
-    "type": "OVERTAKE",
     "driverId": "driver_esteban_ocon",
     "details": "Esteban Ocon performs an overtake on Liam Lawson for P10."
-  },
-  {
-    "lap": 1,
-    "type": "OVERTAKE",
-    "driverId": "driver_sergio_perez",
-    "details": "Sergio Pérez performs an overtake on Esteban Ocon for P11."
-  },
-  {
-    "lap": 1,
-    "type": "OVERTAKE",
-    "driverId": "driver_alexander_albon",
-    "details": "Alexander Albon performs an overtake on Sergio Pérez for P12."
-  },
-  {
-    "lap": 1,
-    "type": "OVERTAKE",
-    "driverId": "driver_yuki_tsunoda",
-    "details": "Yuki Tsunoda performs an overtake on Alexander Albon for P13."
-  },
-  {
-    "lap": 1,
-    "type": "OVERTAKE",
-    "driverId": "driver_valtteri_bottas",
-    "details": "Valtteri Bottas performs an overtake on Yuki Tsunoda for P14."
-  },
-  {
-    "lap": 1,
-    "type": "OVERTAKE",
-    "driverId": "driver_kevin_magnussen",
-    "details": "Kevin Magnussen performs an overtake on Valtteri Bottas for P15."
-  },
-  {
-    "lap": 1,
-    "type": "OVERTAKE",
-    "driverId": "driver_carlos_sainz",
-    "details": "Carlos Sainz performs an overtake on Kevin Magnussen for P16."
   },
   {
     "lap": 1,
@@ -88,34 +22,10 @@
     "details": "Zhou Guanyu performs an overtake on Carlos Sainz for P17."
   },
   {
-    "lap": 1,
+    "lap": 2,
     "type": "OVERTAKE",
-    "driverId": "driver_fernando_alonso",
-    "details": "Fernando Alonso performs an overtake on Zhou Guanyu for P18."
-  },
-  {
-    "lap": 1,
-    "type": "OVERTAKE",
-    "driverId": "driver_lance_stroll",
-    "details": "Lance Stroll performs an overtake on Fernando Alonso for P19."
-  },
-  {
-    "lap": 6,
-    "type": "OVERTAKE",
-    "driverId": "driver_lewis_hamilton",
-    "details": "Lewis Hamilton performs an overtake on Charles Leclerc for P3."
-  },
-  {
-    "lap": 6,
-    "type": "OVERTAKE",
-    "driverId": "driver_lando_norris",
-    "details": "Lando Norris performs an overtake on Lewis Hamilton for P4."
-  },
-  {
-    "lap": 6,
-    "type": "OVERTAKE",
-    "driverId": "driver_oscar_piastri",
-    "details": "Oscar Piastri performs an overtake on Lando Norris for P5."
+    "driverId": "driver_alexander_albon",
+    "details": "Alexander Albon performs an overtake on Sergio Pérez for P12."
   },
   {
     "lap": 10,
@@ -126,6 +36,18 @@
     "lap": 14,
     "type": "SAFETY_CAR",
     "details": "Safety Car in. Green flag conditions resume."
+  },
+  {
+    "lap": 18,
+    "type": "OVERTAKE",
+    "driverId": "driver_lewis_hamilton",
+    "details": "Lewis Hamilton performs an overtake on Charles Leclerc for P3."
+  },
+  {
+    "lap": 19,
+    "type": "OVERTAKE",
+    "driverId": "driver_esteban_ocon",
+    "details": "Esteban Ocon performs an overtake on Oliver Bearman for P9."
   },
   {
     "lap": 20,
@@ -159,30 +81,6 @@
   },
   {
     "lap": 22,
-    "type": "OVERTAKE",
-    "driverId": "driver_charles_leclerc",
-    "details": "Charles Leclerc performs an overtake on George Russell for P2."
-  },
-  {
-    "lap": 22,
-    "type": "OVERTAKE",
-    "driverId": "driver_oscar_piastri",
-    "details": "Oscar Piastri performs an overtake on Lando Norris for P5."
-  },
-  {
-    "lap": 22,
-    "type": "OVERTAKE",
-    "driverId": "driver_max_verstappen",
-    "details": "Max Verstappen performs an overtake on Oscar Piastri for P6."
-  },
-  {
-    "lap": 22,
-    "type": "OVERTAKE",
-    "driverId": "driver_pierre_gasly",
-    "details": "Pierre Gasly performs an overtake on Max Verstappen for P7."
-  },
-  {
-    "lap": 22,
     "type": "PIT_STOP",
     "driverId": "driver_alexander_albon",
     "details": "Alexander Albon pits for HARD tires. Service time: 2.22s."
@@ -212,6 +110,18 @@
     "details": "Pierre Gasly pits for HARD tires. Service time: 2.43s."
   },
   {
+    "lap": 25,
+    "type": "OVERTAKE",
+    "driverId": "driver_lewis_hamilton",
+    "details": "Lewis Hamilton performs an overtake on Kimi Antonelli for P10."
+  },
+  {
+    "lap": 25,
+    "type": "OVERTAKE",
+    "driverId": "driver_george_russell",
+    "details": "George Russell performs an overtake on Fernando Alonso for P12."
+  },
+  {
     "lap": 26,
     "type": "PIT_STOP",
     "driverId": "driver_oliver_bearman",
@@ -230,6 +140,12 @@
     "details": "Lando Norris pits for SOFT tires. Service time: 2.55s."
   },
   {
+    "lap": 30,
+    "type": "OVERTAKE",
+    "driverId": "driver_max_verstappen",
+    "details": "Max Verstappen performs an overtake on Fernando Alonso for P10."
+  },
+  {
     "lap": 31,
     "type": "PIT_STOP",
     "driverId": "driver_oscar_piastri",
@@ -240,6 +156,18 @@
     "type": "PIT_STOP",
     "driverId": "driver_esteban_ocon",
     "details": "Esteban Ocon pits for HARD tires. Service time: 2.94s."
+  },
+  {
+    "lap": 32,
+    "type": "OVERTAKE",
+    "driverId": "driver_george_russell",
+    "details": "George Russell performs an overtake on Valtteri Bottas for P6."
+  },
+  {
+    "lap": 32,
+    "type": "OVERTAKE",
+    "driverId": "driver_lando_norris",
+    "details": "Lando Norris performs an overtake on Fernando Alonso for P9."
   },
   {
     "lap": 33,
@@ -258,6 +186,12 @@
     "type": "PIT_STOP",
     "driverId": "driver_kevin_magnussen",
     "details": "Kevin Magnussen pits for HARD tires. Service time: 2.23s."
+  },
+  {
+    "lap": 39,
+    "type": "OVERTAKE",
+    "driverId": "driver_lando_norris",
+    "details": "Lando Norris performs an overtake on Charles Leclerc for P5."
   },
   {
     "lap": 40,
@@ -282,6 +216,12 @@
     "details": "Safety Car in. Green flag conditions resume."
   },
   {
+    "lap": 49,
+    "type": "OVERTAKE",
+    "driverId": "driver_pierre_gasly",
+    "details": "Pierre Gasly performs an overtake on Oscar Piastri for P7."
+  },
+  {
     "lap": 50,
     "type": "RAIN_STOP",
     "details": "Weather update: Track condition is now DRY. Air Temp: 22.1°C."
@@ -299,9 +239,39 @@
     "details": "George Russell pits for SOFT tires. Service time: 2.67s."
   },
   {
+    "lap": 56,
+    "type": "OVERTAKE",
+    "driverId": "driver_kimi_antonelli",
+    "details": "Kimi Antonelli performs an overtake on Esteban Ocon for P9."
+  },
+  {
+    "lap": 60,
+    "type": "OVERTAKE",
+    "driverId": "driver_george_russell",
+    "details": "George Russell performs an overtake on Carlos Sainz for P12."
+  },
+  {
+    "lap": 63,
+    "type": "OVERTAKE",
+    "driverId": "driver_kimi_antonelli",
+    "details": "Kimi Antonelli performs an overtake on Oliver Bearman for P8."
+  },
+  {
+    "lap": 67,
+    "type": "OVERTAKE",
+    "driverId": "driver_george_russell",
+    "details": "George Russell performs an overtake on Sergio Pérez for P11."
+  },
+  {
     "lap": 70,
     "type": "CRASH",
     "driverId": "driver_max_verstappen",
     "details": "Max Verstappen is OUT of the race. Reason: Gearbox DNF at Lap 70."
+  },
+  {
+    "lap": 74,
+    "type": "OVERTAKE",
+    "driverId": "driver_george_russell",
+    "details": "George Russell performs an overtake on Oliver Bearman for P9."
   }
 ]

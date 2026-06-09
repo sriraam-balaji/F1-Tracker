@@ -27,11 +27,11 @@
   },
   "pitStopStats": {
     "totalStops": 33,
-    "averageDuration": 2.65,
+    "averageDuration": 2.7,
     "fastestStop": {
-      "driverId": "driver_sergio_perez",
-      "teamId": "constructor_red_bull",
-      "duration": 2.2
+      "driverId": "driver_alexander_albon",
+      "teamId": "constructor_williams",
+      "duration": 2.24
     }
   }
 }

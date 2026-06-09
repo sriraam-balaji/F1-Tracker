@@ -9,7 +9,7 @@
   "laps": 70,
   "distanceKm": 305.27,
   "status": "COMPLETED",
-  "winner": "Kimi Antonelli",
+  "winner": "George Russell",
   "weather": {
     "airTemp": 18.2,
     "trackTemp": 24.5,
@@ -21,9 +21,9 @@
   "dnfs": 0,
   "redFlags": 0,
   "fastestLap": {
-    "driverId": "driver_kimi_antonelli",
-    "lap": 2,
-    "time": "1:06.672"
+    "driverId": "driver_george_russell",
+    "lap": 4,
+    "time": "1:04.510"
   },
   "pitStopStats": {
     "totalStops": 40,

@@ -28,8 +28,8 @@ async function main() {
     const raceId = race.id;
     const raceDir = path.join(dataDir, raceId);
 
-    if (raceId === 'race_2023_canada' || raceId === 'race_2023_monaco') {
-      console.log(`Skipping FastF1 race: ${raceId}`);
+    if (race.season === 2023 || race.season === 2025) {
+      console.log(`Skipping historical race (handled by FastF1 ETL): ${raceId}`);
       continue;
     }
 

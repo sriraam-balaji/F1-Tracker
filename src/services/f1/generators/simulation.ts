@@ -109,6 +109,11 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
       return a.cumulativeTime - b.cumulativeTime;
     });
 
+    const startTimes: Record<string, number> = {};
+    orderedStates.forEach(s => {
+      startTimes[s.driverId] = s.cumulativeTime;
+    });
+
     const lapTimesForThisLap: Record<string, number> = {};
 
     orderedStates.forEach((state, i) => {
@@ -201,7 +206,57 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
         });
       }
 
-      // 3. Lap Pace Modeling
+      // 3. Dynamic Race Mode determination
+      let mode = 'Normal';
+      let paceDelta = 0.0;
+      let wearMultiplier = 1.0;
+
+      const gapAhead = i > 0 ? startTimes[state.driverId] - startTimes[orderedStates[i-1].driverId] : 999;
+      const gapBehind = i < orderedStates.length - 1 ? startTimes[orderedStates[i+1].driverId] - startTimes[state.driverId] : 999;
+      
+      const lapsToNextPit = driverSeed 
+        ? (driverSeed.plannedPitLaps.find(p => p > lap) ? (driverSeed.plannedPitLaps.find(p => p > lap)! - lap) : 999)
+        : 999;
+
+      // Compound base lifetime estimation
+      let baseTireLife = 30;
+      if (state.currentTire === TireCompound.SOFT) baseTireLife = 15;
+      else if (state.currentTire === TireCompound.MEDIUM) baseTireLife = 30;
+      else if (state.currentTire === TireCompound.HARD) baseTireLife = 50;
+      else if (state.currentTire === TireCompound.INTER) baseTireLife = 35;
+      else if (state.currentTire === TireCompound.WET) baseTireLife = 40;
+
+      const tireAgePercent = state.tireAge / baseTireLife;
+
+      const isMonaco = seed.raceId === 'race_2026_monaco';
+      const followingWindow = isMonaco ? 1.2 : 2.0;
+
+      if (!isSafetyCar && gapAhead < followingWindow && pitAddedTime === 0) {
+        mode = 'Traffic';
+        paceDelta = isMonaco ? 0.35 : 0.15; // stuck behind, matching pace ahead
+        wearMultiplier = 0.7;
+      } else if (lapsToNextPit <= 2 && pitAddedTime === 0) {
+        mode = 'Push';
+        paceDelta = -0.5;
+        wearMultiplier = 1.4;
+      } else if (gapBehind < followingWindow && pitAddedTime === 0) {
+        mode = 'Push'; // Defending
+        paceDelta = -0.3;
+        wearMultiplier = 1.3;
+      } else if (tireAgePercent > 0.75) {
+        mode = 'Save Tires';
+        paceDelta = 1.0;
+        wearMultiplier = 0.4;
+      } else if (tireAgePercent > 0.5) {
+        mode = 'Manage';
+        paceDelta = 0.6;
+        wearMultiplier = 0.7;
+      } else {
+        mode = 'Normal';
+        paceDelta = 0.0;
+        wearMultiplier = 1.0;
+      }
+
       // Constructor performance rating
       const constructorPaceRating: Record<string, number> = {
         constructor_mercedes: 96,
@@ -236,22 +291,44 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
       
       lapTime += tirePaceMod;
 
-      // Tire Wear Degradation factor
-      let wearRate = 0.015;
-      if (state.currentTire === TireCompound.SOFT) wearRate = 0.045;
-      if (state.currentTire === TireCompound.HARD) wearRate = 0.008;
-      
-      // Wet compounds degrade extremely fast on dry tracks
-      if (weather.conditions === 'DRY' && (state.currentTire === TireCompound.INTER || state.currentTire === TireCompound.WET)) {
-        wearRate = 0.35;
+      // Saturating Tire Wear Degradation factor
+      let maxDegPenalty = 1.6;
+      let tireLife = 30;
+
+      if (state.currentTire === TireCompound.SOFT) {
+        maxDegPenalty = 2.2;
+        tireLife = 15;
+      } else if (state.currentTire === TireCompound.MEDIUM) {
+        maxDegPenalty = 1.6;
+        tireLife = 30;
+      } else if (state.currentTire === TireCompound.HARD) {
+        maxDegPenalty = 1.1;
+        tireLife = 50;
+      } else if (state.currentTire === TireCompound.INTER) {
+        if (weather.conditions === 'DRY') {
+          maxDegPenalty = 8.0;
+          tireLife = 5;
+        } else {
+          maxDegPenalty = 1.8;
+          tireLife = 35;
+        }
+      } else if (state.currentTire === TireCompound.WET) {
+        if (weather.conditions === 'DRY') {
+          maxDegPenalty = 12.0;
+          tireLife = 4;
+        } else {
+          maxDegPenalty = 2.2;
+          tireLife = 40;
+        }
       }
 
-      // Driver tire management preservation
-      const driverPreservation = (100 - driver.tireManagement) * 0.01;
-      const degFactor = state.tireAge * wearRate * driverPreservation;
+      // Driver tire management preservation scaling
+      const driverPreservation = 0.8 + (driver.tireManagement / 100) * 0.4; // between 0.8 and 1.2
+      const effectiveTireLife = tireLife * driverPreservation;
+      const degFactor = maxDegPenalty * (1 - Math.exp(-state.tireAge / effectiveTireLife));
       lapTime += degFactor;
 
-      // Safety Car lap times slowdown
+      // Safety Car lap times slowdown or normal lap factors
       if (isSafetyCar) {
         lapTime = baseSCTimeForTrack(seed.raceId) + driverRand.range(-0.5, 0.5);
       } else {
@@ -264,6 +341,9 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
           const wetSkillPenalty = (100 - driver.wetWeatherSkill) * 0.04;
           lapTime += wetSkillPenalty;
         }
+
+        // Apply paceDelta from race mode (Push, Manage, Save Tires, Traffic)
+        lapTime += paceDelta;
       }
 
       // Add pit stop lane duration delay
@@ -273,41 +353,79 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
       if (!isSafetyCar && i > 0 && pitAddedTime === 0) {
         const leaderState = orderedStates[i-1];
         const leaderLapTime = lapTimesForThisLap[leaderState.driverId];
+        const leaderPitted = leaderState.pitStops.some(p => p.lap === lap);
 
-        if (leaderLapTime !== undefined) {
-          const gap = state.cumulativeTime - leaderState.cumulativeTime;
+        if (leaderLapTime !== undefined && !leaderPitted) {
+          const gap = startTimes[state.driverId] - startTimes[leaderState.driverId];
           
-          if (gap <= 1.0) {
-            // Apply dirty air penalty
-            const dirtyAirPenalty = seed.raceId === 'race_2026_monaco' ? 0.45 : 0.15;
+          if (gap <= followingWindow) {
+            // Apply dirty air penalty inside following window
+            const dirtyAirPenalty = isMonaco ? 0.45 : 0.20;
             lapTime += dirtyAirPenalty;
 
-            // Check if trailing car is naturally faster on this lap
-            if (lapTime < leaderLapTime) {
-              const paceDiff = leaderLapTime - lapTime;
-              const overtakeFactor = seed.raceId === 'race_2026_monaco' ? 0.05 : 0.40;
-              const overtakeChance = Math.min(0.85, paceDiff * overtakeFactor);
+            // Overtake probability model
+            const baseChance = isMonaco ? 0.005 : (seed.raceId === 'race_2026_canada' ? 0.06 : 0.04);
+            
+            // Calculate tire performance difference
+            const chaserTireAge = state.tireAge;
+            const leaderTireAge = leaderState.tireAge;
+            const chaserTireComp = state.currentTire;
+            const leaderTireComp = leaderState.currentTire;
+            
+            const compPaceValue: Record<string, number> = { 
+              [TireCompound.SOFT]: 2, 
+              [TireCompound.MEDIUM]: 1, 
+              [TireCompound.HARD]: 0, 
+              [TireCompound.INTER]: 0, 
+              [TireCompound.WET]: 0 
+            };
+            const tireCompDelta = (compPaceValue[chaserTireComp] || 0) - (compPaceValue[leaderTireComp] || 0);
+            const tireAgeDelta = leaderTireAge - chaserTireAge;
+            const tireDeltaScore = tireCompDelta * 0.5 + (tireAgeDelta * 0.02);
+            
+            // Pace delta (positive if chaser is running faster)
+            const paceDeltaScore = leaderLapTime - lapTime;
+            
+            // DRS factor
+            const drsFactor = gap <= 1.0 ? (isMonaco ? 1.2 : 2.0) : 1.0;
+            
+            // Mode factor
+            const chaserPushFactor = mode === 'Push' ? 1.5 : 1.0;
+            
+            // Total overtake chance
+            let overtakeChance = baseChance;
+            if (paceDeltaScore > 0) {
+              overtakeChance += paceDeltaScore * (isMonaco ? 0.05 : 0.25);
+            }
+            if (tireDeltaScore > 0) {
+              overtakeChance += tireDeltaScore * (isMonaco ? 0.03 : 0.10);
+            }
+            overtakeChance *= drsFactor * chaserPushFactor;
+            overtakeChance = Math.min(isMonaco ? 0.25 : 0.85, Math.max(0.001, overtakeChance));
 
-              const overtakeRand = new SeededRandom(state.driverId + `_lap_${lap}_overtake`);
-              if (overtakeRand.next() < overtakeChance) {
-                // Successful overtake! Swap positions in time slightly
-                lapTime = (leaderState.cumulativeTime + leaderLapTime - 0.2) - state.cumulativeTime;
-                
-                events.push({
-                  lap,
-                  type: 'OVERTAKE',
-                  driverId: state.driverId,
-                  details: `${driver.name} performs an overtake on ${leaderState.driverMeta.name} for P${i}.`
-                });
-              } else {
-                // Failed overtake - stuck in traffic (DRS train)
-                const minFinishGap = 0.35 + overtakeRand.range(-0.1, 0.1);
-                const leaderFinishTime = leaderState.cumulativeTime + leaderLapTime;
-                if (state.cumulativeTime + lapTime < leaderFinishTime + minFinishGap) {
-                  lapTime = (leaderFinishTime + minFinishGap) - state.cumulativeTime;
-                }
+            const overtakeRand = new SeededRandom(state.driverId + `_lap_${lap}_overtake`);
+            if (overtakeRand.next() < overtakeChance) {
+              // Successful overtake! Swap positions in time slightly
+              lapTime = (startTimes[leaderState.driverId] + leaderLapTime - 0.2) - startTimes[state.driverId];
+              
+              events.push({
+                lap,
+                type: 'OVERTAKE',
+                driverId: state.driverId,
+                details: `${driver.name} performs an overtake on ${leaderState.driverMeta.name} for P${i}.`
+              });
+            } else {
+              // Failed overtake - stuck in traffic (DRS train)
+              const minFinishGap = 0.35 + overtakeRand.range(-0.1, 0.1);
+              const leaderFinishTime = startTimes[leaderState.driverId] + leaderLapTime;
+              if (startTimes[state.driverId] + lapTime < leaderFinishTime + minFinishGap) {
+                lapTime = (leaderFinishTime + minFinishGap) - startTimes[state.driverId];
               }
             }
+          } else if (gap < 4.0) {
+            // Pace compression: tow bonus pulls chaser closer if they are in clean air but close behind
+            const towBonus = isMonaco ? 0.05 : 0.25;
+            lapTime -= towBonus;
           }
         }
       }
@@ -340,17 +458,47 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
         tire: state.currentTire,
         source: 'MOCK',
       });
-
       // Update states
       state.cumulativeTime += lapTimeFormatted;
       state.lapsCompleted = lap;
-      state.tireAge++;
+      state.tireAge += wearMultiplier;
     });
   }
 
 
-  // 4. Calculate Final Race Standings (Sort by laps completed descending, then cumulative time ascending)
+  // 4. Lap Classification and Standings Post-Processing
+  const activeFinishers = driverStates.filter(s => !s.isDNF);
+  // Find winner (non-DNF with minimum cumulative time)
+  const winnerState = activeFinishers.reduce((min, s) => s.cumulativeTime < min.cumulativeTime ? s : min, activeFinishers[0]);
+  const winnerTime = winnerState.cumulativeTime;
+  const leaderAvgLapTime = winnerTime / seed.laps;
+
+  driverStates.forEach(state => {
+    if (state.isDNF) return;
+    const gap = state.cumulativeTime - winnerTime;
+    if (gap > leaderAvgLapTime) {
+      const lapsDown = Math.floor(gap / leaderAvgLapTime);
+      state.lapsCompleted = seed.laps - lapsDown;
+      
+      // Truncate lapTimes to only count completed laps
+      if (lapTimes[state.driverId]) {
+        lapTimes[state.driverId] = lapTimes[state.driverId].slice(0, state.lapsCompleted);
+      }
+      
+      // Re-calculate cumulativeTime based on truncated laps
+      state.cumulativeTime = parseFloat(
+        lapTimes[state.driverId].reduce((sum, l) => sum + l.lapTime, 0).toFixed(3)
+      );
+    }
+  });
+
+  // Now sort the standings
   const sortedStates = [...driverStates].sort((a, b) => {
+    if (a.isDNF && !b.isDNF) return 1;
+    if (!a.isDNF && b.isDNF) return -1;
+    if (a.isDNF && b.isDNF) {
+      return b.lapsCompleted - a.lapsCompleted; // both DNF, who completed more laps is better
+    }
     if (a.lapsCompleted !== b.lapsCompleted) {
       return b.lapsCompleted - a.lapsCompleted; // more laps completed is better
     }
@@ -359,8 +507,6 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
 
   // Hydrate RaceResults
   const pointsMap = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
-  
-  const winnerTime = sortedStates[0].cumulativeTime;
 
   sortedStates.forEach((state, index) => {
     const points = index < 10 && !state.isDNF ? pointsMap[index] : 0;
@@ -375,11 +521,32 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
       const mins = Math.floor((winnerTime % 3600) / 60);
       const secs = (winnerTime % 60).toFixed(3);
       finishTime = `${hrs}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    } else if (state.lapsCompleted < seed.laps) {
+      const lapsDown = seed.laps - state.lapsCompleted;
+      finishTime = `+${lapsDown} Lap${lapsDown > 1 ? 's' : ''}`;
     } else {
       // Others show gap to winner
       const gap = state.cumulativeTime - winnerTime;
       finishTime = `+${gap.toFixed(3)}s`;
     }
+
+    // Filter strategy and pit stops to match laps completed (for lapped/DNF drivers)
+    const filteredPitStops = state.pitStops
+      .filter(p => p.lap <= state.lapsCompleted)
+      .map(p => ({
+        lap: p.lap,
+        duration: p.duration,
+        tireIn: p.tireIn,
+        tireOut: p.tireOut
+      }));
+
+    const filteredTireStrategy = state.tireStrategy
+      .filter(s => s.startLap <= state.lapsCompleted)
+      .map(s => ({
+        compound: s.compound,
+        startLap: s.startLap,
+        endLap: Math.min(s.endLap, state.lapsCompleted)
+      }));
 
     results.push({
       driverId: state.driverId,
@@ -390,13 +557,8 @@ export function generateRaceTelemetry(seed: RaceSimulationSeed): SimulationOutpu
       lapsCompleted: state.lapsCompleted,
       finishTime,
       status: state.isDNF ? 'DNF' : 'FINISHED',
-      tireStrategy: state.tireStrategy,
-      pitStops: state.pitStops.map(p => ({
-        lap: p.lap,
-        duration: p.duration,
-        tireIn: p.tireIn,
-        tireOut: p.tireOut
-      })),
+      tireStrategy: filteredTireStrategy,
+      pitStops: filteredPitStops,
     });
   });
 

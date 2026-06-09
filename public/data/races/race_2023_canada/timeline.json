@@ -8,7 +8,7 @@
     "lap": 1,
     "type": "PIT_STOP",
     "driverId": "driver_yuki_tsunoda",
-    "details": "TSU pits for HARD tires. (Service: 2.46s)"
+    "details": "TSU pits for HARD tires. (Service: 2.87s)"
   },
   {
     "lap": 6,
@@ -20,79 +20,79 @@
     "lap": 10,
     "type": "PIT_STOP",
     "driverId": "driver_pierre_gasly",
-    "details": "GAS pits for HARD tires. (Service: 2.51s)"
+    "details": "GAS pits for HARD tires. (Service: 2.59s)"
   },
   {
     "lap": 11,
     "type": "PIT_STOP",
     "driverId": "driver_lance_stroll",
-    "details": "STR pits for HARD tires. (Service: 2.47s)"
+    "details": "STR pits for HARD tires. (Service: 2.73s)"
   },
   {
     "lap": 11,
     "type": "PIT_STOP",
     "driverId": "driver_nico_hulkenberg",
-    "details": "HUL pits for HARD tires. (Service: 2.62s)"
+    "details": "HUL pits for HARD tires. (Service: 2.68s)"
   },
   {
     "lap": 11,
     "type": "PIT_STOP",
     "driverId": "driver_nyck_de_vries",
-    "details": "DEV pits for HARD tires. (Service: 2.81s)"
+    "details": "DEV pits for HARD tires. (Service: 2.47s)"
   },
   {
     "lap": 12,
     "type": "PIT_STOP",
     "driverId": "driver_max_verstappen",
-    "details": "VER pits for HARD tires. (Service: 2.5s)"
+    "details": "VER pits for HARD tires. (Service: 2.33s)"
   },
   {
     "lap": 12,
     "type": "PIT_STOP",
     "driverId": "driver_fernando_alonso",
-    "details": "ALO pits for HARD tires. (Service: 2.29s)"
+    "details": "ALO pits for HARD tires. (Service: 2.49s)"
   },
   {
     "lap": 12,
     "type": "PIT_STOP",
     "driverId": "driver_lewis_hamilton",
-    "details": "HAM pits for HARD tires. (Service: 3.03s)"
+    "details": "HAM pits for HARD tires. (Service: 2.27s)"
   },
   {
     "lap": 12,
     "type": "PIT_STOP",
     "driverId": "driver_alexander_albon",
-    "details": "ALB pits for HARD tires. (Service: 2.58s)"
+    "details": "ALB pits for HARD tires. (Service: 2.24s)"
   },
   {
     "lap": 12,
     "type": "PIT_STOP",
     "driverId": "driver_esteban_ocon",
-    "details": "OCO pits for HARD tires. (Service: 2.75s)"
+    "details": "OCO pits for HARD tires. (Service: 2.81s)"
   },
   {
     "lap": 12,
     "type": "PIT_STOP",
     "driverId": "driver_oscar_piastri",
-    "details": "PIA pits for HARD tires. (Service: 2.62s)"
+    "details": "PIA pits for HARD tires. (Service: 2.8s)"
   },
   {
     "lap": 12,
     "type": "PIT_STOP",
     "driverId": "driver_lando_norris",
-    "details": "NOR pits for HARD tires. (Service: 2.3s)"
+    "details": "NOR pits for HARD tires. (Service: 2.72s)"
   },
   {
     "lap": 12,
     "type": "PIT_STOP",
     "driverId": "driver_zhou_guanyu",
-    "details": "ZHO pits for HARD tires. (Service: 2.75s)"
+    "details": "ZHO pits for HARD tires. (Service: 2.86s)"
   },
   {
     "lap": 12,
     "type": "PIT_STOP",
     "driverId": "driver_george_russell",
-    "details": "RUS pits for HARD tires. (Service: 3.09s)"
+    "details": "RUS pits for HARD tires. (Service: 2.98s)"
   },
   {
     "lap": 12,
@@ -108,109 +108,109 @@
     "lap": 27,
     "type": "PIT_STOP",
     "driverId": "driver_lance_stroll",
-    "details": "STR pits for HARD tires. (Service: 2.51s)"
+    "details": "STR pits for HARD tires. (Service: 2.78s)"
   },
   {
     "lap": 31,
     "type": "PIT_STOP",
     "driverId": "driver_nico_hulkenberg",
-    "details": "HUL pits for HARD tires. (Service: 2.6s)"
+    "details": "HUL pits for HARD tires. (Service: 2.9s)"
   },
   {
     "lap": 32,
     "type": "PIT_STOP",
     "driverId": "driver_zhou_guanyu",
-    "details": "ZHO pits for HARD tires. (Service: 2.42s)"
+    "details": "ZHO pits for HARD tires. (Service: 2.33s)"
   },
   {
     "lap": 33,
     "type": "PIT_STOP",
     "driverId": "driver_pierre_gasly",
-    "details": "GAS pits for HARD tires. (Service: 3.06s)"
+    "details": "GAS pits for HARD tires. (Service: 2.85s)"
   },
   {
     "lap": 35,
     "type": "PIT_STOP",
     "driverId": "driver_lando_norris",
-    "details": "NOR pits for HARD tires. (Service: 2.85s)"
+    "details": "NOR pits for HARD tires. (Service: 2.76s)"
   },
   {
     "lap": 35,
     "type": "PIT_STOP",
     "driverId": "driver_yuki_tsunoda",
-    "details": "TSU pits for MEDIUM tires. (Service: 2.98s)"
+    "details": "TSU pits for MEDIUM tires. (Service: 2.85s)"
   },
   {
     "lap": 35,
     "type": "PIT_STOP",
     "driverId": "driver_kevin_magnussen",
-    "details": "MAG pits for MEDIUM tires. (Service: 2.66s)"
+    "details": "MAG pits for MEDIUM tires. (Service: 2.89s)"
   },
   {
     "lap": 36,
     "type": "PIT_STOP",
     "driverId": "driver_esteban_ocon",
-    "details": "OCO pits for HARD tires. (Service: 2.33s)"
+    "details": "OCO pits for HARD tires. (Service: 2.59s)"
   },
   {
     "lap": 36,
     "type": "PIT_STOP",
     "driverId": "driver_valtteri_bottas",
-    "details": "BOT pits for MEDIUM tires. (Service: 3.01s)"
+    "details": "BOT pits for MEDIUM tires. (Service: 2.91s)"
   },
   {
     "lap": 37,
     "type": "PIT_STOP",
     "driverId": "driver_sergio_perez",
-    "details": "PER pits for MEDIUM tires. (Service: 2.34s)"
+    "details": "PER pits for MEDIUM tires. (Service: 2.93s)"
   },
   {
     "lap": 37,
     "type": "PIT_STOP",
     "driverId": "driver_oscar_piastri",
-    "details": "PIA pits for HARD tires. (Service: 2.51s)"
+    "details": "PIA pits for HARD tires. (Service: 2.92s)"
   },
   {
     "lap": 38,
     "type": "PIT_STOP",
     "driverId": "driver_carlos_sainz",
-    "details": "SAI pits for HARD tires. (Service: 2.97s)"
+    "details": "SAI pits for HARD tires. (Service: 2.77s)"
   },
   {
     "lap": 39,
     "type": "PIT_STOP",
     "driverId": "driver_charles_leclerc",
-    "details": "LEC pits for HARD tires. (Service: 2.37s)"
+    "details": "LEC pits for HARD tires. (Service: 2.72s)"
   },
   {
     "lap": 40,
     "type": "PIT_STOP",
     "driverId": "driver_lewis_hamilton",
-    "details": "HAM pits for MEDIUM tires. (Service: 2.6s)"
+    "details": "HAM pits for MEDIUM tires. (Service: 2.94s)"
   },
   {
     "lap": 41,
     "type": "PIT_STOP",
     "driverId": "driver_fernando_alonso",
-    "details": "ALO pits for HARD tires. (Service: 2.67s)"
+    "details": "ALO pits for HARD tires. (Service: 2.43s)"
   },
   {
     "lap": 42,
     "type": "PIT_STOP",
     "driverId": "driver_max_verstappen",
-    "details": "VER pits for MEDIUM tires. (Service: 2.93s)"
+    "details": "VER pits for MEDIUM tires. (Service: 2.63s)"
   },
   {
     "lap": 50,
     "type": "PIT_STOP",
     "driverId": "driver_nyck_de_vries",
-    "details": "DEV pits for HARD tires. (Service: 2.91s)"
+    "details": "DEV pits for HARD tires. (Service: 2.66s)"
   },
   {
     "lap": 53,
     "type": "PIT_STOP",
     "driverId": "driver_kevin_magnussen",
-    "details": "MAG pits for MEDIUM tires. (Service: 2.83s)"
+    "details": "MAG pits for MEDIUM tires. (Service: 2.86s)"
   },
   {
     "lap": 53,
@@ -222,6 +222,6 @@
     "lap": 68,
     "type": "PIT_STOP",
     "driverId": "driver_sergio_perez",
-    "details": "PER pits for SOFT tires. (Service: 2.2s)"
+    "details": "PER pits for SOFT tires. (Service: 2.6s)"
   }
 ]

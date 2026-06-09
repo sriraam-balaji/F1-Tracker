@@ -440,9 +440,96 @@ def fetch_and_normalize_gp(year, gp_name, race_id, round_num):
         
     logging.info(f"Successfully exported {year} {gp_name} Grand Prix static data files!")
 
+RACES_MAP = {
+    2023: [
+        {"gp_name": "Bahrain", "race_id": "race_2023_bahrain", "round": 1},
+        {"gp_name": "Saudi Arabia", "race_id": "race_2023_saudi", "round": 2},
+        {"gp_name": "Australia", "race_id": "race_2023_australia", "round": 3},
+        {"gp_name": "Monaco", "race_id": "race_2023_monaco", "round": 4},
+        {"gp_name": "Spain", "race_id": "race_2023_spain", "round": 5},
+        {"gp_name": "Canada", "race_id": "race_2023_canada", "round": 6},
+        {"gp_name": "Great Britain", "race_id": "race_2023_britain", "round": 7},
+        {"gp_name": "Singapore", "race_id": "race_2023_singapore", "round": 8},
+        {"gp_name": "Abu Dhabi", "race_id": "race_2023_abudhabi", "round": 9},
+    ],
+    2025: [
+        {"gp_name": "Bahrain", "race_id": "race_2025_bahrain", "round": 1},
+        {"gp_name": "Saudi Arabia", "race_id": "race_2025_saudi", "round": 2},
+        {"gp_name": "Australia", "race_id": "race_2025_australia", "round": 3},
+        {"gp_name": "China", "race_id": "race_2025_china", "round": 4},
+        {"gp_name": "Japan", "race_id": "race_2025_japan", "round": 5},
+        {"gp_name": "Miami", "race_id": "race_2025_miami", "round": 6},
+        {"gp_name": "Emilia Romagna", "race_id": "race_2025_emilia", "round": 7},
+        {"gp_name": "Monaco", "race_id": "race_2025_monaco", "round": 8},
+        {"gp_name": "Spain", "race_id": "race_2025_spain", "round": 9},
+        {"gp_name": "Canada", "race_id": "race_2025_canada", "round": 10},
+        {"gp_name": "Austria", "race_id": "race_2025_austria", "round": 11},
+        {"gp_name": "Great Britain", "race_id": "race_2025_britain", "round": 12},
+        {"gp_name": "Hungary", "race_id": "race_2025_hungary", "round": 13},
+        {"gp_name": "Belgium", "race_id": "race_2025_belgium", "round": 14},
+        {"gp_name": "Netherlands", "race_id": "race_2025_netherlands", "round": 15},
+        {"gp_name": "Italy", "race_id": "race_2025_italy", "round": 16},
+        {"gp_name": "Azerbaijan", "race_id": "race_2025_azerbaijan", "round": 17},
+        {"gp_name": "Singapore", "race_id": "race_2025_singapore", "round": 18},
+        {"gp_name": "United States", "race_id": "race_2025_usa", "round": 19},
+        {"gp_name": "Mexico City", "race_id": "race_2025_mexico", "round": 20},
+        {"gp_name": "São Paulo", "race_id": "race_2025_brazil", "round": 21},
+        {"gp_name": "Las Vegas", "race_id": "race_2025_lasvegas", "round": 22},
+        {"gp_name": "Qatar", "race_id": "race_2025_qatar", "round": 23},
+        {"gp_name": "Abu Dhabi", "race_id": "race_2025_abudhabi", "round": 24},
+    ]
+}
+
 if __name__ == '__main__':
-    # Fetch 2023 Canadian GP (Round 6) and 2023 Monaco GP (Round 4)
-    # Note: In 2023 season, Monaco GP was Round 6, Canada was Round 8 in the actual schedule,
-    # but we will map them round-wise according to our static calendar index.
-    fetch_and_normalize_gp(2023, 'Canada', 'race_2023_canada', 6)
-    fetch_and_normalize_gp(2023, 'Monaco', 'race_2023_monaco', 4)
+    import argparse
+    parser = argparse.ArgumentParser(description="Fetch and normalize F1 telemetry data using FastF1.")
+    parser.add_argument("--year", type=int, choices=[2023, 2025], help="Championship year")
+    parser.add_argument("--race", type=str, help="Race name filter (case-insensitive, e.g. Monaco)")
+    parser.add_argument("--all", action="store_true", help="Fetch all completed 2023 and 2025 races")
+    args = parser.parse_args()
+
+    # Determine races to fetch
+    races_to_fetch = []
+
+    if args.all:
+        for year in RACES_MAP:
+            races_to_fetch.extend([(year, r) for r in RACES_MAP[year]])
+    elif args.year:
+        if args.year not in RACES_MAP:
+            logging.error(f"Year {args.year} is not supported. Choose from 2023 or 2025.")
+            exit(1)
+        year_races = RACES_MAP[args.year]
+        if args.race:
+            race_filter = args.race.lower()
+            matched = [r for r in year_races if race_filter in r["gp_name"].lower()]
+            if not matched:
+                logging.error(f"No race matching '{args.race}' found in {args.year}.")
+                exit(1)
+            races_to_fetch.extend([(args.year, r) for r in matched])
+        else:
+            races_to_fetch.extend([(args.year, r) for r in year_races])
+    elif args.race:
+        # Search across both years
+        race_filter = args.race.lower()
+        for year in RACES_MAP:
+            matched = [r for r in RACES_MAP[year] if race_filter in r["gp_name"].lower()]
+            races_to_fetch.extend([(year, r) for r in matched])
+        if not races_to_fetch:
+            logging.error(f"No race matching '{args.race}' found in any season.")
+            exit(1)
+    else:
+        # Default: 2023 Canada and 2023 Monaco
+        logging.info("No arguments specified. Fetching default races: 2023 Monaco and 2023 Canada...")
+        fetch_and_normalize_gp(2023, 'Monaco', 'race_2023_monaco', 4)
+        fetch_and_normalize_gp(2023, 'Canada', 'race_2023_canada', 6)
+        print("\nTip: Use arguments to fetch specific races locally, e.g.:")
+        print("  python scripts/fetch_fastf1.py --year 2023 --race Monaco")
+        print("  python scripts/fetch_fastf1.py --all\n")
+        exit(0)
+
+    logging.info(f"Scheduled to fetch {len(races_to_fetch)} race(s).")
+    for year, r in races_to_fetch:
+        try:
+            fetch_and_normalize_gp(year, r["gp_name"], r["race_id"], r["round"])
+        except Exception as ex:
+            logging.error(f"Error fetching {year} {r['gp_name']}: {ex}")
